@@ -1,0 +1,32 @@
+.homeheader {
+  padding-top: 100px;
+  padding-bottom: 100px;
+  background-color: #48486e;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.homeheadertitle {
+  font-size: 35px;
+  color: #fff;
+  font-weight: lighter;
+  width: 550px;
+  text-align: center;
+  text-shadow: 1px 1px 1px rgba(150, 150, 150, 1);
+}
+
+@media only screen and (max-width: 600px) {
+  .homeheadertitle {
+    font-size: 30px;
+    color: #fff;
+    font-weight: lighter;
+    width: 90%;
+    text-align: center;
+  }
+  .bikesvg {
+    height: 150px ;
+  }
+}

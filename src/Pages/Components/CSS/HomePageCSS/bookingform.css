@@ -1,0 +1,108 @@
+@import '~antd/dist/antd.css';
+
+.steps-content {
+  margin-top: 16px;
+  margin-left: 150px;
+  margin-right: 150px;
+}
+
+.steps-action {
+  margin-top: 24px;
+}
+
+.bookingform {
+  margin-left: 10px;
+  width: 750px;
+}
+
+.pickupdetailsform, .pickupdetailsactualform {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+}
+
+.pickupdetailsformtitle {
+  font-weight: lighter;
+
+}
+
+.pickupdetailsformlabel {
+
+  font-weight: lighter;
+  color: #000;
+}
+
+.pickupdetailsforminput {
+  height: 30px;
+  border: 0.5px solid rgb(198,199,202) ;
+  border-radius: 0px ;
+  color: #000;
+}
+
+.bookingformnextbtn {
+  margin-left: 150px;
+  height: 40px;
+  width: 200px;
+  background-color: #f6416c;
+  color: #fff;
+  font-size: 15px;
+  margin-right: 20px;
+  border-radius: 0px !important;
+  border: none;
+}
+
+.bookingformprevbtn {
+  height: 40px;
+  width: 200px;
+  font-size: 15px;
+  background-color: #fff;
+  border: 1px solid #48486e ;
+  border-radius: 0px !important;
+}
+
+.pickupdetailscells {
+  color: #000 ;
+}
+
+.pickupdetailstwocol {
+  display: grid;
+  grid-template-columns: 50% 50% ;
+}
+
+.pickupdetailsotpinput {
+  margin-left: 10px;
+  width: 100px;
+  height: 30px;
+  border: 0.5px solid rgb(198,199,202) ;
+  border-radius: 0px ;
+  color: #000;
+}
+
+.slotanddate {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+@media only screen and (max-width: 600px) {
+  .steps-content {
+    margin-top: 0px;
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+  .bookingform {
+    margin-left: 5px;
+    margin-right: 10px;
+    width: 100%;
+  }
+  .slotanddate {
+    display: flex;
+    flex-direction: column;
+  }
+  .bookingformnextbtn {
+    margin-left: 5px;
+  }
+  .bookingformprevbtn {
+    margin-top: 10px;
+  }
+}

@@ -1,0 +1,105 @@
+@import '~antd/dist/antd.css';
+
+.navbar {
+  display: flex;
+  flex: 1;
+  flex-direction: row;
+  height: 10vh ;
+  -webkit-box-shadow: 0px 2px 1px 0px rgba(128,128,128,1);
+-moz-box-shadow: 0px 2px 1px 0px rgba(128,128,128,1);
+box-shadow: 0px 2px 1px 0px rgba(128,128,128,1);
+}
+
+.logo {
+  margin-left: 100px;
+}
+
+.rightsection {
+  display: flex;
+  flex: 1;
+  flex-direction: row;
+  justify-content: flex-end;
+  margin-right: 100px;
+}
+
+.phonenumber, .account {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  color: #48486e ;
+  font-weight: bold;
+}
+
+.navbaricon {
+  margin-right: 10px;
+}
+
+.links {
+  text-decoration: none;
+  color: #48486e ;
+}
+
+.loginsignupmodal {
+  width: 500px;
+}
+
+.modalselecters {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  text-align: center;
+}
+
+#components-form-demo-normal-login .login-form {
+  max-width: 300px;
+}
+#components-form-demo-normal-login .login-form-forgot {
+  float: right;
+}
+#components-form-demo-normal-login .login-form-button {
+  width: 100%;
+}
+
+.sociallogin {
+  width: 100%;
+  height: 40px;
+  border: none;
+  border-radius: 2px;
+}
+
+.google {
+  background-color: #d34836;
+  color: #fff;
+}
+
+.linkedin {
+  background-color: #0077B5;
+  color: #fff;
+}
+@media only screen and (max-width: 600px) {
+  .navbar {
+    display: flex;
+    flex: 1;
+    flex-direction: row;
+    margin-top: 10px;
+    height: 7vh ;
+    width: 100vw ;
+    -webkit-box-shadow: 0px 2px 1px 0px rgba(128,128,128,1);
+  -moz-box-shadow: 0px 2px 1px 0px rgba(128,128,128,1);
+  box-shadow: 0px 2px 1px 0px rgba(128,128,128,1);
+  }
+  .logo {
+    margin-left: 5px;
+    height: 100%;
+  }
+  .rightsection {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    justify-content: flex-end;
+    margin-right: 100px;
+  }
+  .phonenumber, .account {
+    display: none ;
+  }
+}

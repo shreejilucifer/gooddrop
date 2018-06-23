@@ -1,0 +1,141 @@
+.priceestimate {
+  display: flex;
+}
+
+.selectbox1, .selectbox2 {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  color: #fff ;
+  font-weight: bold;
+  text-transform: uppercase;
+  height: 40px;
+  width: 200px;
+  border: 1px solid #34b3d3 ;
+  background-color: #48486e ;
+}
+
+.selectbox3 {
+  color: #fff ;
+  font-weight: bold;
+  height: 40px;
+  width: 200px;
+  border: 1px solid #f6416c ;
+  background-color: #f6416c ;
+}
+
+.caret {
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+
+  border-top: 5px solid #fff;
+}
+
+.parceldetails {
+  display: flex;
+  flex: 1;
+  position: absolute;
+  width: 600px;
+  flex-direction: column;
+  background-color: #48486e;
+  border: 1px solid #34b3d3 ;
+}
+
+.parceldetailsform {
+  margin-left: 10px;
+  text-align: center;
+  display: grid;
+  grid-template-columns: 33.33% 33.33% 33.33% ;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+.parceldetailsformlabel {
+  color: #fff;
+  font-size: 15px;
+  font-weight: lighter;
+  padding-right: 10px;
+  line-height: 35px;
+}
+
+.parceldetailsnextbtn {
+  height: 30px;
+  width: 70px;
+  background-color: #34b3d3;
+  margin-left: 20px;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  border: none ;
+}
+
+.parceldetailscancelbtn {
+  height: 30px;
+  width: 70px;
+  margin-left: 10px;
+  background-color: #48486e;
+  color: #fff;
+  text-transform: uppercase;
+  border: 1px solid #34b3d3;
+}
+
+.parcelinputcontainer {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  width: 90% ;
+}
+
+@media only screen and (max-width: 600px) {
+  .priceestimate {
+    display: flex;
+    flex-direction: column;
+  }
+  .parceldetails {
+    display: flex;
+    flex: 1;
+    position: relative;
+    z-index: 10;
+    width: 200px;
+    transform: translateY(-120px);
+    flex-direction: column;
+    background-color: #48486e;
+    border: 1px solid #34b3d3 ;
+  }
+  .parceldetailsform {
+    margin-left: 5px;
+    margin-right: 5px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-top: 5px;
+    padding-bottom: 5px;
+  }
+  .parcelinputcontainer {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    width: 100%;
+    border-bottom: 1px solid #fff ;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+  }
+
+  .parceldetailsbuttons {
+    display: grid;
+    grid-template-columns: 50% 50% ;
+  }
+
+  .parceldetailsnextbtn {
+    height: 30px;
+    width: 80px;
+    margin-left: 10px;
+  }
+
+  .parceldetailscancelbtn {
+    height: 30px;
+    width: 80px;
+  }
+}
