@@ -5,16 +5,25 @@ const Option = Select.Option;
 
 class ParcelDetails extends Component {
 
-   handleChange = (value) => {
-    console.log(`selected ${value}`);
+  state = {
+    fromvalue: null
   }
 
-   handleBlur = () =>{
-    console.log('blur');
+   handleChange = (value) => {
+    //console.log(`selected ${value}`);
+  }
+
+  handleChangeFrom = (value) => {
+   //console.log(`selected ${value}`);
+   this.setState({fromvalue: value})
+ }
+
+   handleBlur = () => {
+    //console.log('blur');
   }
 
    handleFocus = () => {
-    console.log('focus');
+    //console.log('focus');
   }
 
   disabledDate(current) {
@@ -22,6 +31,11 @@ class ParcelDetails extends Component {
   }
 
   render() {
+    let viewto = true;
+
+    if( this.state.fromvalue != null )
+      viewto = false ;
+
     return (<div className="parceldetails">
       <div>
         <h3 className="parceldetailsformtitle">
@@ -35,7 +49,7 @@ class ParcelDetails extends Component {
               className="parceldetailsformselect"
               placeholder="Select Source Place"
               optionFilterProp="children"
-              onChange={this.handleChange}
+              onChange={this.handleChangeFrom}
               onFocus={this.handleFocus}
               onBlur={this.handleBlur}
               filterOption={(input, option) => option.props.children.toLowerCase().indexOf(input.toLowerCase()) >= 0}>
@@ -47,6 +61,7 @@ class ParcelDetails extends Component {
           <div className="parcelinputcontainer">
             <label className="parceldetailsformlabel">To:</label>
             <Select
+              disabled={viewto}
               showSearch
               className="parceldetailsformselect"
               placeholder="Select Destination Place"
