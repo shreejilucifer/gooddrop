@@ -6,18 +6,63 @@ class BikeDetails extends Component {
 
   state = {
       openOTPModal: false,
-      tempcontact: null
+      tempcontact: null,
+      verified: false,
+      openEstimateModal: false
     };
 
     onOpenModal = () => {
       this.setState({ openOTPModal: true });
     };
 
+    onOpenModalEstimateModal = () => {
+      this.setState({ openEstimateModal: true });
+    };
+
     onCloseModal = () => {
       this.setState({ openOTPModal: false });
     };
 
+    onCloseEstimateModal = () => {
+      this.setState({ openEstimateModal: false });
+    };
+
+    onCloseVerify = () => {
+      this.setState({ verified: true })
+    }
+
   render() {
+
+    let verifyestimate;
+
+    if( this.state.openOTPModal === true && this.state.verified === false )
+      verifyestimate = (<div className="otpmodal">
+        <div>An OTP is sent to your Mobile No. : <br/><b>+91{this.state.tempcontact}</b></div>
+        <br/>
+        <div>Enter the OTP below: </div>
+        <br/>
+        <div>
+          <Input name="otpnumber" placeholder="XXXX" />
+        </div>
+        <br/>
+
+      <div>
+        <button onClick={this.onCloseVerify} className="verifyestimatebtn">
+          Verify & Estimate Price
+        </button>
+      </div>
+    </div>
+  );
+      else
+      if ( this.state.verified === true )
+        verifyestimate = (
+          <div className="otpmodal">
+            <h3>The Price is Rs. 500 </h3>
+            <button>Book Now</button>
+            <button onClick={this.onCloseModal}>Cancel</button>
+          </div>
+        );
+
     return (
       <div className="bikedetails">
         <div>
@@ -45,23 +90,10 @@ class BikeDetails extends Component {
         <div className="parceldetailsbuttons">
           <button className="parceldetailssendotpbtn" onClick={this.onOpenModal}>Send OTP</button>
           <Modal closeIconSize={15} open={this.state.openOTPModal} onClose={this.onCloseModal} center>
-            <div className="otpmodal">
-              <div>An OTP is sent to your Mobile No. : <br/><b>+91{this.state.tempcontact}</b></div>
-              <br/>
-              <div>Enter the OTP below: </div>
-              <br/>
-              <div>
-                <Input name="otpnumber" placeholder="XXXX" />
-              </div>
-              <br/>
-            </div>
-            <div>
-              <button onClick={()=>{}} className="verifyestimatebtn">
-                Verify & Estimate Price
-              </button>
-            </div>
+            {verifyestimate}
           </Modal>
           <button className="parceldetailscancelbtn" onClick={this.props.cancelhandler}>Cancel</button>
+
         </div>
       </div>
     );
@@ -70,3 +102,5 @@ class BikeDetails extends Component {
 }
 
 export default BikeDetails;
+/*
+ */
