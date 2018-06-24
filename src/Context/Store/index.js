@@ -16,5 +16,20 @@ export default {
   bikeCC: null,
   bikeValue: null,
   verified: false,
+  OTP: null,
+
+  otpModal: false,
+  bookNowState: false,
+
+  //BookingForm - Pickup Details
+  orderCharge: 500,
+  senderName: null,
+  contactNumber: null,
+  emailID: null,
+  pickupDate: null,
+  pickupSlot: null,
+  addressLine: null,
+  townCity: null,
+  addressState: null
 
 }

@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import '../CSS/HomePageCSS/homeheader.css';
 import PriceEstimate from './PriceEstimate';
 import bikesvg from '../Assets/bikeblue.png';
 
-class HomeHeader extends Component {
+class HomeHeader extends PureComponent {
 
   render() {
     const Consumer = this.props.Consumer ;

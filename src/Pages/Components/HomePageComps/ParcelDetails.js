@@ -1,9 +1,9 @@
-import React, {Component} from 'react';
+import React, { PureComponent } from 'react';
 import moment from 'moment';
 import {Select, DatePicker } from 'antd';
 const Option = Select.Option;
 
-class ParcelDetails extends Component {
+class ParcelDetails extends PureComponent {
 
    handleBlur = () => {
     //console.log('blur');

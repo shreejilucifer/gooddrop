@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import '../CSS/HomePageCSS/priceestimate.css';
 import ParcelDetails from './ParcelDetails';
 import BikeDetails from './BikeDetails';
 
-class PriceEstimate extends Component {
+class PriceEstimate extends PureComponent {
   state = {
 
   }

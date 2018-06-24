@@ -1,70 +1,24 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import { Input } from 'antd';
 import Modal from 'react-responsive-modal';
 
-class BikeDetails extends Component {
-
-  state = {
-      openOTPModal: false,
-    //  tempcontact: null,
-      verified: false,
-      openEstimateModal: false
-    };
+class BikeDetails extends PureComponent {
 
     onOpenModal = () => {
       this.setState({ openOTPModal: true });
-    };
-
-    onOpenModalEstimateModal = () => {
-      this.setState({ openEstimateModal: true });
     };
 
     onCloseModal = () => {
       this.setState({ openOTPModal: false });
     };
 
-    onCloseEstimateModal = () => {
-      this.setState({ openEstimateModal: false });
-    };
-
     onCloseVerify = () => {
       this.setState({ verified: true })
     }
 
-    
+
   render() {
     const Consumer = this.props.Consumer ;
-
-    let verifyestimate;
-
-    if( this.state.openOTPModal === true && this.state.verified === false )
-      verifyestimate = (
-        <div className="otpmodal">
-        <div>An OTP is sent to your Mobile No. : <br/><b>+91{this.state.tempcontact}</b></div>
-        <br/>
-        <div>Enter the OTP below: </div>
-        <br/>
-        <div>
-          <Input name="otpnumber" placeholder="XXXX" />
-        </div>
-        <br/>
-
-      <div>
-        <button onClick={this.onCloseVerify} className="verifyestimatebtn">
-          Verify & Estimate Price
-        </button>
-      </div>
-    </div>
-  );
-      else
-      if ( this.state.verified === true )
-        verifyestimate = (
-          <div className="otpmodal">
-            <h3>The Price is Rs. 500 </h3>
-            <button>Book Now</button>
-            <button onClick={this.onCloseModal}>Cancel</button>
-          </div>
-        );
 
     return (
       <Consumer>
@@ -98,14 +52,30 @@ class BikeDetails extends Component {
             <div className="parceldetailsbuttons">
               <button
                 className="parceldetailssendotpbtn"
-                onClick={this.onOpenModal}>
+                onClick={actions.openOTPModal}>
                 Send OTP
               </button>
               <Modal
                 closeIconSize={15}
-                open={this.state.openOTPModal}
-                onClose={this.onCloseModal} center>
-                {verifyestimate}
+                open={state.otpModal}
+                onClose={actions.closeOTPModal} center>
+
+                  {
+                    (state.otpModal === true && state.verified === false )?
+                    <div className="otpmodal">
+                      <div>An OTP is sent to your Mobile No. : <br/><b>+91{state.tempContact}</b></div> <br/>
+                      <div>Enter the OTP below: </div> <br/>
+                      <div><Input onChange={actions.onChangeOTP} name="otpnumber" placeholder="XXXX" /></div> <br/>
+                      <div><button onClick={actions.onChangeVerifyContact} className="verifyestimatebtn">Verify & Estimate Price</button></div>
+                    </div>
+                    :
+                    <div className="otpmodal">
+                      <h3>The Price is Rs. 500 </h3>
+                      <button onClick={actions.openBookModal}>Book Now</button> <br/>
+                      <button onClick={actions.closeOTPModal}>Cancel</button>
+                    </div>
+                  }
+
               </Modal>
               <button
                 className="parceldetailscancelbtn"

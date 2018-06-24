@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import Modal from 'react-responsive-modal';
 import '../CSS/HomePageCSS/stepmiddlesection.css';
 import icon1 from '../Assets/icon2.png';
@@ -21,48 +21,41 @@ const Gridelement = (props) => {
     );
 }
 
-class StepMiddleSection extends Component {
-
-  state = {
-    open: false
-  };
-
-  onOpenModal = () => {
-    this.setState({ open: true });
-  };
-
-  onCloseModal = () => {
-    this.setState({ open: false });
-  };
+class StepMiddleSection extends PureComponent {
 
   render() {
-    const { open } = this.state;
+    const Consumer = this.props.Consumer ;
+
     return (
-      <div className="stepmiddlesection">
-        <div className="stepmiddlesectiontext">Bike Shipping is easy with us in 3 Simple Steps</div>
-        <br/>
-        <div className="stepmiddlesectiongrid">
-          <Gridelement number="01" icon={icon1} description="Enter Bike Shipping Details" />
-          <Gridelement number="02" icon={icon2} description="Handover the keys to Gooddrop executives" />
-          <Gridelement number="03" icon={icon3} description="Get your bike at your destination" />
-        </div>
-        <br/>
-        <br/>
-        <div className="buttons">
-          <div className="tempcont">
-            <button onClick={this.onOpenModal} className="bookbtn">BOOK NOW</button>
+      <Consumer>
+        {({ state, actions }) => (
+          <div className="stepmiddlesection">
+            <div className="stepmiddlesectiontext">Bike Shipping is easy with us in 3 Simple Steps</div>
+            <br/>
+            <div className="stepmiddlesectiongrid">
+              <Gridelement number="01" icon={icon1} description="Enter Bike Shipping Details" />
+              <Gridelement number="02" icon={icon2} description="Handover the keys to Gooddrop executives" />
+              <Gridelement number="03" icon={icon3} description="Get your bike at your destination" />
+            </div>
+            <br/>
+            <br/>
+            <div className="buttons">
+              <div className="tempcont">
+                <button onClick={actions.openBookModal} className="bookbtn">BOOK NOW</button>
 
-            <Modal open={open} onClose={this.onCloseModal} closeIconSize={15}>
-              <div className="bookmodal">
-                <BookingForm />
+                <Modal open={state.bookNowState} onClose={actions.closeBookModal} closeIconSize={15}>
+                  <div className="bookmodal">
+                    <BookingForm Consumer={Consumer}/>
+                  </div>
+                </Modal>
               </div>
-            </Modal>
-          </div>
 
-          <br/>
-          <button className="contactbtn">CONTACT</button>
-        </div>
-      </div>
+              <br/>
+              <button className="contactbtn">CONTACT</button>
+            </div>
+          </div>
+        )}
+      </Consumer>
     );
   }
 
