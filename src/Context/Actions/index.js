@@ -18,7 +18,7 @@ export default {
     this.setState({toPlace: value});
   },
   handleChangeParcelDate: function(date, dateString) {
-    console.log(dateString);
+
     this.setState({parcelDate: dateString});
   },
 

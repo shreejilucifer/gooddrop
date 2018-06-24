@@ -17,6 +17,7 @@ class ParcelDetails extends PureComponent {
     return current && current < moment().add(2, 'days');
   }
 
+
   render() {
     const Consumer = this.props.Consumer ;
 
@@ -31,18 +32,18 @@ class ParcelDetails extends PureComponent {
             <form className="parceldetailsform">
               <div className="parcelinputcontainer">
                 <label className="parceldetailsformlabel">From:</label>
-                <Select
-                  showSearch
-                  className="parceldetailsformselect"
-                  placeholder="Select Source Place"
-                  optionFilterProp="children"
-                  onChange={(e)=>{actions.handleChangeFrom(e)}}
-                  onFocus={this.handleFocus}
-                  onBlur={this.handleBlur}
-                  filterOption={(input, option) => option.props.children.toLowerCase().indexOf(input.toLowerCase()) >= 0}>
-                  <Option value="ahmedabad">Ahmedabad</Option>
-
-                </Select>
+                  <Select
+                    showSearch
+                    className="parceldetailsformselect"
+                    placeholder="Select Source Place"
+                    optionFilterProp="children"
+                    onChange={(e)=>{actions.handleChangeFrom(e)}}
+                    onFocus={this.handleFocus}
+                    onBlur={this.handleBlur}
+                    filterOption={(input, option) => option.props.children.toLowerCase().indexOf(input.toLowerCase()) >= 0}
+                    >
+                    <Option value="ahmedabad">Ahmedabad</Option>
+                  </Select>
               </div>
 
               <div className="parcelinputcontainer">
@@ -74,7 +75,9 @@ class ParcelDetails extends PureComponent {
             </form>
           </div>
           <div className="parceldetailsbuttons">
-            <button className="parceldetailsnextbtn" onClick={this.props.nexthandler}>Next</button>
+            <button className="parceldetailsnextbtn" onClick={this.props.nexthandler}>
+              Next
+            </button>
             <button className="parceldetailscancelbtn" onClick={this.props.cancelhandler}>Cancel</button>
           </div>
         </div>

@@ -70,9 +70,12 @@ class BikeDetails extends PureComponent {
                     </div>
                     :
                     <div className="otpmodal">
-                      <h3>The Price is Rs. 500 </h3>
-                      <button onClick={actions.openBookModal}>Book Now</button> <br/>
-                      <button onClick={actions.closeOTPModal}>Cancel</button>
+                      <h3>The Price is <b>Rs.{state.orderCharge}</b> </h3>
+                      <h3> From: <b>{state.fromPlace}</b> To: <b>{state.toPlace}</b> </h3> <br/>
+                      <h3> On Date: <b>{state.parcelDate}</b> </h3>
+                      <h3> BikeCC: <b>{state.bikeCC}</b> <br/> Bike Value: <b>{state.bikeValue}</b> </h3>
+                      <button className="otpbooknowbtn" onClick={actions.openBookModal}>Book Now</button> <br/>
+                      <button className="otpcancelbtn" onClick={actions.closeOTPModal}>Cancel</button>
                     </div>
                   }
 
