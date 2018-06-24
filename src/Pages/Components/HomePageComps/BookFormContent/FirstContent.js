@@ -1,6 +1,6 @@
-import React, {Component} from 'react';
+import React, { PureComponent } from 'react';
 
-class FirstContent extends Component {
+class FirstContent extends PureComponent {
 
   render() {
     const Consumer = this.props.Consumer ;

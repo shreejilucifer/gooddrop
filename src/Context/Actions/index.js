@@ -69,5 +69,21 @@ export default {
       case 'addressstate': this.setState({addressState: value}); break ;
       default: console.log("Erorr Form Change");
     }
+  },
+
+  destinationDetailsChange: function(value, str) {
+    switch(str)
+    {
+      case 'receivername': this.setState({receiverName: value}); break;
+      case 'receivercontactnumber': this.setState({receivercontactNumber: value}); break;
+      case 'receiveremailid': this.setState({receiveremailID: value}); break ;
+      case 'receiverpickupdate': this.setState({receiverpickupDate: value}); break ;
+      case 'receiverpickupslot': this.setState({receiverpickupSlot: value}); break ;
+      case 'receiveraddressline': this.setState({receiveraddressLine: value}); break ;
+      case 'receivertowncity': this.setState({receivertownCity: value}); break ;
+      case 'receiveraddressstate': this.setState({receiveraddressState: value}); break ;
+      default: console.log("Erorr Form Change");
+    }
   }
+
 }

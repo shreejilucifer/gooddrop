@@ -1,12 +1,17 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 
-class LastContent extends Component {
+class LastContent extends PureComponent {
 
   render() {
+      const Consumer = this.props.Consumer ;
     return (
-        <div>
-          Payment
-        </div>
+      <Consumer>
+        {({ state, actions }) => (
+          <div>
+            Payment
+          </div>
+        )}
+      </Consumer>
     );
   }
 

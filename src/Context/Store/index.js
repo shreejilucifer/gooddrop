@@ -30,6 +30,16 @@ export default {
   pickupSlot: null,
   addressLine: null,
   townCity: null,
-  addressState: null
+  addressState: null,
+
+  //BookingForm - Destination Details
+  receiverName: null,
+  receivercontactNumber: null,
+  receiveremailID: null,
+  receiverpickupDate: null,
+  receiverpickupSlot: null,
+  receiveraddressLine: null,
+  receivertownCity: null,
+  receiveraddressState: null
 
 }
