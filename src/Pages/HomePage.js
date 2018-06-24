@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import './Components/CSS/HomePageCSS/loader.css';
 
 import Navbar from './Components/HomePageComps/Navbar';
@@ -14,7 +14,7 @@ const Loader = () => {
   );
 };
 
-class HomePage extends Component {
+class HomePage extends PureComponent {
   state = {
         loading: true
       };
@@ -22,7 +22,9 @@ class HomePage extends Component {
       componentDidMount() {
       setTimeout(() => this.setState({ loading: false }), 1000); // simulates an async action, and hides the spinner
     }
+
   render() {
+    const Consumer = this.props.Consumer ;
     const { loading } = this.state;
 
     if(loading) {
@@ -30,15 +32,18 @@ class HomePage extends Component {
     }
 
     return (
-      <div className="homepage">
-        <Navbar />
-        <HomeHeader />
-        <StepMiddleSection />
-        <Footer />
-      </div>
+      <Consumer>
+        {({ state, actions }) => (
+          <div className="homepage">
+            <Navbar Consumer={Consumer}/>
+            <HomeHeader Consumer={Consumer}/>
+            <StepMiddleSection Consumer={Consumer}/>
+            <Footer Consumer={Consumer}/>
+          </div>
+        )}
+      </Consumer>
     );
   }
-
 }
 
 export default HomePage;
