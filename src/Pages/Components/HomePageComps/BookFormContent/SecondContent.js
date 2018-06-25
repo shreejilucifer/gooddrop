@@ -1,4 +1,6 @@
 import React, { PureComponent } from 'react';
+import { Select } from 'antd';
+const Option = Select.Option;
 
 class SecondContent extends PureComponent {
 
@@ -44,15 +46,15 @@ class SecondContent extends PureComponent {
                   onChange={(e)=>{actions.destinationDetailsChange(e.target.value, 'receiverpickupdate')}}
                 />
                 <label className="pickupdetailsformlabel">Pickup slot</label>
-                <select
-                  className="pickupdetailsforminput"
-                  type="date"
-                  name="pickupslot"
-                  onChange={(e)=>{actions.destinationDetailsChange(e.target.value, 'receiverpickupslot')}}
-                  >
-                  <option value="slota">Slot A</option>
-                  <option value="slotb">Slot B</option>
-                </select>
+                <Select
+                  style={{ width: 100 }}
+                  defaultValue=""
+                    onChange={(e)=>{actions.destinationDetailsChange(e, 'receiverpickupslot')}}>
+                  <Option value="slota">Slot A</Option>
+                  <Option value="slotb">Slot B</Option>
+                  <Option value="slotc">Slot C</Option>
+                  <Option value="slotd">Slot D</Option>
+                </Select>
             </div><br/>
             <label className="pickupdetailsformlabel">Address Line</label>
             <input

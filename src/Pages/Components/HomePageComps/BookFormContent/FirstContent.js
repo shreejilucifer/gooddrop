@@ -1,4 +1,6 @@
 import React, { PureComponent } from 'react';
+import { Select } from 'antd';
+const Option = Select.Option;
 
 class FirstContent extends PureComponent {
 
@@ -27,14 +29,16 @@ class FirstContent extends PureComponent {
             />
             <br/>
             <label className="pickupdetailsformlabel">Contact Number</label>
-            <input
-              className="pickupdetailsforminput"
-              type="text"
-              width="100%"
-              name="contactnum"
-              value={state.contactNumber}
-              onChange={(e)=>{actions.pickupDetailsChange(e.target.value, 'contactnumber')}}
-            />
+            {
+              (state.tempContact === null)? <input
+                className="pickupdetailsforminput"
+                type="text"
+                width="100%"
+                name="contactnum"
+                onChange={(e)=>{actions.pickupDetailsChange(e.target.value, 'contactnumber');}}
+              />:
+              <div>{state.contactNumber}</div>
+            }
             <br/>
             <label className="pickupdetailsformlabel">Email ID</label>
             <input
@@ -54,16 +58,17 @@ class FirstContent extends PureComponent {
                 onChange={(e)=>{actions.pickupDetailsChange(e.target.value, 'pickupdate')}}
               />
               <br/>
-              <label className="pickupdetailsformlabel">Pickup slot</label>
-              <select
-                className="pickupdetailsforminput"
-                type="date"
-                name="pickupslot"
-                onChange={(e)=>{actions.pickupDetailsChange(e.target.value, 'pickupslot')}}
-                >
-                <option value="slota">Slot A</option>
-                <option value="slotb">Slot B</option>
-              </select>
+              <label className="pickupdetailsformlabel">Pickup Slot</label>
+              <Select
+                style={{ width: 100 }}
+                defaultValue=""
+                onChange={(e)=>{actions.pickupDetailsChange(e, 'pickupslot')}}>
+                <Option value="slota">Slot A</Option>
+                <Option value="slotb">Slot B</Option>
+                <Option value="slotc">Slot C</Option>
+                <Option value="slotd">Slot D</Option>
+              </Select>
+
             </div><br/>
             <label className="pickupdetailsformlabel">Address Line</label>
             <input

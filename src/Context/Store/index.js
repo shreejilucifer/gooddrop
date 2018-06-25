@@ -24,23 +24,23 @@ export default {
 
   //BookingForm - Pickup Details
   orderCharge: 500,
-  senderName: null,
+  senderName: "",
   contactNumber: null,
-  emailID: null,
-  pickupDate: null,
-  pickupSlot: null,
-  addressLine: null,
-  townCity: null,
-  addressState: null,
+  emailID: "",
+  pickupDate: "",
+  pickupSlot: "",
+  addressLine: "",
+  townCity: "",
+  addressState: "",
 
   //BookingForm - Destination Details
-  receiverName: null,
-  receivercontactNumber: null,
-  receiveremailID: null,
-  receiverpickupDate: null,
-  receiverpickupSlot: null,
-  receiveraddressLine: null,
-  receivertownCity: null,
-  receiveraddressState: null
+  receiverName: "",
+  receivercontactNumber: "",
+  receiveremailID: "",
+  receiverpickupDate: "",
+  receiverpickupSlot: "",
+  receiveraddressLine: "",
+  receivertownCity: "",
+  receiveraddressState: ""
 
 }
