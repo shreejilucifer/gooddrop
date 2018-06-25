@@ -22,7 +22,7 @@ class Footer extends PureComponent {
                     <li className="listitems">Customer Reviews</li>
                     <li className="listitems">Booking Terms</li>
                     <li className="listitems">Terms of Use</li>
-                    <li className="listitems">Privacy Policy</li>
+                    <Link to="/privacypolicy"><li className="listitems">Privacy Policy</li></Link>
                   </ul>
                 </div>
                 <div className="left">

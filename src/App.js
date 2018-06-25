@@ -5,6 +5,7 @@ import ScrollToTop from './Pages/Components/HomePageComps/ScrollToTop';
 // Pages
 import HomePage from './Pages/HomePage';
 import AboutUs from './Pages/AboutUs';
+import PrivacyPolicy from './Pages/PrivacyPolicy';
 
 // Todo: Import Context Store
 import store from './Context/Store';
@@ -29,6 +30,7 @@ class App extends PureComponent {
               <div>
                 <Route exact path="/" render={() => <HomePage Consumer={Consumer}/>}/>
                 <Route path="/aboutus" render={() => <AboutUs Consumer={Consumer} />}/>
+                <Route path="/privacypolicy" render={()=><PrivacyPolicy Consumer={Consumer}/>}/>
               </div>
             </ScrollToTop>
           </Router>

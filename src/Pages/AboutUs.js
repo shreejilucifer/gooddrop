@@ -13,7 +13,7 @@ class AboutUs extends PureComponent {
         {({ state, actions }) => (
           <div className="aboutus">
             <Navbar Consumer={Consumer}/>
-            <AboutHeader />
+            <AboutHeader title="ABOUT US"/>
             <AboutData />
             <Footer Consumer={Consumer}/>
           </div>
