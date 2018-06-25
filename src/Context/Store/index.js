@@ -10,6 +10,7 @@ export default {
   fromPlace: null,
   toPlace: null,
   parcelDate: null,
+  errorPrint: "",
 
   // Bike Details
   tempContact: null,

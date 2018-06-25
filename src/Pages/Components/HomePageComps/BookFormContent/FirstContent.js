@@ -32,6 +32,7 @@ class FirstContent extends PureComponent {
               type="text"
               width="100%"
               name="contactnum"
+              value={state.contactNumber}
               onChange={(e)=>{actions.pickupDetailsChange(e.target.value, 'contactnumber')}}
             />
             <br/>

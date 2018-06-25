@@ -37,7 +37,7 @@ class PriceEstimate extends PureComponent {
             <div>
               { state.showResults ? <ParcelDetails
                 Consumer={Consumer}
-                nexthandler={()=>{actions.priceEstimateButtons(false, true)}}
+                nexthandler={()=>{actions.priceEstimateButtons(false, true, state.fromPlace , state.toPlace, state.parcelDate )}}
                 cancelhandler={()=>{actions.priceEstimateButtons(false, false)}}
               /> : null }
               { state.showBikeDetails ? <BikeDetails

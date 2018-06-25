@@ -73,6 +73,7 @@ class ParcelDetails extends PureComponent {
               </div>
 
             </form>
+            <div className="errorMsg">{state.errorPrint}</div>
           </div>
           <div className="parceldetailsbuttons">
             <button className="parceldetailsnextbtn" onClick={this.props.nexthandler}>

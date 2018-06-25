@@ -48,11 +48,12 @@ class BikeDetails extends PureComponent {
                 </div>
 
               </form>
+              <div className="errorMsg">{state.errorPrint}</div>
             </div>
             <div className="parceldetailsbuttons">
               <button
                 className="parceldetailssendotpbtn"
-                onClick={actions.openOTPModal}>
+                onClick={()=>{actions.openOTPModal(state.bikeCC, state.bikeValue, state.tempContact);}}>
                 Send OTP
               </button>
               <Modal
@@ -61,12 +62,13 @@ class BikeDetails extends PureComponent {
                 onClose={actions.closeOTPModal} center>
 
                   {
-                    (state.otpModal === true && state.verified === false )?
+                    (state.verified === false && state.otpModal === true )?
                     <div className="otpmodal">
                       <div>An OTP is sent to your Mobile No. : <br/><b>+91{state.tempContact}</b></div> <br/>
                       <div>Enter the OTP below: </div> <br/>
                       <div><Input onChange={actions.onChangeOTP} name="otpnumber" placeholder="XXXX" /></div> <br/>
-                      <div><button onClick={actions.onChangeVerifyContact} className="verifyestimatebtn">Verify & Estimate Price</button></div>
+                      <div className="errorMsg" style={{color: "#000"}}>{state.errorPrint}</div>
+                      <div><button onClick={()=>{actions.onChangeVerifyContact(state.OTP, state.tempContact);}} className="verifyestimatebtn">Verify & Estimate Price</button></div>
                     </div>
                     :
                     <div className="otpmodal">

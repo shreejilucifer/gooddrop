@@ -6,8 +6,14 @@ export default {
   },
 
   // Price Estimate
-  priceEstimateButtons: function(value1, value2) {
-    this.setState({showResults: value1, showBikeDetails: value2});
+  priceEstimateButtons: function(value1, value2, value3, value4, value5) {
+
+    if( value3 === null || value4 === null || value5 === null )
+    { this.setState({errorPrint: "Fill All The Data"}); }
+    else
+    {
+      this.setState({showResults: value1, showBikeDetails: value2, errorPrint: ""});
+    }
   },
 
   // Parcel Details
@@ -32,15 +38,25 @@ export default {
   bikeValueChange: function(e) {
     this.setState({bikeValue: e.target.value});
   },
-  onChangeVerifyContact: function(value) {
-    this.setState({verified: value});
+  onChangeVerifyContact: function(value, value2) {
+    if( value === null ) {
+      this.setState({errorPrint: "Enter OTP"})
+    }
+    else
+    {
+      this.setState({verified: true, contactNumber: value2, rorPrint: ""});
+    }
+
   },
   onChangeOTP: function(e) {
     this.setState({OTP: e.target.value});
   },
 
-  openOTPModal: function() {
-    this.setState({otpModal: true});
+  openOTPModal: function( value1, value2, value3) {
+    if( value1 === null || value2 === null || value3 === null )
+        this.setState({errorPrint: "Enter Data"});
+    else
+        this.setState({otpModal: true, errorPrint: ""});
   },
 
   closeOTPModal: function() {
