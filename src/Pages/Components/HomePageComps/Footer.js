@@ -3,6 +3,7 @@ import '../CSS/HomePageCSS/footer.css';
 import facebookicon from '../Assets/fbicon.png';
 import twittericon from '../Assets/twittericon.png';
 import instagramicon from '../Assets/linkedinicon.png';
+import { Link } from 'react-router-dom';
 
 class Footer extends PureComponent {
 
@@ -17,7 +18,7 @@ class Footer extends PureComponent {
                 <div className="left">
                   <ul>
                     <h4 className="listtitle"> Company </h4>
-                    <li className="listitems">About Us</li>
+                    <Link to="/aboutus"><li className="listitems">About Us</li></Link>
                     <li className="listitems">Customer Reviews</li>
                     <li className="listitems">Booking Terms</li>
                     <li className="listitems">Terms of Use</li>

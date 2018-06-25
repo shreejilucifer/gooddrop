@@ -4,6 +4,7 @@ import showcaselogo from '../Assets/showcaselogo.png';
 import telephone from '../Assets/telephone.png';
 import accounticon from '../Assets/delivery.png';
 import '../CSS/HomePageCSS/navbar.css';
+import { Link } from 'react-router-dom';
 
 class Navbar extends PureComponent {
   state = {
@@ -16,7 +17,7 @@ class Navbar extends PureComponent {
         {({ state, actions }) => (
           <div className="navbar">
           <div className="logo">
-            <img src={showcaselogo} alt="GoodDrop" height="100%"/>
+          <Link to="/"><img src={showcaselogo} alt="GoodDrop" height="100%"/></Link>
           </div>
           <div className="rightsection">
             <div className="phonenumber">

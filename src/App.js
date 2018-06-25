@@ -1,5 +1,6 @@
 import React, { PureComponent, createContext } from 'react';
 import {  BrowserRouter as Router, Route} from "react-router-dom";
+import ScrollToTop from './Pages/Components/HomePageComps/ScrollToTop';
 
 // Pages
 import HomePage from './Pages/HomePage';
@@ -24,10 +25,12 @@ class App extends PureComponent {
     return (
       <Provider value={{state: this.state, actions}}>
           <Router>
-          <div>
-            <Route exact path="/" render={() => <HomePage Consumer={Consumer}/>}/>
-            <Route path="/aboutus" render={() => <AboutUs Consumer={Consumer} />}/>
-          </div>
+            <ScrollToTop>
+              <div>
+                <Route exact path="/" render={() => <HomePage Consumer={Consumer}/>}/>
+                <Route path="/aboutus" render={() => <AboutUs Consumer={Consumer} />}/>
+              </div>
+            </ScrollToTop>
           </Router>
       </Provider>
     );

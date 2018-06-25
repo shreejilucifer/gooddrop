@@ -1,17 +1,21 @@
 import React, { PureComponent } from 'react';
 
+import Navbar from './Components/HomePageComps/Navbar';
+import AboutHeader from './Components/AboutUsPageComps/AboutHeader';
+import AboutData from './Components/AboutUsPageComps/AboutData';
+import Footer from './Components/HomePageComps/Footer';
+
 class AboutUs extends PureComponent {
-  state = {
-    user: "Hello From About Us State"
-  }
   render() {
     const Consumer = this.props.Consumer ;
     return (
       <Consumer>
         {({ state, actions }) => (
-          <div>
-            {state.user}
-            <button onClick={()=>{actions.setUser("Hey")}}>Click</button>
+          <div className="aboutus">
+            <Navbar Consumer={Consumer}/>
+            <AboutHeader />
+            <AboutData />
+            <Footer Consumer={Consumer}/>
           </div>
         )}
       </Consumer>
