@@ -11,6 +11,8 @@ export default {
   toPlace: null,
   parcelDate: null,
   errorPrint: "",
+  parcelDateActual: null,
+  displayNone: "flex",
 
   // Bike Details
   tempContact: null,

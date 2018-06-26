@@ -37,6 +37,7 @@ class ParcelDetails extends PureComponent {
                     className="parceldetailsformselect"
                     placeholder="Select Source Place"
                     optionFilterProp="children"
+                    value={state.fromPlace}
                     onChange={(e)=>{actions.handleChangeFrom(e)}}
                     onFocus={this.handleFocus}
                     onBlur={this.handleBlur}
@@ -54,6 +55,7 @@ class ParcelDetails extends PureComponent {
                   className="parceldetailsformselect"
                   placeholder="Select Destination Place"
                   optionFilterProp="children"
+                  value={state.toPlace}
                   onChange={(e)=>{actions.handleChangeTo(e)}}
                   onFocus={this.handleFocus}
                   onBlur={this.handleBlur}
@@ -66,6 +68,7 @@ class ParcelDetails extends PureComponent {
               <div className="parcelinputcontainer">
                 <label className="parceldetailsformlabel">Parcel Date:</label>
                 <DatePicker
+                  value={state.parcelDateActual}
                   onChange={actions.handleChangeParcelDate}
                   disabledDate={this.disabledDate}
                   showToday={false}

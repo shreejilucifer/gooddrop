@@ -1,11 +1,19 @@
 import React, { PureComponent } from 'react';
-import { Select } from 'antd';
+import {Select, DatePicker } from 'antd';
 const Option = Select.Option;
 
 class FirstContent extends PureComponent {
 
+    disabledStartDate = (startValue, endValue) => {
+      if (!startValue || !endValue) {
+        return false;
+      }
+      return startValue.valueOf() > endValue.valueOf();
+    }
+
   render() {
     const Consumer = this.props.Consumer ;
+
     return (
       <Consumer>
         {({ state, actions }) => (
@@ -51,22 +59,23 @@ class FirstContent extends PureComponent {
             <br/>
             <div className="slotanddate">
               <label className="pickupdetailsformlabel">Pickup Date</label>
-              <input
-                className="pickupdetailsforminput"
-                type="date"
+              <DatePicker
+                disabledDate={(current)=>{return current > state.parcelDateActual }}
+                onChange={actions.pickupDetailsChangePickUpdate}
                 name="pickupdate"
-                onChange={(e)=>{actions.pickupDetailsChange(e.target.value, 'pickupdate')}}
+                showToday={false}
               />
               <br/>
               <label className="pickupdetailsformlabel">Pickup Slot</label>
               <Select
-                style={{ width: 100 }}
+                style={{ width: 120 }}
                 defaultValue=""
                 onChange={(e)=>{actions.pickupDetailsChange(e, 'pickupslot')}}>
-                <Option value="slota">Slot A</Option>
-                <Option value="slotb">Slot B</Option>
-                <Option value="slotc">Slot C</Option>
-                <Option value="slotd">Slot D</Option>
+                <Option value="6to7">6 AM - 10 AM</Option>
+                <Option value="10to12">10 AM - 12 PM</Option>
+                <Option value="12to4">12 PM - 4 PM</Option>
+                <Option value="4to7">4 PM - 7 PM</Option>
+                <Option value="7to11">7 PM - 11 PM</Option>
               </Select>
 
             </div><br/>

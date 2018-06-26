@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import { Select } from 'antd';
+import { Select, DatePicker } from 'antd';
 const Option = Select.Option;
 
 class SecondContent extends PureComponent {
@@ -39,21 +39,21 @@ class SecondContent extends PureComponent {
               /> <br/>
               <div>
                 <label className="pickupdetailsformlabel">Pickup Date</label>
-                <input
-                  className="pickupdetailsforminput"
-                  type="date"
+                <DatePicker
+                  onChange={actions.destinationDetailsChangePickUpdate}
                   name="pickupdate"
-                  onChange={(e)=>{actions.destinationDetailsChange(e.target.value, 'receiverpickupdate')}}
+                  showToday={false}
                 />
                 <label className="pickupdetailsformlabel">Pickup slot</label>
                 <Select
-                  style={{ width: 100 }}
+                  style={{ width: 120 }}
                   defaultValue=""
                     onChange={(e)=>{actions.destinationDetailsChange(e, 'receiverpickupslot')}}>
-                  <Option value="slota">Slot A</Option>
-                  <Option value="slotb">Slot B</Option>
-                  <Option value="slotc">Slot C</Option>
-                  <Option value="slotd">Slot D</Option>
+                    <Option value="6to7">6 AM - 10 AM</Option>
+                    <Option value="10to12">10 AM - 12 PM</Option>
+                    <Option value="12to4">12 PM - 4 PM</Option>
+                    <Option value="4to7">4 PM - 7 PM</Option>
+                    <Option value="7to11">7 PM - 11 PM</Option>
                 </Select>
             </div><br/>
             <label className="pickupdetailsformlabel">Address Line</label>

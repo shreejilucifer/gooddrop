@@ -23,6 +23,23 @@ const Gridelement = (props) => {
 
 class StepMiddleSection extends PureComponent {
 
+
+  state = {
+        intervalId: 0
+    };
+
+  scrollStep() {
+    if (window.pageYOffset === 0) {
+        clearInterval(this.state.intervalId);
+    }
+    window.scroll(0, window.pageYOffset - this.props.scrollStepInPx);
+  }
+
+  scrollToTop() {
+    let intervalId = setInterval(this.scrollStep.bind(this), this.props.delayInMs);
+    this.setState({ intervalId: intervalId });
+  }
+
   render() {
     const Consumer = this.props.Consumer ;
 
@@ -41,7 +58,7 @@ class StepMiddleSection extends PureComponent {
             <br/>
             <div className="buttons">
               <div className="tempcont">
-                <button onClick={actions.openBookModal} className="bookbtn">BOOK NOW</button>
+                <button onClick={()=>{this.scrollToTop(); actions.openBookModal(state.verified);}} className="bookbtn">BOOK NOW</button>
 
                 <Modal open={state.bookNowState} onClose={actions.closeBookModal} closeIconSize={15}>
                   <div className="bookmodal">

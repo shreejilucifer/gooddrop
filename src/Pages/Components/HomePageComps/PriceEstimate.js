@@ -3,6 +3,7 @@ import '../CSS/HomePageCSS/priceestimate.css';
 import ParcelDetails from './ParcelDetails';
 import BikeDetails from './BikeDetails';
 
+
 class PriceEstimate extends PureComponent {
   state = {
 
@@ -23,7 +24,9 @@ class PriceEstimate extends PureComponent {
                 </div>
                 <br/>
               <div>
-                <button className="selectbox2" onClick={()=>{actions.priceEstimateButtons(false, !state.showBikeDetails)} }>
+                <button className="selectbox2" onClick={
+                  ()=>{actions.onBikeDetails(false, !state.showBikeDetails, state.toPlace, state.fromPlace, state.parcelDate)}
+                }>
                   Your Bike Details <span className="caret"></span>
                 </button>
               </div>
@@ -35,11 +38,15 @@ class PriceEstimate extends PureComponent {
               </div>
             </div>
             <div>
-              { state.showResults ? <ParcelDetails
-                Consumer={Consumer}
-                nexthandler={()=>{actions.priceEstimateButtons(false, true, state.fromPlace , state.toPlace, state.parcelDate )}}
-                cancelhandler={()=>{actions.priceEstimateButtons(false, false)}}
-              /> : null }
+              { state.showResults ?
+
+                  <ParcelDetails
+                  Consumer={Consumer}
+                  nexthandler={()=>{actions.priceEstimateButtons(false, true, state.fromPlace , state.toPlace, state.parcelDate )}}
+                  cancelhandler={()=>{actions.priceEstimateButtons(false, false)}}
+                />
+
+                 : null }
               { state.showBikeDetails ? <BikeDetails
                 Consumer={Consumer}
                 cancelhandler={()=>{actions.priceEstimateButtons(false, false)}}

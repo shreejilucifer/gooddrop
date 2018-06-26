@@ -16,6 +16,11 @@ export default {
     }
   },
 
+  onBikeDetails: function(value1, value2, value3, value4, value5) {
+    if( value3 !== null || value4 !== null || value5 !== null )
+    this.setState({showResults: value1, showBikeDetails: value2, errorPrint: ""});
+  },
+
   // Parcel Details
   handleChangeFrom: function(value) {
     this.setState({fromPlace: value});
@@ -25,7 +30,7 @@ export default {
   },
   handleChangeParcelDate: function(date, dateString) {
 
-    this.setState({parcelDate: dateString});
+    this.setState({parcelDate: dateString, parcelDateActual: date});
   },
 
   // Bike Details
@@ -53,18 +58,45 @@ export default {
   },
 
   openOTPModal: function( value1, value2, value3) {
+
+    var mob = /^[1-9]{1}[0-9]{9}$/;
+
     if( value1 === null || value2 === null || value3 === null )
         this.setState({errorPrint: "Enter Data"});
-    else
-        this.setState({otpModal: true, errorPrint: ""});
+    else if( mob.test(value3) === false )
+      this.setState({errorPrint: "Enter Valid Mobile" });
+    /*else if( value1 < 10000 )
+    {
+      this.setState({errorPrint: "BikeCC should be more than 10000"});
+    }
+    else if( (value2 => 50 && value2 <= 150) && value1 < 100000 )
+    {
+      this.setState({errorPrint: "BikeCC should be more than 10000"});
+    }
+    else if( (value2 => 350 && value2 <= 500) && value1 < 750000 )
+    {
+      this.setState({errorPrint: "BikeCC should be more than 75000"});
+    }
+    else if( (value2 => 300 && value2 <= 750) && value1 < 1000000 )
+    {
+      this.setState({errorPrint: "BikeCC should be more than 100000"});
+    } */
+      else
+        this.setState({otpModal: true, errorPrint: "", displayNone: "none"});
   },
 
   closeOTPModal: function() {
-    this.setState({otpModal: false});
+    this.setState({otpModal: false, displayNone: "flex",showBikeDetails: false});
   },
 
-  openBookModal: function() {
-    this.setState({bookNowState: true});
+  openBookModal: function(value) {
+    if( value === false ){
+      this.setState({ showResults: true });
+    }
+    else{
+      this.setState({bookNowState: true});
+    }
+
   },
 
   closeBookModal: function() {
@@ -85,6 +117,12 @@ export default {
       case 'addressstate': this.setState({addressState: value}); break ;
       default: console.log("Erorr Form Change");
     }
+  },
+  pickupDetailsChangePickUpdate: function(date, dateString) {
+    this.setState({pickupDate: dateString});
+  },
+  destinationDetailsChangePickUpdate: function(date, dateString) {
+    this.setState({receiverpickupDate: dateString});
   },
 
   destinationDetailsChange: function(value, str) {

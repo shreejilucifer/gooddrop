@@ -23,7 +23,7 @@ class BikeDetails extends PureComponent {
     return (
       <Consumer>
         {({ state, actions }) => (
-          <div className="bikedetails">
+          <div style={{ display: state.displayNone }} className="bikedetails">
             <div>
               <h3 className="parceldetailsformtitle">
                 Bike Details
@@ -73,7 +73,7 @@ class BikeDetails extends PureComponent {
                     :
                     <div className="otpmodal">
                       <h3>The Price is <b>Rs.{state.orderCharge}</b> </h3>
-                      <h3> From: <b>{state.fromPlace}</b> To: <b>{state.toPlace}</b> </h3> <br/>
+                      <h3 style={{textTransform: 'uppercase'}}> From: <b>{state.fromPlace}</b> To: <b>{state.toPlace}</b> </h3> <br/>
                       <h3> On Date: <b>{state.parcelDate}</b> </h3>
                       <h3> BikeCC: <b>{state.bikeCC}</b> <br/> Bike Value: <b>{state.bikeValue}</b> </h3>
                       <button className="otpbooknowbtn" onClick={actions.openBookModal}>Book Now</button> <br/>
