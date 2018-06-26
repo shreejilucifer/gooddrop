@@ -8,6 +8,7 @@ import AboutUs from './Pages/AboutUs';
 import PrivacyPolicy from './Pages/PrivacyPolicy';
 import Terms from './Pages/Terms';
 import PaymentPolicy from './Pages/PaymentPolicy';
+import Order from './Pages/Order';
 
 // Todo: Import Context Store
 import store from './Context/Store';
@@ -35,6 +36,7 @@ class App extends PureComponent {
                 <Route path="/privacypolicy" render={()=><PrivacyPolicy Consumer={Consumer}/>}/>
                 <Route path="/terms" render={()=><Terms Consumer={Consumer}/>}/>
                 <Route path="/paymentpolicy" render={()=><PaymentPolicy Consumer={Consumer}/>}/>
+                <Route path="/order" render={()=><Order Consumer={Consumer}/>}/>
               </div>
             </ScrollToTop>
           </Router>

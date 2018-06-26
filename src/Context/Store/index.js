@@ -16,7 +16,7 @@ export default {
 
   // Bike Details
   tempContact: null,
-  bikeCC: null,
+  bikeCC: 0,
   bikeValue: 0,
   verified: false,
   OTP: null,
@@ -43,6 +43,8 @@ export default {
   receiverpickupSlot: "",
   receiveraddressLine: "",
   receivertownCity: "",
-  receiveraddressState: ""
+  receiveraddressState: "",
 
+  //Done Payment
+  redirect: true
 }

@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react';
 import '../CSS/HomePageCSS/bookingform.css';
+import { Link } from 'react-router-dom';
 
 import FirstContent from './BookFormContent/FirstContent';
 import SecondContent from './BookFormContent/SecondContent';
@@ -96,7 +97,7 @@ class BookingForm extends PureComponent {
               {
                 this.state.current === steps.length - 1
                 &&
-                <Button type="primary" className="bookingformnextbtn" onClick={() => message.success('Processing complete!')}>Done</Button>
+                <Link to="/order"><Button type="primary" className="bookingformnextbtn" onClick={() => message.success('Processing complete!')}>Done</Button></Link>
               }
               {
                 this.state.current === 2

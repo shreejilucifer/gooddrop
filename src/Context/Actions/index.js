@@ -91,7 +91,7 @@ export default {
     if (value === false) {
       this.setState({showResults: true});
     } else {
-      this.setState({bookNowState: true});
+      this.setState({otpModal: false, bookNowState: true});
     }
 
   },
@@ -167,6 +167,10 @@ export default {
       default:
         console.log("Erorr Form Change");
     }
+  },
+
+  handleDoneClick: function() {
+    this.setState({ redirect: true });
   }
 
 }
