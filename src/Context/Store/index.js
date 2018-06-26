@@ -17,7 +17,7 @@ export default {
   // Bike Details
   tempContact: null,
   bikeCC: null,
-  bikeValue: null,
+  bikeValue: 0,
   verified: false,
   OTP: null,
 

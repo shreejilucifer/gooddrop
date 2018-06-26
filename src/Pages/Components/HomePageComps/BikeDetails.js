@@ -31,12 +31,12 @@ class BikeDetails extends PureComponent {
               <form className="parceldetailsform" >
                 <div  className="parcelinputcontainer">
                   <label className="parceldetailsformlabel">Bike CC</label>
-                  <Input onChange={actions.bikeCCChange} name="bikecc" placeholder="500 CC" />
+                  <Input type="number" onChange={actions.bikeCCChange} name="bikecc" placeholder="500" />
                 </div>
 
                 <div  className="parcelinputcontainer">
                   <label className="parceldetailsformlabel" >Bike Value</label>
-                  <Input onChange={actions.bikeValueChange} name="bikevalue" placeholder="Rs. 15000" />
+                  <Input type="number" onChange={actions.bikeValueChange} name="bikevalue" placeholder="15000" />
                 </div>
 
                 <div className="parcelinputcontainer">
