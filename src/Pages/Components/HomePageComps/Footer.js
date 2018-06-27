@@ -19,7 +19,7 @@ class Footer extends PureComponent {
                   <ul>
                     <h4 className="listtitle"> Company </h4>
                     <Link to="/aboutus"><li className="listitems">About Us</li></Link>
-                    <li className="listitems">Customer Reviews</li>
+                    <Link to="/customerreviews"><li className="listitems">Customer Reviews</li></Link>
                     <Link to="/paymentpolicy"><li className="listitems">Payment Policy</li></Link>
                     <Link to="/terms"><li className="listitems">Terms of Use</li></Link>
                     <Link to="/privacypolicy"><li className="listitems">Privacy Policy</li></Link>

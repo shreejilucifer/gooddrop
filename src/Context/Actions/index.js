@@ -81,7 +81,7 @@ export default {
       this.setState({errorPrint: "BikeCC should be more than 75000"});
 
      else if ((value1>500 && value1<=750) && value2 < 100000)
-      this.setState({errorPrint: "BikeCC should be more than 100000"}); 
+      this.setState({errorPrint: "BikeCC should be more than 100000"});
     else
       this.setState({otpModal: true, errorPrint: "", displayNone: "none"});
     },
@@ -179,6 +179,32 @@ export default {
 
   handleDoneClick: function() {
     this.setState({ redirect: true });
+  },
+
+  handleRatingChange: function(value) {
+    this.setState({ ratingValue: value});
+  },
+
+  handleRatingName: function(value) {
+    this.setState({ ratingName: value });
+  },
+
+  handleRatingData: function(value) {
+    this.setState({ ratingData: value });
+  },
+  onReviewModal: function(value) {
+    this.setState({reviewModal: value});
+  },
+  handleNewReview: function(value1, value2, value3 ) {
+    if( value1 === 0 || value2 === null || value3 === null ) {
+      this.setState({errorReview: "Incomplete Review"});
+    }
+    else
+    {
+      this.setState({ errorReview: "", reviewModal: false});
+      alert("Your Review is Submitted");
+    }
+
   }
 
 }

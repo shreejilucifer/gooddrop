@@ -1,0 +1,81 @@
+.customerreviews {
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.customerreviewshow {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 10px;
+  background-color: #34b3d3;
+  padding: 20px;
+}
+
+.customerreviewgrid {
+  display: flex;
+}
+
+.customerreviewdata {
+  text-align: justify;
+  padding-top: 10px;
+  font-weight: normal;
+}
+
+.customerreviewfrom {
+  align-self: flex-end;
+}
+
+.btncontainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.yourreviewbtn {
+  width: 200px;
+  height: 40px;
+  background-color: #f6416c;
+  color: #fff;
+  font-size: 15px;
+  border: none ;
+}
+
+.newreviewbtn {
+  width: 100%;
+  height: 40px;
+  background-color: #f6416c;
+  color: #fff;
+  font-size: 15px;
+  border: none
+}
+
+.reviewmodal {
+  width: 500px;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: center;
+}
+
+@media only screen and (max-width: 600px) {
+  .customerreviewgrid {
+    display: flex;
+    flex-direction: column;
+  }
+  .yourreviewbtn {
+    width: 90%;
+    height: 40px;
+    background-color: #f6416c;
+    color: #fff;
+    font-size: 15px;
+    border: none ;
+  }
+  .reviewmodal {
+    width: 300px;
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    align-items: center;
+  }
+}

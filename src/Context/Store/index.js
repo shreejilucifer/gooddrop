@@ -47,5 +47,12 @@ export default {
   receiveraddressState: "",
 
   //Done Payment
-  redirect: true
+  redirect: true,
+
+  // Customer Reviews
+  ratingValue: 0,
+  ratingName: null,
+  ratingData: null,
+  reviewModal: false,
+  errorReview: ""
 }
