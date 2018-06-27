@@ -60,7 +60,8 @@ class FirstContent extends PureComponent {
             <div className="slotanddate">
               <label className="pickupdetailsformlabel">Pickup Date</label>
               <DatePicker
-                disabledDate={(current)=>{return current > state.parcelDateActual }}
+                disabledDate={(current)=>{
+                  return (current > state.parcelDateActual) }}
                 onChange={actions.pickupDetailsChangePickUpdate}
                 name="pickupdate"
                 showToday={false}

@@ -67,18 +67,21 @@ export default {
       this.setState({errorPrint: "Enter Data"});
     else if (mob.test(value3) === false)
       this.setState({errorPrint: "Enter Valid Mobile"});
-    else if (value2 < 10000)
+
+    else if ( (value1=>0 && value1<=50) && value2 < 10000)
       this.setState({errorPrint: "BikeCC should be more than 10000"});
-    /*else if (value1 > 50 && value1 < 150)
-        { if(value2 < 10000)
-          {
+
+    else if ( (value1>50 && value1<=150) && value2 < 10000)
             this.setState({errorPrint: "BikeCC should be more than 10000"});
-          }
-        }
-    else if ((value1 => 350 && value1 <= 500) && value2 < 75000)
+
+    else if( (value1>150 && value1<=350) && value2 < 50000)
+            this.setState({errorPrint: "BikeCC should be more than 50000"});
+
+    else if ( (value1>350 && value1<= 500) && value2 < 75000)
       this.setState({errorPrint: "BikeCC should be more than 75000"});
-    else if ((value1 => 300 && value1 <= 750) && value2 < 100000)
-      this.setState({errorPrint: "BikeCC should be more than 100000"}); */
+
+     else if ((value1>500 && value1<=750) && value2 < 100000)
+      this.setState({errorPrint: "BikeCC should be more than 100000"}); 
     else
       this.setState({otpModal: true, errorPrint: "", displayNone: "none"});
     },
@@ -131,7 +134,12 @@ export default {
         console.log("Erorr Form Change");
     }
   },
-  pickupDetailsChangePickUpdate: function(date, dateString) {
+  pickupDetailsChangePickUpdate: function(date, dateString, today) {
+    /*var d = new Date();
+
+    console.log(d.getFullYear()+d.getMonth()+d.getDate());
+    console.log(dateString);
+    console.log(d < dateString); */
     this.setState({pickupDate: dateString});
   },
   destinationDetailsChangePickUpdate: function(date, dateString) {

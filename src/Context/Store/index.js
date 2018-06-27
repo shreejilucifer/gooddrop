@@ -34,6 +34,7 @@ export default {
   addressLine: "",
   townCity: "",
   addressState: "",
+  dateError: "",
 
   //BookingForm - Destination Details
   receiverName: "",
