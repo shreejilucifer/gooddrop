@@ -17,19 +17,30 @@ class Footer extends PureComponent {
               <div className="leftsection">
                 <div className="left">
                   <ul>
+                    <h4 className="listtitle"><b>Gooddrop</b></h4>
                     <Link to="/aboutus"><li className="listitems">About Us</li></Link>
                     <Link to="/customerreviews"><li className="listitems">Customer Reviews</li></Link>
-                    <Link to="/paymentpolicy"><li className="listitems">Payment Policy</li></Link>
-                    <Link to="/terms"><li className="listitems">Terms of Use</li></Link>
-                    <Link to="/privacypolicy"><li className="listitems">Privacy Policy</li></Link>
+                    <li className="listitems">Contact Us</li>
+
                   </ul>
                 </div>
-
                 <div className="left">
                   <ul>
-                  
-                    <li className="listitems">support@gooddrop.com</li>
-                    <li className="listitems">Call at 9756432675</li>
+                    <h4 className="listtitle"><b>Information</b></h4>
+                    <li className="listitems">How It Works</li>
+                    <li className="listitems">Documents Required</li>
+                    <li className="listitems">Blog</li>
+                    <li className="listitems">FAQs</li>
+                  </ul>
+                </div>
+                <div className="left">
+                  <ul>
+                    <h4 className="listtitle"><b>Policies</b></h4>
+                    <li className="listitems">Shipping Policy</li>
+                    <Link to="/paymentpolicy"><li className="listitems">Payment Policy</li></Link>
+                    <Link to="/terms"><li className="listitems">Terms of Use</li></Link>
+                    <li className="listitems">Cancellations & Modifications</li>
+                    <Link to="/privacypolicy"><li className="listitems">Privacy Policy</li></Link>
                   </ul>
                 </div>
               </div>
