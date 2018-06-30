@@ -60,17 +60,24 @@ export default {
 
     var mob = /^[6-9]\d{9}$/;
     var cc = /^\d{2,3}$/;
+    var val = /^[0-9]*$/;
     value1 = Number(value1); // bikeCC
     value2 = Number(value2); // bikeValue
 
     console.log(value1, value2, value3);
 
-    if (value1 === null || value2 === null || value3 === null)
-      this.setState({errorPrint: "Enter Data"});
+    if (value1 === null)
+      this.setState({errorPrint: "Please Enter Bike CC !" });
+    else if(value2 === null)
+      this.setState({errorPrint: "Please Enter Bike Value !" });
+    else if(value3 === null)
+      this.setState({errorPrint: "Please Enter Contact Number !"});
     else if ( cc.test(value1) === false )
-      this.setState({errorPrint: "Enter Valid Bike CC"});
+      this.setState({errorPrint: "Please Enter Valid Bike CC !"});
+    else if (val.test(value2) === false )
+      this.setState({errorPrint: "Please Enter Valid Bike Value !"});
     else if (mob.test(value3) === false)
-      this.setState({errorPrint: "Enter Valid Mobile"});
+      this.setState({errorPrint: "Please Enter Valid Mobile !"});
     else if ( value1 <= 70 )
       this.setState({errorPrint: "Bike CC should be more than 70"});
     else if ( (value1>70 && value1<=150) && value2 < 10000)

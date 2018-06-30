@@ -31,7 +31,7 @@ class ParcelDetails extends PureComponent {
             </h3>
             <form className="parceldetailsform">
               <div className="parcelinputcontainer">
-                <label className="parceldetailsformlabel">From:</label>
+                <label className="parceldetailsformlabel">Parcel From:</label>
                   <Select
                     showSearch
                     className="parceldetailsformselect"
@@ -48,7 +48,7 @@ class ParcelDetails extends PureComponent {
               </div>
 
               <div className="parcelinputcontainer">
-                <label className="parceldetailsformlabel">To:</label>
+                <label className="parceldetailsformlabel">Parcel To:</label>
                 <Select
                   disabled={(state.fromPlace !== null)? false : true}
                   showSearch

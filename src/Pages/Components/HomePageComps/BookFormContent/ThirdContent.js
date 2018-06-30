@@ -54,7 +54,7 @@ class ThirdContent extends PureComponent {
                   <tr>
                     <td>
                       <h3>
-                        PICKUP DETAILS
+                        SENDER DETAILS
                       </h3>
                     </td>
 

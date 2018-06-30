@@ -41,36 +41,36 @@ class BookingForm extends PureComponent {
 
   next(value1, value2, value3, value4, value5, value6, value7, value8, value9) {
 
-    var sender = /([a-zA-Z]{1}[a-zA-Z]*[\s]{0,1}[a-zA-Z])+([\s]{0,1}[a-zA-Z]+)/;
+    var sender = /^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$/;
     var mob = /^[6-9]\d{9}$/;
 
     if( value1 === "" )
-      this.setState({error: "Name Empty !"});
+      this.setState({error: "Please Enter The Name !"});
     else if( value2 === "" )
-      this.setState({error: "Contact Number Empty !"});
+      this.setState({error: "Please Enter The Contact Number !"});
     else if( value3 === "" )
-      this.setState({error: "Email ID Empty !"});
+      this.setState({error: "Please Enter The Email ID !"});
     else if( value4 === "" )
-      this.setState({error: "Pickup Date Empty !"});
+      this.setState({error: "Please Choose The Pickup Date !"});
     else if( value5 === "" )
-      this.setState({error: "Pickup Slot Empty !"});
+      this.setState({error: "Please Choose The Pickup Slot !"});
     else if( value6 === "" )
-      this.setState({error: "Address Line Empty !"});
+      this.setState({error: "Please Enter The Complete Sender-Pickup Address !"});
     else if( value7 === "" )
-      this.setState({error: "Town / City Empty !"});
+      this.setState({error: "Please Enter The Town / City !"});
     else if( value8 === "" )
-      this.setState({error: "State Empty !"});
+      this.setState({error: "Please Enter The State !"});
     else if( value9 === false )
-      this.setState({error: "Accept Terms & Conditions !"});
+      this.setState({error: "Please Accept The Terms & Conditions !"});
 
     else if( mob.test(value2) === false )
-      this.setState({error: "Contact Number Invalid" });
+      this.setState({error: "The Contact Number Is Invalid !" });
 
     else if( !this.validateEmail(value3) )
-      this.setState({error: "Email Not Valid"}) ;
+      this.setState({error: "The Email Is Not Valid !"}) ;
 
     else if( sender.test(value1) === false )
-      this.setState({error: "Sender Name Invalid"});
+      this.setState({error: "The Name is Invalid !"});
     else {
       const current = this.state.current + 1;
       this.setState({ current: current, error: "" });

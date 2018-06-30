@@ -5,3 +5,11 @@
   text-align: justify;
   margin-bottom: 50px;
 }
+
+.orderpage {
+  height: 90vh;
+  background-image: url('../../Assets/thankyoudropping.png');
+  background-position: top;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
