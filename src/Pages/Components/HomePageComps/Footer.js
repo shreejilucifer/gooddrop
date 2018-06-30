@@ -17,7 +17,6 @@ class Footer extends PureComponent {
               <div className="leftsection">
                 <div className="left">
                   <ul>
-                    <h4 className="listtitle"> Company </h4>
                     <Link to="/aboutus"><li className="listitems">About Us</li></Link>
                     <Link to="/customerreviews"><li className="listitems">Customer Reviews</li></Link>
                     <Link to="/paymentpolicy"><li className="listitems">Payment Policy</li></Link>
@@ -25,16 +24,10 @@ class Footer extends PureComponent {
                     <Link to="/privacypolicy"><li className="listitems">Privacy Policy</li></Link>
                   </ul>
                 </div>
+
                 <div className="left">
                   <ul>
-                    <h4 className="listtitle"> Support </h4>
-                    <li className="listitems">How to</li>
-                    <li className="listitems">FAQs</li>
-                  </ul>
-                </div>
-                <div className="left">
-                  <ul>
-                    <h4 className="listtitle"> Need Help </h4>
+                  
                     <li className="listitems">support@gooddrop.com</li>
                     <li className="listitems">Call at 9756432675</li>
                   </ul>

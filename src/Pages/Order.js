@@ -27,4 +27,3 @@ class Order extends PureComponent {
 }
 
 export default Order;
-/*<img src={thankyou} alt="Thank you" width="100%" />*/
