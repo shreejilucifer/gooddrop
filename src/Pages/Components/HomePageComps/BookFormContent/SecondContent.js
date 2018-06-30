@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import { Select, DatePicker } from 'antd';
+import { Select } from 'antd';
 const Option = Select.Option;
 
 class SecondContent extends PureComponent {
@@ -20,6 +20,7 @@ class SecondContent extends PureComponent {
                 type="text"
                 width="100%"
                 name="receivername"
+                value={state.receiverName}
                 onChange={(e)=>{actions.destinationDetailsChange(e.target.value, 'receivername')}}
               /> <br/>
               <label className="pickupdetailsformlabel">Contact Number</label>
@@ -27,6 +28,7 @@ class SecondContent extends PureComponent {
                 type="text"
                 width="100%"
                 name="receivercontactnum"
+                value={state.receivercontactNumber}
                 onChange={(e)=>{actions.destinationDetailsChange(e.target.value, 'receivercontactnumber')}}
               /> <br/>
               <label className="pickupdetailsformlabel">Email ID</label>
@@ -35,33 +37,17 @@ class SecondContent extends PureComponent {
                 type="text"
                 width="100%"
                 name="receiveremailid"
+                value={state.receiveremailID}
                 onChange={(e)=>{actions.destinationDetailsChange(e.target.value, 'receiveremailid')}}
               /> <br/>
-              <div>
-                <label className="pickupdetailsformlabel">Pickup Date</label>
-                <DatePicker
-                  onChange={actions.destinationDetailsChangePickUpdate}
-                  name="pickupdate"
-                  showToday={false}
-                />
-                <label className="pickupdetailsformlabel">Pickup slot</label>
-                <Select
-                  style={{ width: 120 }}
-                  defaultValue=""
-                    onChange={(e)=>{actions.destinationDetailsChange(e, 'receiverpickupslot')}}>
-                    <Option value="6to7">6 AM - 10 AM</Option>
-                    <Option value="10to12">10 AM - 12 PM</Option>
-                    <Option value="12to4">12 PM - 4 PM</Option>
-                    <Option value="4to7">4 PM - 7 PM</Option>
-                    <Option value="7to11">7 PM - 11 PM</Option>
-                </Select>
-            </div><br/>
+              <br/>
             <label className="pickupdetailsformlabel">Address Line</label>
             <input
               className="pickupdetailsforminput"
               type="text"
               width="100%"
               name="addressline"
+              value={state.receiveraddressLine}
               onChange={(e)=>{actions.destinationDetailsChange(e.target.value, 'receiveraddressline')}}
             /> <br/>
             <label className="pickupdetailsformlabel">Town/City</label>
@@ -69,6 +55,7 @@ class SecondContent extends PureComponent {
               width="100%"
               name="towncity"
               defaultValue=""
+              value={state.receivertownCity}
               onChange={(e)=>{actions.destinationDetailsChange(e, 'receivertowncity')}}>
               <Option value="ahmedabad">Ahmedabad</Option>
               <Option value="mumbai">Mumbai</Option>
@@ -79,6 +66,7 @@ class SecondContent extends PureComponent {
               width="100%"
               name="state"
               defaultValue=""
+              value={state.receiveraddressState}
               onChange={(e)=>{actions.destinationDetailsChange(e, 'receiveraddressstate')}}>
               <Option value="gujarat">Gujarat</Option>
               <Option value="maharastra">Maharastra</Option>

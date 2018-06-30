@@ -1,4 +1,5 @@
 import React, { PureComponent } from 'react';
+import { Checkbox } from 'antd';
 
 class ThirdContent extends PureComponent {
 
@@ -22,25 +23,25 @@ class ThirdContent extends PureComponent {
                 <tr>
                   <td className="pickupdetailscells">Bike Details</td>
                   <td className="pickupdetailscells">
-                    <b>Pulsar 150</b>
+                    <b>{state.bikeCC} CC</b>
                   </td>
                 </tr>
                 <tr>
                   <td className="pickupdetailscells">Shipping Date</td>
                   <td className="pickupdetailscells">
-                    <b>21/07/2016</b>
+                    <b>{state.parcelDate}</b>
                   </td>
                 </tr>
                 <tr>
                   <td className="pickupdetailscells">Pickup Date</td>
                   <td className="pickupdetailscells">
-                    <b>21/07/2016</b>
+                    <b>{state.pickupDate}</b>
                   </td>
                 </tr>
                 <tr>
                   <td className="pickupdetailscells">Pickup Slot</td>
                   <td className="pickupdetailscells">
-                    <b>SLOT - A</b>
+                    <b>{state.pickupSlot}</b>
                   </td>
                 </tr>
               </tbody>
@@ -59,25 +60,22 @@ class ThirdContent extends PureComponent {
 
                   </tr>
                   <tr>
-                    <td className="pickupdetailscells">Simerpreet Kaur</td>
+                    <td className="pickupdetailscells">{state.senderName}</td>
                   </tr>
                   <tr>
-                    <td className="pickupdetailscells">Plot No 5XX1</td>
+                    <td className="pickupdetailscells">{state.addressLine}</td>
                   </tr>
                   <tr>
-                    <td className="pickupdetailscells">XXXXXXXXXXXXXXXXXXXXXXX</td>
+                    <td className="pickupdetailscells">City-{state.townCity}</td>
                   </tr>
                   <tr>
-                    <td className="pickupdetailscells">XXXXXXXXX</td>
+                    <td className="pickupdetailscells">{state.addressState}</td>
                   </tr>
                   <tr>
-                    <td className="pickupdetailscells">City-XXXXXXXXX</td>
+                    <td className="pickupdetailscells">Mob +91{state.contactNumber}</td>
                   </tr>
                   <tr>
-                    <td className="pickupdetailscells">Mob 91 -XXXXXXXXX</td>
-                  </tr>
-                  <tr>
-                    <td className="pickupdetailscells">Email 91 -XXXXXXXXX@XXX.com</td>
+                    <td className="pickupdetailscells">Email-{state.emailID}</td>
                   </tr>
                 </tbody>
               </table>
@@ -91,38 +89,30 @@ class ThirdContent extends PureComponent {
                     </td>
                   </tr>
                   <tr>
-                    <td className="pickupdetailscells">Simerpreet Kaur</td>
+                    <td className="pickupdetailscells">{state.receiverName}</td>
                   </tr>
                   <tr>
-                    <td className="pickupdetailscells">Plot No 5XX1</td>
+                    <td className="pickupdetailscells">{state.receiveraddressLine}</td>
                   </tr>
                   <tr>
-                    <td className="pickupdetailscells">XXXXXXXXXX</td>
+                    <td className="pickupdetailscells">City-{state.receivertownCity}</td>
                   </tr>
                   <tr>
-                    <td className="pickupdetailscells">XXXXXXXXX</td>
+                    <td className="pickupdetailscells">{state.receiveraddressState}</td>
+                  </tr>
+
+                  <tr>
+                    <td className="pickupdetailscells">Mob +91{state.receivercontactNumber}</td>
                   </tr>
                   <tr>
-                    <td className="pickupdetailscells">City-XXXXXXXXX</td>
-                  </tr>
-                  <tr>
-                    <td className="pickupdetailscells">Mob 91 -XXXXXXXXX</td>
-                  </tr>
-                  <tr>
-                    <td className="pickupdetailscells">Email -XXXXXXXXX@XXX.com</td>
+                    <td className="pickupdetailscells">Email-{state.receiveremailID}</td>
                   </tr>
                 </tbody>
               </table>
             </div>
             <br/>
             <div>
-              <input type="checkbox" name="terms"/>
-              <span>
-                &nbsp;
-              </span>
-              <label className="pickupdetailsformlabel">
-                I have read and understood the terms and conditions and i agree with it.
-              </label>
+              <Checkbox onChange={actions.onChangeCheckBox}>I have read and understood the terms and conditions and i agree with it.</Checkbox>
             </div>
 
           </div>

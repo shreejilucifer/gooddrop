@@ -30,6 +30,7 @@ export default {
   contactNumber: null,
   emailID: "",
   pickupDate: "",
+  pickupDateActual: null,
   pickupSlot: "",
   addressLine: "",
   townCity: "",
@@ -40,11 +41,14 @@ export default {
   receiverName: "",
   receivercontactNumber: "",
   receiveremailID: "",
-  receiverpickupDate: "",
-  receiverpickupSlot: "",
+  receiverpickupDate: "xxx",
+  receiverpickupSlot: "xxx",
   receiveraddressLine: "",
   receivertownCity: "",
   receiveraddressState: "",
+
+  // Summary
+  checkBox: false,
 
   //Done Payment
   redirect: true,

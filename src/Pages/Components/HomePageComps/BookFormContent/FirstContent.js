@@ -33,6 +33,7 @@ class FirstContent extends PureComponent {
               type="text"
               width="100%"
               name="sendername"
+              value={state.senderName}
               onChange={(e)=>{actions.pickupDetailsChange(e.target.value, 'sendername')}}
             />
             <br/>
@@ -54,12 +55,14 @@ class FirstContent extends PureComponent {
               type="text"
               width="100%"
               name="emailid"
+              value={state.emailID}
               onChange={(e)=>{actions.pickupDetailsChange(e.target.value, 'emailid')}}
             />
             <br/>
             <div className="slotanddate">
               <label className="pickupdetailsformlabel">Pickup Date</label>
               <DatePicker
+                value={state.pickupDateActual}
                 disabledDate={(current)=>{
                   return (current > state.parcelDateActual) }}
                 onChange={actions.pickupDetailsChangePickUpdate}
@@ -69,6 +72,7 @@ class FirstContent extends PureComponent {
               <br/>
               <label className="pickupdetailsformlabel">Pickup Slot</label>
               <Select
+                value={state.pickupSlot}
                 style={{ width: 120 }}
                 defaultValue=""
                 onChange={(e)=>{actions.pickupDetailsChange(e, 'pickupslot')}}>
@@ -86,6 +90,7 @@ class FirstContent extends PureComponent {
               type="text"
               width="100%"
               name="addressline"
+              value={state.addressLine}
               onChange={(e)=>{actions.pickupDetailsChange(e.target.value, 'addressline')}}
             />
             <br/>
@@ -94,6 +99,7 @@ class FirstContent extends PureComponent {
               width="100%"
               name="towncity"
               defaultValue=""
+              value={state.townCity}
               onChange={(e)=>{actions.pickupDetailsChange(e, 'towncity')}}>
               <Option value="ahmedabad">Ahmedabad</Option>
               <Option value="mumbai">Mumbai</Option>
@@ -104,6 +110,7 @@ class FirstContent extends PureComponent {
               width="100%"
               name="state"
               defaultValue=""
+              value={state.addressState}
               onChange={(e)=>{actions.pickupDetailsChange(e, 'addressstate')}}>
               <Option value="gujarat">Gujarat</Option>
               <Option value="maharastra">Maharastra</Option>

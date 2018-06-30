@@ -10,7 +10,8 @@ export default {
 
     if (value3 === null || value4 === null || value5 === null) {
       this.setState({errorPrint: "Fill All The Data"});
-    } else {
+    }
+    else {
       this.setState({showResults: value1, showBikeDetails: value2, errorPrint: ""});
     }
   },
@@ -57,7 +58,8 @@ export default {
 
   openOTPModal: function(value1, value2, value3) {
 
-    var mob = /^[1-9]{1}[0-9]{9}$/;
+    var mob = /^[6-9]\d{9}$/;
+    var cc = /^\d{2,3}$/;
     value1 = Number(value1); // bikeCC
     value2 = Number(value2); // bikeValue
 
@@ -65,13 +67,13 @@ export default {
 
     if (value1 === null || value2 === null || value3 === null)
       this.setState({errorPrint: "Enter Data"});
+    else if ( cc.test(value1) === false )
+      this.setState({errorPrint: "Enter Valid Bike CC"});
     else if (mob.test(value3) === false)
       this.setState({errorPrint: "Enter Valid Mobile"});
-
-    else if ( (value1=>0 && value1<=50) && value2 < 10000)
-      this.setState({errorPrint: "Bike Value should be more than 10000"});
-
-    else if ( (value1>50 && value1<=150) && value2 < 10000)
+    else if ( value1 <= 70 )
+      this.setState({errorPrint: "Bike CC should be more than 70"});
+    else if ( (value1>70 && value1<=150) && value2 < 10000)
             this.setState({errorPrint: "Bike Value should be more than 10000"});
 
     else if( (value1>150 && value1<=350) && value2 < 50000)
@@ -82,6 +84,8 @@ export default {
 
      else if ((value1>500 && value1<=750) && value2 < 100000)
       this.setState({errorPrint: "Bike Value should be more than 100000"});
+     else if (value2 > 999999 )
+      this.setState({errorPrint: "Bike Value Not Allowed"});
     else
       this.setState({otpModal: true, errorPrint: "", displayNone: "none"});
     },
@@ -140,7 +144,7 @@ export default {
     console.log(d.getFullYear()+d.getMonth()+d.getDate());
     console.log(dateString);
     console.log(d < dateString); */
-    this.setState({pickupDate: dateString});
+    this.setState({pickupDate: dateString, pickupDateActual: date});
   },
   destinationDetailsChangePickUpdate: function(date, dateString) {
     this.setState({receiverpickupDate: dateString});
@@ -173,7 +177,7 @@ export default {
         this.setState({receiveraddressState: value});
         break;
       default:
-        console.log("Erorr Form Change");
+        console.log("Error Form Change");
     }
   },
 
@@ -205,6 +209,10 @@ export default {
       alert("Your Review is Submitted");
     }
 
+  },
+
+  onChangeCheckBox: function(e) {
+    this.setState({checkBox: e.target.checked});
   }
 
 }

@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import Navbar from './Components/HomePageComps/Navbar';
 import Footer from './Components/HomePageComps/Footer';
-import AboutHeader from './Components/AboutUsPageComps/AboutHeader';
+import thankyou from './Components/Assets/thankyoudropping.png';
 
 class Order extends PureComponent {
 
@@ -12,10 +12,10 @@ class Order extends PureComponent {
         {({ state, actions }) => (
           <div>
             <Navbar Consumer={this.props.Consumer}/>
-            <AboutHeader title="Thanks for Dropping Your Bike !"/>
             <div className="orderpage" style={{ paddingTop: "100px", paddingBottom: "100px", display: "flex", justifyContent: "center"}}>
-              <h3> Your Order Id is: {state.orderid} </h3>
+              <h1> Your Order Id is: {state.orderid} </h1>
             </div>
+            <img src={thankyou} alt="Thank you" width="100%" />
             <Footer Consumer={this.props.Consumer}/>
           </div>
 

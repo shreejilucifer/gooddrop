@@ -39,14 +39,33 @@ class BookingForm extends PureComponent {
     return re.test(email);
   }
 
-  next(value1, value2, value3, value4, value5, value6, value7, value8) {
+  next(value1, value2, value3, value4, value5, value6, value7, value8, value9) {
 
-    if( value1 === "" || value2 === "" || value3 === "" || value4 === "" || value5 === "" || value6 === "" || value7 === "" || value8 === "")
-      this.setState({error: "Fill All Data"})  ;
+    var sender = /([a-zA-Z]{1}[a-zA-Z]*[\s]{0,1}[a-zA-Z])+([\s]{0,1}[a-zA-Z]+)/;
 
+    if( value1 === "" )
+      this.setState({error: "Name Empty !"});
+    else if( value2 === "" )
+      this.setState({error: "Contact Number Empty !"});
+    else if( value3 === "" )
+      this.setState({error: "Email ID Empty !"});
+    else if( value4 === "" )
+      this.setState({error: "Pickup Date Empty !"});
+    else if( value5 === "" )
+      this.setState({error: "Pickup Slot Empty !"});
+    else if( value6 === "" )
+      this.setState({error: "Address Line Empty !"});
+    else if( value7 === "" )
+      this.setState({error: "Town / City Empty !"});
+    else if( value8 === "" )
+      this.setState({error: "State Empty !"});
+    else if( value9 === false )
+      this.setState({error: "Accept Terms & Conditions !"});
     else if( !this.validateEmail(value3) )
       this.setState({error: "Email Not Valid"}) ;
 
+    else if( sender.test(value1) === false )
+      this.setState({error: "Sender Name Invalid"});
     else {
       const current = this.state.current + 1;
       this.setState({ current: current, error: "" });
@@ -88,7 +107,7 @@ class BookingForm extends PureComponent {
                 <button type="primary" className="bookingformnextbtn" onClick={() => {
                   this.next(
                     state.senderName, state.contactNumber, state.emailID,
-                    state.pickupDate, state.pickupSlot, state.addressLine, state.addressState
+                    state.pickupDate, state.pickupSlot, state.addressLine, state.townCity, state.addressState
                   );
                 }}>
                 Next
@@ -106,7 +125,7 @@ class BookingForm extends PureComponent {
                   <button type="primary" className="bookingformnextbtn" onClick={() => {
                     this.next(
                       state.senderName, state.contactNumber, state.emailID,
-                      state.pickupDate, state.pickupSlot, state.addressLine, state.addressState
+                      state.pickupDate, state.pickupSlot, state.addressLine, state.townCity, state.addressState, state.checkBox
                     );
                   }}>
                   Next
@@ -123,8 +142,8 @@ class BookingForm extends PureComponent {
                 <div>
                   <button type="primary" className="bookingformnextbtn" onClick={() => {
                     this.next(
-                      state.receiversenderName, state.receivercontactNumber, state.receiveremailID,
-                      state.receiverpickupDate, state.receiverpickupSlot, state.receiveraddressLine, state.receiveraddressState
+                      state.receiverName, state.receivercontactNumber, state.receiveremailID,
+                      state.receiverpickupDate, state.receiverpickupSlot, state.receiveraddressLine, state.receivertownCity, state.receiveraddressState
                     );
                   }}>
                   Next
