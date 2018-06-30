@@ -42,6 +42,7 @@ class BookingForm extends PureComponent {
   next(value1, value2, value3, value4, value5, value6, value7, value8, value9) {
 
     var sender = /([a-zA-Z]{1}[a-zA-Z]*[\s]{0,1}[a-zA-Z])+([\s]{0,1}[a-zA-Z]+)/;
+    var mob = /^[6-9]\d{9}$/;
 
     if( value1 === "" )
       this.setState({error: "Name Empty !"});
@@ -61,6 +62,10 @@ class BookingForm extends PureComponent {
       this.setState({error: "State Empty !"});
     else if( value9 === false )
       this.setState({error: "Accept Terms & Conditions !"});
+
+    else if( mob.test(value2) === false )
+      this.setState({error: "Contact Number Invalid" });
+
     else if( !this.validateEmail(value3) )
       this.setState({error: "Email Not Valid"}) ;
 
