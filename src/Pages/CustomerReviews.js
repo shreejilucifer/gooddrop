@@ -7,15 +7,20 @@ import {Rate, Input} from 'antd';
 import './Components/CSS/CustomerReviewCSS/customerreviewpage.css';
 
 const { TextArea } = Input;
-const CustomerReviewShow = (props) => (<div className="customerreviewshow">
-  <Rate disabled defaultValue={props.rateValue}/>
-  <p className="customerreviewdata">
-    <i>{props.rateData}</i>
-  </p>
-  <h3 className="customerreviewfrom">
-    --- {props.reviewFromCustomerName}
-  </h3>
-</div>);
+const CustomerReviewShow = (props) => (
+      <div className="card" >
+        <div className="content">
+        <div className="front">
+          <h2><b>{props.reviewFromCustomerName}</b></h2> <br/>
+          <Rate disabled defaultValue={props.rateValue}/> <br/>
+          <p> View Review </p>
+        </div>
+        <div className="back">
+          <div className="backdata"><i>"{props.rateData}"</i></div>
+        </div>
+      </div>
+    </div>
+    );
 
 class CustomerReviews extends PureComponent {
   state = {
@@ -37,14 +42,14 @@ class CustomerReviews extends PureComponent {
           <AboutHeader title="ABOUT US"/>
           <div className="customerreviews">
             <div className="customerreviewgrid">
-                <CustomerReviewShow rateValue={4} rateData="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum." reviewFromCustomerName="Shreeji Pedhadiya"/>
-
+                <CustomerReviewShow rateValue={4} rateData="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing" reviewFromCustomerName="Shreeji Pedhadiya"/>
+                <br/>
 
                 <CustomerReviewShow rateValue={4} rateData="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum." reviewFromCustomerName="Naveen C T"/>
-
+                <br/>
 
                 <CustomerReviewShow rateValue={4} rateData="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum." reviewFromCustomerName="Akshata Akkanna"/>
-
+                <br/>
             </div>
             <br/>
             <div className="btncontainer">
@@ -72,3 +77,13 @@ class CustomerReviews extends PureComponent {
 }
 
 export default CustomerReviews;
+/*
+<div className="customerreviewshow">
+<Rate disabled defaultValue={props.rateValue}/>
+<p className="customerreviewdata">
+  <i>{props.rateData}</i>
+</p>
+<h3 className="customerreviewfrom">
+  --- {props.reviewFromCustomerName}
+</h3>
+</div> */

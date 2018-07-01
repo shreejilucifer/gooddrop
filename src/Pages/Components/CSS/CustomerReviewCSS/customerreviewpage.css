@@ -1,19 +1,16 @@
 .customerreviews {
-  margin-top: 50px;
-  margin-bottom: 50px;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  background-color: #34b3d3;
 }
 
 .customerreviewshow {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 10px;
+
   background-color: #34b3d3;
   padding: 20px;
-}
-
-.customerreviewgrid {
-  display: flex;
 }
 
 .customerreviewdata {
@@ -39,6 +36,7 @@
   color: #fff;
   font-size: 15px;
   border: none ;
+  box-shadow: 0 0 15px rgba(0,0,0,0.1);
 }
 
 .newreviewbtn {
@@ -47,7 +45,8 @@
   background-color: #f6416c;
   color: #fff;
   font-size: 15px;
-  border: none
+  border: none;
+  box-shadow: 0 0 15px rgba(0,0,0,0.1);
 }
 
 .reviewmodal {
@@ -56,6 +55,73 @@
   flex: 1;
   flex-direction: column;
   align-items: center;
+}
+
+.customerreviewgrid {
+  margin-left: 50px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+/* Card */
+.card {
+  top: 50%;
+  left: 50%;
+  width: 300px;
+  height: 300px;
+  float: left;
+  perspective: 500px;
+}
+
+.content {
+
+  width: 100%;
+  height: 100%;
+  box-shadow: 0 0 15px rgba(0,0,0,0.1);
+
+  transition: transform 1s;
+  transform-style: preserve-3d;
+}
+
+.card:hover .content {
+  transform: rotateY( 180deg ) ;
+  transition: transform 0.5s;
+}
+
+.front {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.front,
+.back {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background: white;
+  color: #03446A;
+  text-align: center;
+  border-radius: 5px;
+  backface-visibility: hidden;
+}
+
+.backdata {
+    display: flex;
+  overflow: auto;
+  height: 100%;
+  justify-content: center;
+}
+
+.back {
+
+  padding-left: 10px;
+  padding-right: 10px;
+
+  background: #03446A;
+  color: white;
+  transform: rotateY( 180deg );
 }
 
 @media only screen and (max-width: 600px) {
