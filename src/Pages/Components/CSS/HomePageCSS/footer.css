@@ -35,6 +35,7 @@
 .socialsection {
   display: flex;
   flex: 1;
+  z-index: 10;
   flex-direction: row;
   justify-content: flex-end;
   align-items: center;
@@ -71,7 +72,17 @@
 
 .templisttitle {
   color: #f6416c;
-  
+
+}
+
+.sidegraphics {
+  right: 0;
+  position: absolute;
+  height: 268px;
+  width: 400px;
+  background-color: #34b3d3;
+  transform: translateY(-50px);
+  clip-path: polygon(50% 0, 100% 0%, 100% 100%, 0% 100%);
 }
 
 @media only screen and (max-width: 600px) {

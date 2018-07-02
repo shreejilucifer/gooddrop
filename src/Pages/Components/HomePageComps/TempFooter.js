@@ -56,6 +56,7 @@ class Footer extends PureComponent {
                 </a>
               </div>
             </div>
+            <div className="sidegraphics"></div>
           </div>
         )}
       </Consumer>
