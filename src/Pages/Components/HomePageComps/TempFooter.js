@@ -1,8 +1,8 @@
 import React, { PureComponent } from 'react';
 import '../CSS/HomePageCSS/footer.css';
-import facebookicon from '../Assets/fbicon.png';
-import twittericon from '../Assets/twittericon.png';
-import instagramicon from '../Assets/linkedinicon.png';
+import facebookicon from '../Assets/facebook.png';
+import twittericon from '../Assets/twitter.png';
+import instagramicon from '../Assets/linkedin.png';
 import { Link } from 'react-router-dom';
 
 class Footer extends PureComponent {

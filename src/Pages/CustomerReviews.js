@@ -5,14 +5,10 @@ import TempFooter from './Components/HomePageComps/TempFooter';
 import Modal from 'react-responsive-modal';
 import {Rate, Input} from 'antd';
 import './Components/CSS/CustomerReviewCSS/customerreviewpage.css';
-import profilepic from './Components/Assets/profilepic.jpg';
 
 const { TextArea } = Input;
-const CustomerReviewShowLeft = (props) => (
+const CustomerReviewShow = (props) => (
   <div className="reviewbox">
-    <div className="rightreviewbox">
-      <div className="imagebox"><img alt="profile" className="propic" src={profilepic} /></div>
-    </div>
     <div className="leftreviewbox">
       <div className="textbox"><i>{props.rateData}</i></div> <br/>
       <div className="reviewnamebox"><b>{props.reviewFromCustomerName}</b></div>
@@ -20,18 +16,6 @@ const CustomerReviewShowLeft = (props) => (
 
   </div>
     );
-
-    const CustomerReviewShowRight = (props) => (
-      <div className="reviewbox">
-        <div className="leftreviewbox">
-          <div className="textbox"><i>{props.rateData}</i></div> <br/>
-          <div className="reviewnamebox"><b>{props.reviewFromCustomerName}</b></div>
-        </div>
-        <div className="rightreviewbox">
-          <div className="imagebox"><img alt="profile" className="propic" src={profilepic} /></div>
-        </div>
-      </div>
-        );
 
 
 class CustomerReviews extends PureComponent {
@@ -54,16 +38,15 @@ class CustomerReviews extends PureComponent {
           <AboutHeader title="CUSTOMER REVIEWS"/>
           <div className="customerreviews">
             <div className="customerreviewgrid">
-                <CustomerReviewShowLeft  rateValue={4} rateData="Amazing Service Loved It." reviewFromCustomerName="Shreeji Pedhadiya"/>
+                <CustomerReviewShow  rateValue={4} rateData="Amazing Service Loved It." reviewFromCustomerName="Shreeji Pedhadiya"/>
+                <br/>
+                <CustomerReviewShow  rateValue={4} rateData="Very Fast & Easy To Use App." reviewFromCustomerName="Naveen C T"/>
                 <br/>
 
-                <CustomerReviewShowRight  rateValue={4} rateData="Very Fast & Easy To Use App." reviewFromCustomerName="Naveen C T"/>
+                <CustomerReviewShow  rateValue={4} rateData="Very Helpful Will Surely Recommend to Friends" reviewFromCustomerName="Akshata Akkanna"/>
                 <br/>
 
-                <CustomerReviewShowLeft  rateValue={4} rateData="Very Helpful Will Surely Recommend to Friends" reviewFromCustomerName="Akshata Akkanna"/>
-                <br/>
-
-                <CustomerReviewShowRight  rateValue={4} rateData="Very Helpful Will Surely Recommend to Friends" reviewFromCustomerName="Akshata Akkanna"/>
+                <CustomerReviewShow  rateValue={4} rateData="Very Helpful Will Surely Recommend to Friends" reviewFromCustomerName="Akshata Akkanna"/>
                 <br/>
             </div>
             <br/>
