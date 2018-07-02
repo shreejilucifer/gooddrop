@@ -5,16 +5,34 @@ import TempFooter from './Components/HomePageComps/TempFooter';
 import Modal from 'react-responsive-modal';
 import {Rate, Input} from 'antd';
 import './Components/CSS/CustomerReviewCSS/customerreviewpage.css';
+import profilepic from './Components/Assets/profilepic.jpg';
 
 const { TextArea } = Input;
-const CustomerReviewShow = (props) => (
-  <figure class="snip1327">
-    <blockquote>{props.rateData}</blockquote>
-    <div class="author">
-      <h5>{props.reviewFromCustomerName}</h5><span></span>
+const CustomerReviewShowLeft = (props) => (
+  <div className="reviewbox">
+    <div className="rightreviewbox">
+      <div className="imagebox"><img alt="profile" className="propic" src={profilepic} /></div>
     </div>
-  </figure>
+    <div className="leftreviewbox">
+      <div className="textbox"><i>{props.rateData}</i></div> <br/>
+      <div className="reviewnamebox"><b>{props.reviewFromCustomerName}</b></div>
+    </div>
+
+  </div>
     );
+
+    const CustomerReviewShowRight = (props) => (
+      <div className="reviewbox">
+        <div className="leftreviewbox">
+          <div className="textbox"><i>{props.rateData}</i></div> <br/>
+          <div className="reviewnamebox"><b>{props.reviewFromCustomerName}</b></div>
+        </div>
+        <div className="rightreviewbox">
+          <div className="imagebox"><img alt="profile" className="propic" src={profilepic} /></div>
+        </div>
+      </div>
+        );
+
 
 class CustomerReviews extends PureComponent {
   state = {
@@ -36,16 +54,16 @@ class CustomerReviews extends PureComponent {
           <AboutHeader title="CUSTOMER REVIEWS"/>
           <div className="customerreviews">
             <div className="customerreviewgrid">
-                <CustomerReviewShow rateValue={4} rateData="Amazing Service Loved It." reviewFromCustomerName="Shreeji Pedhadiya"/>
+                <CustomerReviewShowLeft  rateValue={4} rateData="Amazing Service Loved It." reviewFromCustomerName="Shreeji Pedhadiya"/>
                 <br/>
 
-                <CustomerReviewShow rateValue={4} rateData="Very Fast & Easy To Use App." reviewFromCustomerName="Naveen C T"/>
+                <CustomerReviewShowRight  rateValue={4} rateData="Very Fast & Easy To Use App." reviewFromCustomerName="Naveen C T"/>
                 <br/>
 
-                <CustomerReviewShow rateValue={4} rateData="Very Helpful Will Surely Recommend to Friends" reviewFromCustomerName="Akshata Akkanna"/>
+                <CustomerReviewShowLeft  rateValue={4} rateData="Very Helpful Will Surely Recommend to Friends" reviewFromCustomerName="Akshata Akkanna"/>
                 <br/>
 
-                <CustomerReviewShow rateValue={4} rateData="Very Helpful Will Surely Recommend to Friends" reviewFromCustomerName="Akshata Akkanna"/>
+                <CustomerReviewShowRight  rateValue={4} rateData="Very Helpful Will Surely Recommend to Friends" reviewFromCustomerName="Akshata Akkanna"/>
                 <br/>
             </div>
             <br/>
@@ -65,7 +83,9 @@ class CustomerReviews extends PureComponent {
               </Modal>
             </div>
           </div>
+
           <TempFooter Consumer={Consumer}/>
+
         </div>)
       }
     </Consumer>);
