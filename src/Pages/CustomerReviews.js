@@ -1,25 +1,19 @@
 import React, {PureComponent} from 'react';
 import Navbar from './Components/HomePageComps/Navbar';
 import AboutHeader from './Components/AboutUsPageComps/AboutHeader';
-import Footer from './Components/HomePageComps/Footer';
+import TempFooter from './Components/HomePageComps/TempFooter';
 import Modal from 'react-responsive-modal';
 import {Rate, Input} from 'antd';
 import './Components/CSS/CustomerReviewCSS/customerreviewpage.css';
 
 const { TextArea } = Input;
 const CustomerReviewShow = (props) => (
-      <div className="card" >
-        <div className="content">
-        <div className="front">
-          <h2><b>{props.reviewFromCustomerName}</b></h2> <br/>
-          <Rate disabled defaultValue={props.rateValue}/> <br/>
-          <p> View Review </p>
-        </div>
-        <div className="back">
-          <div className="backdata"><i>"{props.rateData}"</i></div>
-        </div>
-      </div>
+  <figure class="snip1327">
+    <blockquote>{props.rateData}</blockquote>
+    <div class="author">
+      <h5>{props.reviewFromCustomerName}</h5><span></span>
     </div>
+  </figure>
     );
 
 class CustomerReviews extends PureComponent {
@@ -39,16 +33,19 @@ class CustomerReviews extends PureComponent {
       {
         ({state, actions}) => (<div>
           <Navbar Consumer={Consumer}/>
-          <AboutHeader title="ABOUT US"/>
+          <AboutHeader title="CUSTOMER REVIEWS"/>
           <div className="customerreviews">
             <div className="customerreviewgrid">
-                <CustomerReviewShow rateValue={4} rateData="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing" reviewFromCustomerName="Shreeji Pedhadiya"/>
+                <CustomerReviewShow rateValue={4} rateData="Amazing Service Loved It." reviewFromCustomerName="Shreeji Pedhadiya"/>
                 <br/>
 
-                <CustomerReviewShow rateValue={4} rateData="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum." reviewFromCustomerName="Naveen C T"/>
+                <CustomerReviewShow rateValue={4} rateData="Very Fast & Easy To Use App." reviewFromCustomerName="Naveen C T"/>
                 <br/>
 
-                <CustomerReviewShow rateValue={4} rateData="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum." reviewFromCustomerName="Akshata Akkanna"/>
+                <CustomerReviewShow rateValue={4} rateData="Very Helpful Will Surely Recommend to Friends" reviewFromCustomerName="Akshata Akkanna"/>
+                <br/>
+
+                <CustomerReviewShow rateValue={4} rateData="Very Helpful Will Surely Recommend to Friends" reviewFromCustomerName="Akshata Akkanna"/>
                 <br/>
             </div>
             <br/>
@@ -68,7 +65,7 @@ class CustomerReviews extends PureComponent {
               </Modal>
             </div>
           </div>
-          <Footer Consumer={Consumer}/>
+          <TempFooter Consumer={Consumer}/>
         </div>)
       }
     </Consumer>);

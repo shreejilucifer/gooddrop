@@ -5,6 +5,23 @@
   padding-top: 50px;
   padding-bottom: 50px;
   background-color: #48476e;
+  width: 100%;
+}
+
+.tempfooter {
+  display: flex;
+  flex: 1;
+  flex-direction: row;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  background-color: #fff;
+  width: 100%;
+}
+
+.aboutusfooter {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
 }
 
 .footergrid {
@@ -46,6 +63,17 @@
   line-height: 25px;
 }
 
+.templistitems {
+  color: #000;
+  list-style: none;
+  line-height: 25px;
+}
+
+.templisttitle {
+  color: #f6416c;
+  
+}
+
 @media only screen and (max-width: 600px) {
   .footer {
     display: flex;
@@ -56,7 +84,7 @@
     background-color: #48476e;
   }
   .footergrid {
-    margin-left: 10px;
+    margin-left: 0px;
     margin-right: 10px;
     width: 100%;
     display: flex;

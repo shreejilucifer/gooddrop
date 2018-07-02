@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import Navbar from './Components/HomePageComps/Navbar';
-import Footer from './Components/HomePageComps/Footer';
+import TempFooter from './Components/HomePageComps/TempFooter';
 import AboutHeader from './Components/AboutUsPageComps/AboutHeader';
 
 class Terms extends PureComponent {
@@ -46,7 +46,7 @@ class Terms extends PureComponent {
           <li>GOODDROP website may contain links to affiliates, and websites owned and operated by third parties. GOODDROP does not sponsor or express any warrantee or guarantee whether direct or implied for the websites linked to or from the GOODDROP website. GOODDROP is not responsible for any loss or damage whatsoever incurred by the customer while interacting/transacting with these websites.</li>
         </ol>
         </div>
-        <Footer Consumer={this.props.Consumer}/>
+        <TempFooter Consumer={this.props.Consumer}/>
       </div>
     );
   }

@@ -1,6 +1,6 @@
 import React, {PureComponent} from 'react';
 import Navbar from './Components/HomePageComps/Navbar';
-import Footer from './Components/HomePageComps/Footer';
+import TempFooter from './Components/HomePageComps/TempFooter';
 import AboutHeader from './Components/AboutUsPageComps/AboutHeader';
 
 class PaymentPolicy extends PureComponent {
@@ -28,7 +28,9 @@ class PaymentPolicy extends PureComponent {
             <li>How will we refund money for customers who opted COP: To customer's bank account.</li>
           </ol>
         </div>
-        <Footer Consumer={this.props.Consumer}/>
+
+          <TempFooter Consumer={this.props.Consumer}/>
+
       </div>
       );
   }

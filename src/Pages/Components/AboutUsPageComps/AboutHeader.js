@@ -7,7 +7,6 @@ class AboutHeader extends Component {
     return (
         <div className="aboutusheader">
           <h2 className="headertitle"> {this.props.title} </h2>
-          <div className="headerunderline"></div>
         </div>
     );
   }

@@ -1,6 +1,6 @@
 import React, {PureComponent} from 'react';
 import Navbar from './Components/HomePageComps/Navbar';
-import Footer from './Components/HomePageComps/Footer';
+import TempFooter from './Components/HomePageComps/TempFooter';
 import AboutHeader from './Components/AboutUsPageComps/AboutHeader';
 
 class PrivacyPolicy extends PureComponent {
@@ -58,7 +58,7 @@ class PrivacyPolicy extends PureComponent {
           <li>GOODDROP is committed to the security of personal information collected from the customers. GOODDROP uses industry-wide security practices to securely keep the data in its databases. However, no system can claim to be 100% impenetrable. GOODDROP does not guarantee the security of our storage, not can we guarantee that information you supply would not be intercepted while being transmitted to GOODDROP over the internet. Customer is responsible to protect the security of his/her login credentials. </li>
         </ol>
       </div>
-      <Footer Consumer={this.props.Consumer}/>
+      <TempFooter Consumer={this.props.Consumer}/>
     </div>);
   }
 

@@ -3,7 +3,7 @@ import React, { PureComponent } from 'react';
 import Navbar from './Components/HomePageComps/Navbar';
 import AboutHeader from './Components/AboutUsPageComps/AboutHeader';
 import AboutData from './Components/AboutUsPageComps/AboutData';
-import Footer from './Components/HomePageComps/Footer';
+import TempFooter from './Components/HomePageComps/TempFooter';
 
 class AboutUs extends PureComponent {
   render() {
@@ -15,7 +15,10 @@ class AboutUs extends PureComponent {
             <Navbar Consumer={Consumer}/>
             <AboutHeader title="ABOUT US"/>
             <AboutData />
-            <Footer Consumer={Consumer}/>
+            <div className="aboutusfooter">
+              <TempFooter Consumer={Consumer}/>
+            </div>
+
           </div>
         )}
       </Consumer>

@@ -1,10 +1,9 @@
 .customerreviews {
   padding-top: 50px;
   padding-bottom: 50px;
-  background-color: #34b3d3;
 }
 
-.customerreviewshow {
+/*.customerreviewshow {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -22,6 +21,7 @@
 .customerreviewfrom {
   align-self: flex-end;
 }
+*/
 
 .btncontainer {
   display: flex;
@@ -65,64 +65,68 @@
 }
 
 /* Card */
-.card {
-  top: 50%;
-  left: 50%;
-  width: 300px;
-  height: 300px;
+
+figure.snip1327 {
+  position: relative;
   float: left;
-  perspective: 500px;
-}
-
-.content {
-
+  overflow: hidden;
+  margin: 10px 1%;
+  min-width: 230px;
+  max-width: 315px;
   width: 100%;
-  height: 100%;
-  box-shadow: 0 0 15px rgba(0,0,0,0.1);
-
-  transition: transform 1s;
-  transform-style: preserve-3d;
+  color: #333;
+  text-align: left;
+  background-color: #34b3d3;
 }
+figure.snip1327 blockquote {
 
-.card:hover .content {
-  transform: rotateY( 180deg ) ;
-  transition: transform 0.5s;
+  margin: 0;
+  padding: 40px 40px 0 90px;
+  font-weight: 500;
+  line-height: 1.6em;
+  font-style: italic;
 }
-
-.front {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
+figure.snip1327 .author {
+  margin: 20px 0 30px 90px;
+  padding: 3px 0 0 50px;
+  width: 100%;
+  position: relative;
 }
-
-.front,
-.back {
+figure.snip1327 .author img {
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  left: 0;
+  top: 0;
+  display: inline-block;
   position: absolute;
-  height: 100%;
-  width: 100%;
-  background: white;
-  color: #03446A;
-  text-align: center;
-  border-radius: 5px;
-  backface-visibility: hidden;
+}
+figure.snip1327 .author h5,
+figure.snip1327 .author span {
+  opacity: 0.8;
+  margin: 0;
+  line-height: 1em;
+}
+figure.snip1327 .author h5 {
+  text-transform: uppercase;
+  font-weight: 800;
+}
+figure.snip1327 .author span {
+  font-size: 0.8em;
+}
+figure.snip1327:before {
+  font-family: 'FontAwesome';
+  content: "\201C";
+  position: absolute;
+  font-size: 150px;
+  line-height: 1em;
+  color: #212121;
+  font-style: normal;
+  top: -30px;
+  left: 10px;
 }
 
-.backdata {
-    display: flex;
-  overflow: auto;
-  height: 100%;
-  justify-content: center;
-}
 
-.back {
-
-  padding-left: 10px;
-  padding-right: 10px;
-
-  background: #03446A;
-  color: white;
-  transform: rotateY( 180deg );
-}
 
 @media only screen and (max-width: 600px) {
   .customerreviewgrid {

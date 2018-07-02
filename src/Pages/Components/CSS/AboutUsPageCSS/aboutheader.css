@@ -1,26 +1,20 @@
 .aboutusheader {
   display: flex;
   flex: 1;
-  flex-direction: column;
+  background-color: #fff ;
+  padding-top: 10px;
+  padding-bottom: 10px;
   justify-content: center;
-  align-items: center;
-  background-color: #48486e ;
-  padding-top: 100px;
-  padding-bottom: 100px;
 
 }
 
 .headertitle {
-  font-size: 40px;
-  color: #fff;
+  padding: 0;
+  margin: 0;
+  font-size: 30px;
+  color: #48486e;
   font-weight: 400;
   text-shadow: 1px 1px 2px rgba(150, 150, 150, 1);
-}
-
-.headerunderline {
-  width: 150px;
-  height: 2px;
-  background-color: #34b3d3;
 }
 
 .headerimg {
