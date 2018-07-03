@@ -40,7 +40,7 @@ export default {
   //BookingForm - Destination Details
   receiverName: "",
   receivercontactNumber: "",
-  receiveremailID: "",
+  receiveremailID: "email@email.com",
   receiverpickupDate: "xxx",
   receiverpickupSlot: "xxx",
   receiveraddressLine: "",
