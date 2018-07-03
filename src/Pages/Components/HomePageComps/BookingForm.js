@@ -109,7 +109,7 @@ class BookingForm extends PureComponent {
               {
                 this.state.current === 0
                 &&
-                <button type="primary" className="bookingformnextbtn" onClick={() => {
+                <button style={{marginLeft: "150px"}} type="primary" className="bookingformnextbtn" onClick={() => {
                   this.next(
                     state.senderName, state.contactNumber, state.emailID,
                     state.pickupDate, state.pickupSlot, state.addressLine, state.townCity, state.addressState
@@ -121,16 +121,18 @@ class BookingForm extends PureComponent {
               {
                 this.state.current === steps.length - 1
                 &&
-                <Link to="/order"><Button type="primary" className="bookingformnextbtn" onClick={() => message.success('Processing complete!')}>Done</Button></Link>
+                <Link to="/order">
+                <Button style={{marginLeft: "150px"}} type="primary" className="bookingformnextbtn" onClick={() => message.success('Processing complete!')}>Done</Button>
+                </Link>
               }
               {
                 this.state.current === 2
                 &&
                 <div>
-                  <Button className="bookingformprevbtn" style={{ marginLeft: 8 }} onClick={() => this.prev()}>
+                  <Button className="bookingformprevbtn" style={{marginLeft: "150px"}} onClick={() => this.prev()}>
                     Previous
                   </Button>
-                  <button type="primary" className="bookingformnextbtn" onClick={() => {
+                  <button style={{marginLeft: "8px"}} type="primary" className="bookingformnextbtn" onClick={() => {
                     this.next(
                       state.senderName, state.contactNumber, state.emailID,
                       state.pickupDate, state.pickupSlot, state.addressLine, state.townCity, state.addressState, state.checkBox
@@ -145,10 +147,10 @@ class BookingForm extends PureComponent {
                 this.state.current === 1
                 &&
                 <div>
-                  <Button className="bookingformprevbtn" style={{ marginLeft: 8 }} onClick={() => this.prev()}>
+                  <Button className="bookingformprevbtn" style={{marginLeft: "150px"}}  onClick={() => this.prev()}>
                     Previous
                   </Button>
-                  <button type="primary" className="bookingformnextbtn" onClick={() => {
+                  <button style={{ marginLeft: "8px" }} ype="primary" className="bookingformnextbtn" onClick={() => {
                     this.next(
                       state.receiverName, state.receivercontactNumber, state.receiveremailID,
                       state.receiverpickupDate, state.receiverpickupSlot, state.receiveraddressLine, state.receivertownCity, state.receiveraddressState
