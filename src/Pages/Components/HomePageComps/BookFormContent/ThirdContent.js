@@ -86,7 +86,7 @@ class ThirdContent extends PureComponent {
                     <td className="pickupdetailscells">{state.addressLine}</td>
                   </tr>
                   <tr>
-                    <td className="pickupdetailscells">City-{state.townCity}</td>
+                    <td className="pickupdetailscells">{state.townCity}</td>
                   </tr>
                   <tr>
                     <td className="pickupdetailscells">{state.addressState}</td>

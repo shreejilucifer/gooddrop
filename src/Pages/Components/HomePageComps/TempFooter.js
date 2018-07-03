@@ -20,15 +20,15 @@ class Footer extends PureComponent {
                     <h4 className="templisttitle"><b>Gooddrop</b></h4>
                     <Link to="/aboutus"><li className="templistitems">About Us</li></Link>
                     <Link to="/customerreviews"><li className="templistitems">Customer Reviews</li></Link>
-                    <li className="templistitems">Contact Us</li>
+                    <Link to="/contactus"><li className="templistitems">Contact Us</li></Link>
 
                   </ul>
                 </div>
                 <div className="left">
                   <ul>
                     <h4 className="templisttitle"><b>Information</b></h4>
-                    <li className="templistitems">How It Works</li>
-                    <li className="templistitems">Documents Required</li>
+                    <Link to="/howitworks"><li className="templistitems">How It Works</li></Link>
+                    <Link to="/docsrequired"><li className="templistitems">Documents Required</li></Link>
                     <li className="templistitems">Blog</li>
                     <li className="templistitems">FAQs</li>
                   </ul>

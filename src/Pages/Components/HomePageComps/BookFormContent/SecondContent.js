@@ -31,16 +31,6 @@ class SecondContent extends PureComponent {
                 value={state.receivercontactNumber}
                 onChange={(e)=>{actions.destinationDetailsChange(e.target.value, 'receivercontactnumber')}}
               /> <br/>
-              <label className="pickupdetailsformlabel">Email ID</label>
-              <input
-                className="pickupdetailsforminput"
-                type="text"
-                width="100%"
-                name="receiveremailid"
-                value={state.receiveremailID}
-                onChange={(e)=>{actions.destinationDetailsChange(e.target.value, 'receiveremailid')}}
-              /> <br/>
-              <br/>
             <label className="pickupdetailsformlabel">Address Line</label>
             <input
               className="pickupdetailsforminput"

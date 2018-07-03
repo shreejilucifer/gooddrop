@@ -5,6 +5,7 @@ import icon1 from '../Assets/icon2.png';
 import icon2 from '../Assets/icon4.png';
 import icon3 from '../Assets/icon6.png';
 import BookingForm from '../HomePageComps/BookingForm';
+import {Link} from 'react-router-dom';
 
 const Gridelement = (props) => {
     return (
@@ -68,7 +69,7 @@ class StepMiddleSection extends PureComponent {
               </div>
 
               <br/>
-              <button className="contactbtn">CONTACT</button>
+              <Link to="/contactus"><button className="contactbtn">CONTACT</button></Link>
             </div>
           </div>
         )}
