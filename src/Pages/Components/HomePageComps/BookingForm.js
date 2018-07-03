@@ -55,7 +55,7 @@ class BookingForm extends PureComponent {
     else if( value5 === "" )
       this.setState({error: "Please Choose The Pickup Slot !"});
     else if( value6 === "" )
-      this.setState({error: "Please Enter The Complete Sender-Pickup Address !"});
+      this.setState({error: "Please Enter The Complete Address !"});
     else if( value7 === "" )
       this.setState({error: "Please Enter The Town / City !"});
     else if( value8 === "" )
@@ -127,6 +127,9 @@ class BookingForm extends PureComponent {
                 this.state.current === 2
                 &&
                 <div>
+                  <Button className="bookingformprevbtn" style={{ marginLeft: 8 }} onClick={() => this.prev()}>
+                    Previous
+                  </Button>
                   <button type="primary" className="bookingformnextbtn" onClick={() => {
                     this.next(
                       state.senderName, state.contactNumber, state.emailID,
@@ -135,9 +138,6 @@ class BookingForm extends PureComponent {
                   }}>
                   Next
                 </button>
-                  <Button className="bookingformprevbtn" style={{ marginLeft: 8 }} onClick={() => this.prev()}>
-                    Previous
-                  </Button>
                 </div>
 
               }
@@ -145,6 +145,9 @@ class BookingForm extends PureComponent {
                 this.state.current === 1
                 &&
                 <div>
+                  <Button className="bookingformprevbtn" style={{ marginLeft: 8 }} onClick={() => this.prev()}>
+                    Previous
+                  </Button>
                   <button type="primary" className="bookingformnextbtn" onClick={() => {
                     this.next(
                       state.receiverName, state.receivercontactNumber, state.receiveremailID,
@@ -153,9 +156,6 @@ class BookingForm extends PureComponent {
                   }}>
                   Next
                 </button>
-                  <Button className="bookingformprevbtn" style={{ marginLeft: 8 }} onClick={() => this.prev()}>
-                    Previous
-                  </Button>
                 </div>
 
               }

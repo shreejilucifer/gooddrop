@@ -1,10 +1,30 @@
 import React, { PureComponent } from 'react';
 import { Checkbox } from 'antd';
+import { Link } from 'react-router-dom';
 
 class ThirdContent extends PureComponent {
 
+  parcelDateFunction = (parcelDate) => {
+
+    var year = parcelDate.slice(0,4);
+    var month = parcelDate.slice(5,7);
+    var day = parcelDate.slice(8,10);
+    var res = day.concat("-",month,"-",year);
+
+    return res;
+  }
+
+  pickupDateFunction = (pickupDate) => {
+    var year2 = pickupDate.slice(0,4);
+    var month2 = pickupDate.slice(5,7);
+    var day2 = pickupDate.slice(8,10);
+    var res2 = day2.concat("-",month2,"-",year2);
+    return res2 ;
+  }
+
   render() {
     const Consumer = this.props.Consumer ;
+
     return (
       <Consumer>
         {({ state, actions }) => (
@@ -23,19 +43,19 @@ class ThirdContent extends PureComponent {
                 <tr>
                   <td className="pickupdetailscells">Bike Details</td>
                   <td className="pickupdetailscells">
-                    <b>{state.bikeCC} CC</b>
+                    <b> {state.bikeCC} CC</b>
                   </td>
                 </tr>
                 <tr>
                   <td className="pickupdetailscells">Shipping Date</td>
                   <td className="pickupdetailscells">
-                    <b>{state.parcelDate}</b>
+                    <b>{this.parcelDateFunction(state.parcelDate)}</b>
                   </td>
                 </tr>
                 <tr>
                   <td className="pickupdetailscells">Pickup Date</td>
                   <td className="pickupdetailscells">
-                    <b>{state.pickupDate}</b>
+                    <b>{this.pickupDateFunction(state.pickupDate)}</b>
                   </td>
                 </tr>
                 <tr>
@@ -95,7 +115,7 @@ class ThirdContent extends PureComponent {
                     <td className="pickupdetailscells">{state.receiveraddressLine}</td>
                   </tr>
                   <tr>
-                    <td className="pickupdetailscells">City-{state.receivertownCity}</td>
+                    <td className="pickupdetailscells">{state.receivertownCity}</td>
                   </tr>
                   <tr>
                     <td className="pickupdetailscells">{state.receiveraddressState}</td>
@@ -112,7 +132,9 @@ class ThirdContent extends PureComponent {
             </div>
             <br/>
             <div>
-              <Checkbox onChange={actions.onChangeCheckBox}>I have read and understood the terms and conditions and i agree with it.</Checkbox>
+              <Checkbox onChange={actions.onChangeCheckBox}>
+                <Link to="/terms">I have read and understood the terms and conditions and i agree with it.</Link>
+              </Checkbox>
             </div>
 
           </div>

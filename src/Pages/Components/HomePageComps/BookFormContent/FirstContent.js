@@ -76,11 +76,11 @@ class FirstContent extends PureComponent {
                 style={{ width: 120 }}
                 defaultValue=""
                 onChange={(e)=>{actions.pickupDetailsChange(e, 'pickupslot')}}>
-                <Option value="6to7">6 AM - 10 AM</Option>
-                <Option value="10to12">10 AM - 12 PM</Option>
-                <Option value="12to4">12 PM - 4 PM</Option>
-                <Option value="4to7">4 PM - 7 PM</Option>
-                <Option value="7to11">7 PM - 11 PM</Option>
+                <Option value="6AM to 7AM">6 AM - 10 AM</Option>
+                <Option value="10AM to 12PM">10 AM - 12 PM</Option>
+                <Option value="12PM to 4PM">12 PM - 4 PM</Option>
+                <Option value="4PM to 7PM">4 PM - 7 PM</Option>
+                <Option value="7PM to 11PM">7 PM - 11 PM</Option>
               </Select>
 
             </div><br/>

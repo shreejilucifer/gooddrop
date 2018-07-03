@@ -30,7 +30,6 @@ export default {
     this.setState({toPlace: value});
   },
   handleChangeParcelDate: function(date, dateString) {
-
     this.setState({parcelDate: dateString, parcelDateActual: date});
   },
 
@@ -146,11 +145,6 @@ export default {
     }
   },
   pickupDetailsChangePickUpdate: function(date, dateString, today) {
-    /*var d = new Date();
-
-    console.log(d.getFullYear()+d.getMonth()+d.getDate());
-    console.log(dateString);
-    console.log(d < dateString); */
     this.setState({pickupDate: dateString, pickupDateActual: date});
   },
   destinationDetailsChangePickUpdate: function(date, dateString) {
