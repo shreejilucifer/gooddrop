@@ -124,9 +124,7 @@ class ThirdContent extends PureComponent {
                   <tr>
                     <td className="pickupdetailscells">Mob +91{state.receivercontactNumber}</td>
                   </tr>
-                  <tr>
-                    <td className="pickupdetailscells">Email-{state.receiveremailID}</td>
-                  </tr>
+                  
                 </tbody>
               </table>
             </div>
