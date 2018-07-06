@@ -73,7 +73,7 @@ class BikeDetails extends PureComponent {
                     :
                     <div className="otpmodal">
                       <h3>The Price is <b>Rs.{state.orderCharge}</b> </h3>
-                      <h3 style={{textTransform: 'uppercase'}}> From: <b>{state.fromPlace}</b> To: <b>{state.toPlace}</b> </h3> <br/>
+                      <h3 style={{textTransform: 'uppercase'}}> From: <b>{state.fromPlace}</b> <br/>To: <b>{state.toPlace}</b> </h3> <br/>
                       <h3> On Date: <b>{state.parcelDate}</b> </h3>
                       <h3> BikeCC: <b>{state.bikeCC}</b> <br/> Bike Value: <b>{state.bikeValue}</b> </h3>
                       <button className="otpbooknowbtn" onClick={actions.openBookModal}>Book Now</button> <br/>

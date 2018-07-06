@@ -5,7 +5,7 @@ import icon1 from '../Assets/icon2.png';
 import icon2 from '../Assets/icon4.png';
 import icon3 from '../Assets/icon6.png';
 import BookingForm from '../HomePageComps/BookingForm';
-import {Link} from 'react-router-dom';
+import StationRequestForm from '../HomePageComps/StationRequestForm';
 
 const Gridelement = (props) => {
     return (
@@ -61,15 +61,27 @@ class StepMiddleSection extends PureComponent {
               <div className="tempcont">
                 <button onClick={()=>{this.scrollToTop(); actions.openBookModal(state.verified);}} className="bookbtn">BOOK NOW</button>
 
-                <Modal showCloseIcon={false} open={state.bookNowState} onClose={actions.closeBookModal} >
-                  <div className="bookmodal">
+                <Modal className="bookmodal" showCloseIcon={false} open={state.bookNowState} onClose={actions.closeBookModal} >
+                  <div>
                     <BookingForm Consumer={Consumer}/>
                   </div>
                 </Modal>
               </div>
 
               <br/>
-              <Link to="/contactus"><button className="contactbtn">CONTACT</button></Link>
+              <button
+                onClick={()=>actions.openStationRequestModal(true)}
+                className="contactbtn">
+                ADD STATION
+              </button>
+              <Modal
+                open={state.StationRequestModal}
+                onClose={()=>actions.openStationRequestModal(false)}
+                closeIconSize={15}
+                className="stationRequestModal"
+                >
+                <StationRequestForm style={{width: "100%"}} Consumer={Consumer}/>
+              </Modal>
             </div>
           </div>
         )}

@@ -214,6 +214,41 @@ export default {
 
   onChangeCheckBox: function(e) {
     this.setState({checkBox: e.target.checked});
-  }
+  },
 
+  openStationRequestModal: function(e) {
+    this.setState({StationRequestModal: e });
+  },
+
+  stationRequestHandler: function(val1, val2) {
+    if( val2 === "sourcestation" ) {
+      this.setState({sourceStation: val1 });
+    }
+    else if( val2 === "destinationstation" ) {
+      this.setState({destinationStation: val1 });
+    }
+    else if( val2 === "stationname" ) {
+      this.setState({stationName: val1 });
+    }
+    else if( val2 === "stationphone" ) {
+      this.setState({stationPhone: val1 });
+    }
+  },
+
+  onSubmitStationRequest: function(source, destination, name, phone) {
+    var mob = /^[6-9]\d{9}$/;
+
+    if( source === "" )
+      this.setState({errorStation: "Please Enter the Source Station"});
+    else if( destination === "" )
+      this.setState({errorStation: "Please Enter the Destination Station"});
+    else if( name === "" )
+      this.setState({errorStation: "Please Enter The Name"});
+    else if( phone === "" )
+      this.setState({errorStation: "Please Enter the Phone Number"});
+    else if( mob.test(phone) === false )
+      this.setState({errorStation: "Please Enter Valid Phone Number"});
+    else
+      this.setState({errorStation: "", StationRequestModal: false});
+  }
 }

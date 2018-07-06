@@ -61,5 +61,13 @@ export default {
   errorReview: "",
 
   // order
-  orderid: "454545"
+  orderid: "454545",
+
+  // station Request
+  StationRequestModal: false,
+  sourceStation: "",
+  destinationStation: "",
+  stationName: "",
+  stationPhone: "",
+  errorStation: ""
 }
