@@ -23,9 +23,9 @@ class ContactUs extends PureComponent {
               support@gooddrop.in | +91 97 4283 4253
 
             </div>
-            <div className="aboutusfooter">
+
               <TempFooter Consumer={Consumer}/>
-            </div>
+            
 
           </div>
         )}

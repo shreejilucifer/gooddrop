@@ -106,10 +106,17 @@
     border: none ;
   }
   .reviewmodal {
-    width: 300px;
+    width: 100%;
     display: flex;
     flex: 1;
     flex-direction: column;
     align-items: center;
+  }
+  .reviewbox {
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+  .customerreviewgrid {
+    margin-left: 0px; 
   }
 }

@@ -2,6 +2,7 @@ import React, { PureComponent } from 'react';
 import Navbar from './Components/HomePageComps/Navbar';
 import TempFooter from './Components/HomePageComps/TempFooter';
 import AboutHeader from './Components/AboutUsPageComps/AboutHeader';
+import '../Pages/Components/CSS/AboutUsPageCSS/aboutdata.css';
 
 class HowItWorks extends PureComponent {
 
@@ -10,14 +11,8 @@ class HowItWorks extends PureComponent {
       <div>
         <Navbar Consumer={this.props.Consumer}/>
         <AboutHeader title="HOW IT WORKS"/>
-        <div style={{
-        textAlign: "justify",
-        marginTop: "50px",
-        marginBottom: "50px",
-        marginLeft: "200px",
-        marginRight: "200px"
-      }}>
-        
+        <div className="howitworksdata">
+
         <ol>
           <li>
             You create an order by searching Train availability where you have to provide the needful information i.e

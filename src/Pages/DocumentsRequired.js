@@ -2,6 +2,7 @@ import React, { PureComponent } from 'react';
 import Navbar from './Components/HomePageComps/Navbar';
 import TempFooter from './Components/HomePageComps/TempFooter';
 import AboutHeader from './Components/AboutUsPageComps/AboutHeader';
+import '../Pages/Components/CSS/AboutUsPageCSS/aboutdata.css';
 
 class DocumentsRequired extends PureComponent {
 
@@ -10,13 +11,7 @@ class DocumentsRequired extends PureComponent {
       <div>
         <Navbar Consumer={this.props.Consumer}/>
         <AboutHeader title="DOCUMENTS REQUIRED"/>
-        <div style={{
-        textAlign: "justify",
-        marginTop: "50px",
-        marginBottom: "50px",
-        marginLeft: "200px",
-        marginRight: "200px"
-      }}>
+        <div className="docrequired">
 
         <ol>
           <li>Bike RC (Registration Certificate) copy</li>
@@ -25,9 +20,9 @@ class DocumentsRequired extends PureComponent {
           <li>Authorisation letter addressing to Railway.</li>
         </ol>
         </div>
-        <div className="aboutusfooter">
+
         <TempFooter Consumer={this.props.Consumer}/>
-      </div>
+
       </div>
     );
   }

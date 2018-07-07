@@ -15,9 +15,9 @@ class AboutUs extends PureComponent {
             <Navbar Consumer={Consumer}/>
             <AboutHeader title="ABOUT US"/>
             <AboutData />
-            <div className="aboutusfooter">
+
               <TempFooter Consumer={Consumer}/>
-            </div>
+            
 
           </div>
         )}

@@ -2,6 +2,7 @@ import React, {PureComponent} from 'react';
 import Navbar from './Components/HomePageComps/Navbar';
 import TempFooter from './Components/HomePageComps/TempFooter';
 import AboutHeader from './Components/AboutUsPageComps/AboutHeader';
+import '../Pages/Components/CSS/AboutUsPageCSS/aboutdata.css';
 
 class PrivacyPolicy extends PureComponent {
 
@@ -9,13 +10,7 @@ class PrivacyPolicy extends PureComponent {
     return (<div className="privacypolicy">
       <Navbar Consumer={this.props.Consumer}/>
       <AboutHeader title="PRIVACY POLICY"/>
-      <div style={{
-          textAlign: "justify",
-          marginTop: "50px",
-          marginBottom: "50px",
-          marginLeft: "200px",
-          marginRight: "200px"
-        }}>
+      <div className="privacypolicydata">
         Privacy Policy explains how Goodrop Innovations Technologies LLP (also referred as Goodrop, GOODDROP, GoodDROP, Gooddrop, GOODDROP.in, www.gooddrop.in, we, us, our) collects, uses and shares information about customer (also referred as 'user', 'you', 'your')
         <br/>
         <br/>

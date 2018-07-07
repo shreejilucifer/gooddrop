@@ -2,6 +2,7 @@ import React, { PureComponent } from 'react';
 import Navbar from './Components/HomePageComps/Navbar';
 import TempFooter from './Components/HomePageComps/TempFooter';
 import AboutHeader from './Components/AboutUsPageComps/AboutHeader';
+import '../Pages/Components/CSS/AboutUsPageCSS/aboutdata.css';
 
 class Terms extends PureComponent {
 
@@ -10,13 +11,7 @@ class Terms extends PureComponent {
       <div>
         <Navbar Consumer={this.props.Consumer}/>
         <AboutHeader title="TERMS & CONDITIONS"/>
-        <div style={{
-        textAlign: "justify",
-        marginTop: "50px",
-        marginBottom: "50px",
-        marginLeft: "200px",
-        marginRight: "200px"
-      }}>
+        <div className="termsandcondition">
         <b>Terms & Conditions</b><br/>
         <ol>
           <li>'GOODDROP.in', 'GOODDROP',’Goodrop’, 'www.GOODDROP.in', 'we', and ‘us’ refer to the GOODDROP Innovative Technologies LLP. 'User', 'customer', 'you' refers to the customer of GOODDROP who is availing the GOODDROP services. </li>

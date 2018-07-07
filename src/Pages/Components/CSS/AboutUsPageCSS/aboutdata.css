@@ -3,7 +3,7 @@
   margin-left: 200px;
   margin-right: 200px;
   text-align: justify;
-  margin-bottom: 50px;
+  margin-bottom: 150px;
 }
 
 .orderpage {
@@ -12,4 +12,62 @@
   background-position: top;
   background-repeat: no-repeat;
   background-size: cover;
+}
+
+.howitworksdata {
+  text-align: justify;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  margin-left: 200px;
+  margin-right: 200px;
+}
+
+.docrequired {
+  text-align: justify;
+  margin-top: 150px;
+  margin-bottom: 150px;
+  margin-left: 200px;
+  margin-right: 200px;
+}
+
+.termsandcondition {
+  text-align: justify;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  margin-left: 200px;
+  margin-right: 200px;
+}
+
+.privacypolicydata {
+  text-align: justify;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  margin-left: 200px;
+  margin-right: 200px;
+}
+
+@media only screen and (max-width: 600px) {
+  .aboutdata {
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+  .howitworksdata {
+    margin-left: 5px;
+    margin-right: 20px;
+  }
+  .docrequired {
+    margin-top: 100px;
+    margin-bottom: 100px;
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+
+  .termsandcondition {
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+  .privacypolicydata {
+    margin-left: 20px;
+    margin-right: 20px;
+  }
 }
