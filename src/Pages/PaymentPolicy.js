@@ -2,6 +2,7 @@ import React, {PureComponent} from 'react';
 import Navbar from './Components/HomePageComps/Navbar';
 import TempFooter from './Components/HomePageComps/TempFooter';
 import AboutHeader from './Components/AboutUsPageComps/AboutHeader';
+import '../Pages/Components/CSS/AboutUsPageCSS/aboutdata.css';
 
 class PaymentPolicy extends PureComponent {
 
@@ -9,13 +10,7 @@ class PaymentPolicy extends PureComponent {
     return (<div>
         <Navbar Consumer={this.props.Consumer}/>
         <AboutHeader title="PAYMENT POLICY"/>
-        <div style={{
-            textAlign: "justify",
-            marginTop: "50px",
-            marginBottom: "50px",
-            marginLeft: "200px",
-            marginRight: "200px"
-          }}>
+        <div className="paymentpolicy">
           <ol>
             <li>If GOODDROP is not able to collect the bike and the documents at the planned pickup date, we will provide full refund and 10% discount on next order.</li>
             <li>If a customer cancels the order before the planned pick up date. GOODDROP will provide 100% refund. (It would be cancel through website only)</li>
