@@ -109,7 +109,7 @@ class BookingForm extends PureComponent {
               {
                 this.state.current === 0
                 &&
-                <button style={{marginLeft: "150px"}} type="primary" className="bookingformnextbtn" onClick={() => {
+                <button type="primary" className="bookingformnextbtn onefiftybtn" onClick={() => {
                   this.next(
                     state.senderName, state.contactNumber, state.emailID,
                     state.pickupDate, state.pickupSlot, state.addressLine, state.townCity, state.addressState
@@ -122,14 +122,14 @@ class BookingForm extends PureComponent {
                 this.state.current === steps.length - 1
                 &&
                 <Link to="/order">
-                <Button style={{marginLeft: "150px"}} type="primary" className="bookingformnextbtn" onClick={() => message.success('Processing complete!')}>Done</Button>
+                <Button type="primary" className="bookingformnextbtn onefiftybtn" onClick={() => message.success('Processing complete!')}>Done</Button>
                 </Link>
               }
               {
                 this.state.current === 2
                 &&
                 <div>
-                  <Button className="bookingformprevbtn" style={{marginLeft: "150px"}} onClick={() => this.prev()}>
+                  <Button className="bookingformprevbtn onefiftybtn" onClick={() => this.prev()}>
                     Previous
                   </Button>
                   <button style={{marginLeft: "8px"}} type="primary" className="bookingformnextbtn" onClick={() => {
@@ -147,7 +147,7 @@ class BookingForm extends PureComponent {
                 this.state.current === 1
                 &&
                 <div>
-                  <Button className="bookingformprevbtn" style={{marginLeft: "150px"}}  onClick={() => this.prev()}>
+                  <Button className="bookingformprevbtn onefiftybtn"  onClick={() => this.prev()}>
                     Previous
                   </Button>
                   <button style={{ marginLeft: "8px" }} ype="primary" className="bookingformnextbtn" onClick={() => {
