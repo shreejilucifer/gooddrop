@@ -1,3 +1,5 @@
+import axios from 'axios';
+
 // Actions
 
 export default {
@@ -10,8 +12,7 @@ export default {
 
     if (value3 === null || value4 === null || value5 === null) {
       this.setState({errorPrint: "Fill All The Data"});
-    }
-    else {
+    } else {
       this.setState({showResults: value1, showBikeDetails: value2, errorPrint: ""});
     }
   },
@@ -43,11 +44,54 @@ export default {
   bikeValueChange: function(e) {
     this.setState({bikeValue: e.target.value});
   },
-  onChangeVerifyContact: function(value, value2) {
+  onChangeVerifyContact: function(value, value2, auth, parcelFrom, toPlace, parcelDate, bikeCC, bikeValue, senderContact) {
     if (value === null) {
       this.setState({errorPrint: "Enter OTP"})
     } else {
-      this.setState({verified: true, contactNumber: value2, rorPrint: ""});
+
+      this.setState({loadingMsg: "loading..."});
+
+      var form = new FormData();
+      form.append("parcel_from", "Bangalore");
+      form.append("parcel_to", "Bidar");
+      form.append("parcel_date", parcelDate.toString());
+      form.append("sender_contact", senderContact.toString());
+      form.append("bike_cc", bikeCC.toString());
+      form.append("bike_value", bikeValue.toString());
+
+      var settings = {
+        "async": true,
+        "crossDomain": true,
+        "url": "http://18.206.137.13/api/pick_up_details",
+        "method": "POST",
+        "headers": {
+          "Accept": "application/json",
+          "Authorization": auth.toString(),
+          "Content-Type": "application/json",
+          "Cache-Control": "no-cache",
+        },
+        "processData": false,
+        "contentType": false,
+        "mimeType": "multipart/form-data",
+        "data": form
+      }
+
+      axios(settings)
+      .then((res) => {
+        this.setState({
+          loadingMsg: "",
+          verified: true,
+          contactNumber: value2,
+          errorPrint: "",
+          orderCharge: res.data.message,
+          orderid: res.data.Order_id
+        });
+      })
+      .catch((err) => {
+        console.log(err);
+        this.setState({loadingMsg: "Error! Try Again Later"});
+      })
+
     }
 
   },
@@ -63,38 +107,37 @@ export default {
     value1 = Number(value1); // bikeCC
     value2 = Number(value2); // bikeValue
 
-    console.log(value1, value2, value3);
-
     if (value1 === null)
-      this.setState({errorPrint: "Please Enter Bike CC !" });
-    else if(value2 === null)
-      this.setState({errorPrint: "Please Enter Bike Value !" });
-    else if(value3 === null)
+      this.setState({errorPrint: "Please Enter Bike CC !"});
+    else if (value2 === null)
+      this.setState({errorPrint: "Please Enter Bike Value !"});
+    else if (value3 === null)
       this.setState({errorPrint: "Please Enter Contact Number !"});
-    else if ( cc.test(value1) === false )
+    else if (cc.test(value1) === false)
       this.setState({errorPrint: "Please Enter Valid Bike CC !"});
-    else if (val.test(value2) === false )
+    else if (val.test(value2) === false)
       this.setState({errorPrint: "Please Enter Valid Bike Value !"});
     else if (mob.test(value3) === false)
       this.setState({errorPrint: "Please Enter Valid Mobile !"});
-    else if ( value1 <= 70 )
+    else if (value1 <= 70)
       this.setState({errorPrint: "Bike CC should be more than 70"});
-    else if ( (value1>70 && value1<=150) && value2 < 10000)
-            this.setState({errorPrint: "Bike Value should be more than 10000"});
+    else if ((value1 > 70 && value1 <= 150) && value2 < 10000)
+      this.setState({errorPrint: "Bike Value should be more than 10000"});
 
-    else if( (value1>150 && value1<=350) && value2 < 50000)
-            this.setState({errorPrint: "Bike Value should be more than 50000"});
+else if ((value1 > 150 && value1 <= 350) && value2 < 50000)
+      this.setState({errorPrint: "Bike Value should be more than 50000"});
 
-    else if ( (value1>350 && value1<= 500) && value2 < 75000)
+else if ((value1 > 350 && value1 <= 500) && value2 < 75000)
       this.setState({errorPrint: "Bike Value should be more than 75000"});
 
-     else if ((value1>500 && value1<=750) && value2 < 100000)
+else if ((value1 > 500 && value1 <= 750) && value2 < 100000)
       this.setState({errorPrint: "Bike Value should be more than 100000"});
-     else if (value2 > 999999 )
+    else if (value2 > 999999)
       this.setState({errorPrint: "Bike Value Not Allowed"});
     else
       this.setState({otpModal: true, errorPrint: "", displayNone: "none"});
-    },
+    }
+  ,
 
   closeOTPModal: function() {
     this.setState({otpModal: false, displayNone: "flex", showBikeDetails: false});
@@ -183,30 +226,28 @@ export default {
   },
 
   handleDoneClick: function() {
-    this.setState({ redirect: true });
+    this.setState({redirect: true});
   },
 
   handleRatingChange: function(value) {
-    this.setState({ ratingValue: value});
+    this.setState({ratingValue: value});
   },
 
   handleRatingName: function(value) {
-    this.setState({ ratingName: value });
+    this.setState({ratingName: value});
   },
 
   handleRatingData: function(value) {
-    this.setState({ ratingData: value });
+    this.setState({ratingData: value});
   },
   onReviewModal: function(value) {
     this.setState({reviewModal: value});
   },
-  handleNewReview: function(value1, value2, value3 ) {
-    if( value1 === 0 || value2 === null || value3 === null ) {
+  handleNewReview: function(value1, value2, value3) {
+    if (value1 === 0 || value2 === null || value3 === null) {
       this.setState({errorReview: "Incomplete Review"});
-    }
-    else
-    {
-      this.setState({ errorReview: "", reviewModal: false});
+    } else {
+      this.setState({errorReview: "", reviewModal: false});
       alert("Your Review is Submitted");
     }
 
@@ -217,38 +258,35 @@ export default {
   },
 
   openStationRequestModal: function(e) {
-    this.setState({StationRequestModal: e });
+    this.setState({StationRequestModal: e});
   },
 
   stationRequestHandler: function(val1, val2) {
-    if( val2 === "sourcestation" ) {
-      this.setState({sourceStation: val1 });
-    }
-    else if( val2 === "destinationstation" ) {
-      this.setState({destinationStation: val1 });
-    }
-    else if( val2 === "stationname" ) {
-      this.setState({stationName: val1 });
-    }
-    else if( val2 === "stationphone" ) {
-      this.setState({stationPhone: val1 });
+    if (val2 === "sourcestation") {
+      this.setState({sourceStation: val1});
+    } else if (val2 === "destinationstation") {
+      this.setState({destinationStation: val1});
+    } else if (val2 === "stationname") {
+      this.setState({stationName: val1});
+    } else if (val2 === "stationphone") {
+      this.setState({stationPhone: val1});
     }
   },
 
   onSubmitStationRequest: function(source, destination, name, phone) {
     var mob = /^[6-9]\d{9}$/;
 
-    if( source === "" )
+    if (source === "")
       this.setState({errorStation: "Please Enter the Source Station"});
-    else if( destination === "" )
+    else if (destination === "")
       this.setState({errorStation: "Please Enter the Destination Station"});
-    else if( name === "" )
+    else if (name === "")
       this.setState({errorStation: "Please Enter The Name"});
-    else if( phone === "" )
+    else if (phone === "")
       this.setState({errorStation: "Please Enter the Phone Number"});
-    else if( mob.test(phone) === false )
+    else if (mob.test(phone) === false)
       this.setState({errorStation: "Please Enter Valid Phone Number"});
     else
       this.setState({errorStation: "", StationRequestModal: false});
+    }
   }
-}

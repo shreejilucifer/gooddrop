@@ -31,12 +31,12 @@ class BikeDetails extends PureComponent {
               <form className="parceldetailsform" >
                 <div  className="parcelinputcontainer">
                   <label className="parceldetailsformlabel">Bike CC</label>
-                  <Input onChange={actions.bikeCCChange} name="bikecc" placeholder="Ex: 100" />
+                  <Input value={state.bikeCC} onChange={actions.bikeCCChange} name="bikecc" placeholder="Ex: 100" />
                 </div>
 
                 <div  className="parcelinputcontainer">
                   <label className="parceldetailsformlabel" >Bike Value</label>
-                  <Input onChange={actions.bikeValueChange} name="bikevalue" placeholder="Rs. 50000" />
+                  <Input value={state.bikeValue} onChange={actions.bikeValueChange} name="bikevalue" placeholder="Rs. 50000" />
                 </div>
 
                 <div className="parcelinputcontainer">
@@ -44,6 +44,7 @@ class BikeDetails extends PureComponent {
                   <Input onChange={actions.bikeContactChange}
                           name="contactnum"
                           placeholder="9876543210"
+                          value={state.tempContact}
                    />
                 </div>
 
@@ -68,11 +69,16 @@ class BikeDetails extends PureComponent {
                       <div>Enter the OTP below: </div> <br/>
                       <div><Input onChange={actions.onChangeOTP} name="otpnumber" placeholder="XXXX" /></div> <br/>
                       <div className="errorMsg" style={{color: "#000"}}>{state.errorPrint}</div>
-                      <div><button onClick={()=>{actions.onChangeVerifyContact(state.OTP, state.tempContact);}} className="verifyestimatebtn">Verify & Estimate Price</button></div>
+                      <div className="errorMsg" style={{color: "#000"}}>{state.loadingMsg}</div>
+                      <div><button onClick={()=>{actions.onChangeVerifyContact(
+                        state.OTP, state.tempContact, state.auth,
+                        state.fromPlace, state.toPlace, state.parcelDate,
+                        state.bikeCC, state.bikeValue, state.tempContact
+                      );}} className="verifyestimatebtn">Verify & Estimate Price</button></div>
                     </div>
                     :
                     <div className="otpmodal">
-                      <h3>The Price is <b>Rs.{state.orderCharge}</b> </h3>
+                      <h3>{state.orderCharge}</h3>
                       <h3 style={{textTransform: 'uppercase'}}> From: <b>{state.fromPlace}</b> <br/>To: <b>{state.toPlace}</b> </h3> <br/>
                       <h3> On Date: <b>{state.parcelDate}</b> </h3>
                       <h3> BikeCC: <b>{state.bikeCC}</b> <br/> Bike Value: <b>{state.bikeValue}</b> </h3>

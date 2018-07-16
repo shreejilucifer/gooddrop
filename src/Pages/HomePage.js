@@ -16,7 +16,7 @@ const Loader = () => {
 
 class HomePage extends PureComponent {
   state = {
-        loading: true
+        loading: true,
       };
 
       componentDidMount() {

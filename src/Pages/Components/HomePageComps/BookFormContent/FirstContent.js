@@ -19,7 +19,7 @@ class FirstContent extends PureComponent {
         {({ state, actions }) => (
           <div className="pickupdetailsform">
           <br/>
-          <h3 className="pickupdetailsformtitle">Charges for this order would be INR
+          <h3 className="pickupdetailsformtitle">
             <b> {state.orderCharge}/-
             </b>
           </h3>
