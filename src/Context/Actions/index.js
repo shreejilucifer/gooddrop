@@ -68,7 +68,7 @@ export default {
           "Accept": "application/json",
           "Authorization": auth.toString(),
           "Content-Type": "application/json",
-          "Cache-Control": "no-cache",
+          "Cache-Control": "no-cache"
         },
         "processData": false,
         "contentType": false,
@@ -76,8 +76,7 @@ export default {
         "data": form
       }
 
-      axios(settings)
-      .then((res) => {
+      axios(settings).then((res) => {
         this.setState({
           loadingMsg: "",
           verified: true,
@@ -86,12 +85,10 @@ export default {
           orderCharge: res.data.message,
           orderid: res.data.Order_id
         });
-      })
-      .catch((err) => {
+      }).catch((err) => {
         console.log(err);
         this.setState({loadingMsg: "Error! Try Again Later"});
       })
-
     }
 
   },
@@ -270,11 +267,16 @@ else if ((value1 > 500 && value1 <= 750) && value2 < 100000)
       this.setState({stationName: val1});
     } else if (val2 === "stationphone") {
       this.setState({stationPhone: val1});
+    } else if (val2 === "stationemail") {
+      this.setState({stationEmail: val1});
+    } else if (val2 === "stationbikesno") {
+      this.setState({stationBikeno: val1});
     }
   },
 
-  onSubmitStationRequest: function(source, destination, name, phone) {
+  onSubmitStationRequest: function(source, destination, name, phone, email, bikeno, auth) {
     var mob = /^[6-9]\d{9}$/;
+    var mail = /^(?:[a-z0-9!#$%&amp;'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&amp;'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])$/;
 
     if (source === "")
       this.setState({errorStation: "Please Enter the Source Station"});
@@ -286,7 +288,81 @@ else if ((value1 > 500 && value1 <= 750) && value2 < 100000)
       this.setState({errorStation: "Please Enter the Phone Number"});
     else if (mob.test(phone) === false)
       this.setState({errorStation: "Please Enter Valid Phone Number"});
+    else if (mail.test(email) === false)
+      this.setState({errorStation: "Please Enter Valid Email"});
+    else if (bikeno === "")
+      this.setState({errorStation: "Please Enter Number of Bikes"});
     else
-      this.setState({errorStation: "", StationRequestModal: false});
+    {
+      this.setState({errorStation: "loading..."});
+      var form = new FormData();
+      form.append("name", name.toString());
+      form.append("email", email.toString());
+      form.append("parcel_from", source.toString());
+      form.append("parcel_to", destination.toString());
+      form.append("mobile_number", phone.toString());
+      form.append("no_bikes", bikeno.toString());
+
+      var settings = {
+        "async": true,
+        "crossDomain": true,
+        "url": "http://18.206.137.13/api/not_listed",
+        "method": "POST",
+        "headers": {
+          "Accept": "application/json",
+          "Authorization": auth.toString(),
+        },
+        "processData": false,
+        "contentType": false,
+        "mimeType": "multipart/form-data",
+        "data": form
     }
+
+    axios(settings)
+    .then((res)=>{
+      this.setState({errorStation: "Request Submitted Successfully !"});
+      setTimeout(()=>{this.setState({StationRequestModal: false})}, 5000);
+    })
+    .catch((err)=>{
+      this.setState({errorStation: "Cannot Process Request ! Try Later !"});
+    })
+
+    }
+  },
+
+  shippingDetailsToApi: function(senderName, pickupDate, addressLine, cityState, senderEmail, receiverName, receiverAdd, receiverNum, orderid, auth) {
+    var form = new FormData();
+    form.append("sender_name", senderName.toString());
+    form.append("pick_up_date", pickupDate.toString());
+    form.append("pick_up_add1", addressLine.toString());
+    form.append("pick_up_add2", cityState.toString());
+    form.append("sender_email", senderEmail.toString());
+    form.append("receiver_name", receiverName.toString());
+    form.append("receiver_add", receiverAdd.toString());
+    form.append("receiver_num", receiverNum.toString());
+    form.append("order_id", orderid.toString());
+
+    var settings = {
+      "async": true,
+      "crossDomain": true,
+      "url": "http://18.206.137.13/api/shipping_details",
+      "method": "POST",
+      "headers": {
+        "Accept": "application/json",
+        "Authorization": auth.toString(),
+        "Cache-Control": "no-cache"
+      },
+      "processData": false,
+      "contentType": false,
+      "mimeType": "multipart/form-data",
+      "data": form
+    }
+
+    axios(settings).then((res) => {
+      console.log("Your Data Sent To Server !");
+    }).catch((err) => {
+      console.log(err);
+    })
+
   }
+}

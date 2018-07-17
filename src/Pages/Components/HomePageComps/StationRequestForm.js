@@ -44,9 +44,27 @@ class StationRequestForm extends PureComponent {
               width="100%"
               onChange={(e)=>{actions.stationRequestHandler(e.target.value, "stationphone" )}}
             />
+            <br/>
+            <label className="stationformlabel">Enter Your Email ID</label>
+            <input
+              className="stationforminput"
+              type="text"
+              width="100%"
+              onChange={(e)=>{actions.stationRequestHandler(e.target.value, "stationemail" )}}
+            />
+            <br/>
+            <label className="stationformlabel">Enter Number Of Bikes</label>
+            <input
+              className="stationforminput"
+              type="text"
+              width="100%"
+              onChange={(e)=>{actions.stationRequestHandler(e.target.value, "stationbikesno" )}}
+            />
             {state.errorStation}
             <button className="stationbutton" onClick={() => {
-              actions.onSubmitStationRequest(state.sourceStation, state.destinationStation, state.stationName, state.stationPhone)
+              actions.onSubmitStationRequest(
+                state.sourceStation, state.destinationStation, state.stationName,
+                state.stationPhone, state.stationEmail, state.stationBikeno, state.auth )
             }}>
               Submit
             </button>

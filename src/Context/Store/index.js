@@ -71,5 +71,9 @@ export default {
   stationName: "",
   stationPhone: "",
   errorStation: "",
+  stationEmail: "",
+  stationBikeno: "",
+
+  // loading
   loadingMsg: ""
 }

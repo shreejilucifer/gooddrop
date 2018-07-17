@@ -31,14 +31,14 @@ class ThirdContent extends PureComponent {
           <div>
           <div className="pickupdetailsform">
             <br/>
-            <h3 className="pickupdetailsformtitle">Charges for this order would be INR
+            <h3 className="pickupdetailsformtitle">
               <b> {state.orderCharge}/-
               </b>
             </h3>
             <h3>
               PICKUP DETAILS
             </h3>
-            <table width="50%">
+            <table width="100%">
               <tbody>
                 <tr>
                   <td className="pickupdetailscells">Bike Details</td>
@@ -99,6 +99,7 @@ class ThirdContent extends PureComponent {
                   </tr>
                 </tbody>
               </table>
+
               <table>
                 <tbody>
                   <tr>
@@ -124,7 +125,7 @@ class ThirdContent extends PureComponent {
                   <tr>
                     <td className="pickupdetailscells">Mob +91{state.receivercontactNumber}</td>
                   </tr>
-                  
+
                 </tbody>
               </table>
             </div>

@@ -133,11 +133,21 @@ class BookingForm extends PureComponent {
                     Previous
                   </Button>
                   <button style={{marginLeft: "8px"}} type="primary" className="bookingformnextbtn" onClick={() => {
-                    this.next(
-                      state.senderName, state.contactNumber, state.emailID,
-                      state.pickupDate, state.pickupSlot, state.addressLine, state.townCity, state.addressState, state.checkBox
+
+                    actions.shippingDetailsToApi(
+                      state.senderName, state.pickupDate, state.addressLine,
+                      state.townCity.concat( ", " , state.addressState ),
+                      state.emailID,
+                      state.receiverName, state.receiveraddressLine, state.receivercontactNumber, state.orderid,
+                      state.auth
                     );
-                  // Todo 
+
+                      this.next(
+                      state.senderName, state.contactNumber, state.emailID,
+                      state.pickupDate, state.pickupSlot, state.addressLine,
+                      state.townCity, state.addressState, state.checkBox
+                    );
+
                   }}>
                   Next
                 </button>
@@ -151,7 +161,7 @@ class BookingForm extends PureComponent {
                   <Button className="bookingformprevbtn onefiftybtn"  onClick={() => this.prev()}>
                     Previous
                   </Button>
-                  <button style={{ marginLeft: "8px" }} ype="primary" className="bookingformnextbtn" onClick={() => {
+                  <button style={{ marginLeft: "8px" }} type="primary" className="bookingformnextbtn" onClick={() => {
                     this.next(
                       state.receiverName, state.receivercontactNumber, state.receiveremailID,
                       state.receiverpickupDate, state.receiverpickupSlot, state.receiveraddressLine, state.receivertownCity, state.receiveraddressState
