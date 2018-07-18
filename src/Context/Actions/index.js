@@ -65,8 +65,6 @@ export default {
         "headers": {
           "Accept": "application/json",
           "Authorization": auth.toString(),
-          "Cache-Control": "no-cache",
-
         },
         "processData": false,
         "contentType": false,
@@ -74,59 +72,52 @@ export default {
         "data": form1
       }
 
-      axios(settings1)
-      .then((res1)=>{
-          
+      axios(settings1).then((res1) => {
+        console.log(res1.data);
+        if (res1.data.message === "otp_verified" || res1.data.message === "already_verified" ){
+          var form = new FormData();
+          form.append("parcel_from", "Bangalore");
+          form.append("parcel_to", "Bidar");
+          form.append("parcel_date", parcelDate.toString());
+          form.append("sender_contact", senderContact.toString());
+          form.append("bike_cc", bikeCC.toString());
+          form.append("bike_value", bikeValue.toString());
 
-         if( res1.data.message === "mobile_not_found" ){
-            this.setState({loadingMsg: "Wrong OTP"}) ;
-          }
-          else
-          {
-            var form = new FormData();
-            form.append("parcel_from", "Bangalore");
-            form.append("parcel_to", "Bidar");
-            form.append("parcel_date", parcelDate.toString());
-            form.append("sender_contact", senderContact.toString());
-            form.append("bike_cc", bikeCC.toString());
-            form.append("bike_value", bikeValue.toString());
-
-            var settings = {
-              "async": true,
-              "crossDomain": true,
-              "url": "http://18.206.137.13/api/pick_up_details",
-              "method": "POST",
-              "headers": {
-                "Accept": "application/json",
-                "Authorization": auth.toString(),
-                "Content-Type": "application/json",
-                "Cache-Control": "no-cache"
-              },
-              "processData": false,
-              "contentType": false,
-              "mimeType": "multipart/form-data",
-              "data": form
-            }
-
-            axios(settings)
-            .then((res) => {
-              this.setState({
-                loadingMsg: "",
-                verified: true,
-                contactNumber: value2,
-                errorPrint: "",
-                orderCharge: res.data.message,
-                orderid: res.data.Order_id
-              });
-            }).catch((err) => {
-              console.log(err);
-              this.setState({loadingMsg: "Error! Try Again Later"});
-            })
-
+          var settings = {
+            "async": true,
+            "crossDomain": true,
+            "url": "http://18.206.137.13/api/pick_up_details",
+            "method": "POST",
+            "headers": {
+              "Accept": "application/json",
+              "Authorization": auth.toString(),
+              "Content-Type": "application/json",
+            },
+            "processData": false,
+            "contentType": false,
+            "mimeType": "multipart/form-data",
+            "data": form
           }
 
-      })
-      .catch((err)=>{
+          axios(settings).then((res) => {
+            this.setState({
+              loadingMsg: "",
+              verified: true,
+              contactNumber: value2,
+              errorPrint: "",
+              orderCharge: res.data.message,
+              orderid: res.data.Order_id
+            });
+          }).catch((err) => {
+            console.log(err);
+            this.setState({loadingMsg: "Error! Try Again Later"});
+          })
+
+        } else {
+          this.setState({loadingMsg: "Error !"});
+        }
+
+      }).catch((err) => {
         this.setState({loadingMsg: "Error ! Try Again"});
       })
     }
@@ -188,8 +179,6 @@ else if ((value1 > 500 && value1 <= 750) && value2 < 100000)
         "headers": {
           "Accept": "application/json",
           "Authorization": auth.toString(),
-          "Cache-Control": "no-cache",
-          "Postman-Token": "ebe4a18d-ec8a-43de-bd3b-dcd1706bffc9"
         },
         "processData": false,
         "contentType": false,
@@ -382,7 +371,7 @@ else if ((value1 > 500 && value1 <= 750) && value2 < 100000)
         "method": "POST",
         "headers": {
           "Accept": "application/json",
-          "Authorization": auth.toString()
+          "Authorization": auth.toString(),
         },
         "processData": false,
         "contentType": false,
@@ -422,7 +411,6 @@ else if ((value1 > 500 && value1 <= 750) && value2 < 100000)
       "headers": {
         "Accept": "application/json",
         "Authorization": auth.toString(),
-        "Cache-Control": "no-cache"
       },
       "processData": false,
       "contentType": false,
