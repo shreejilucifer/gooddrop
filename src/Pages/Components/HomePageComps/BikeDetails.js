@@ -54,7 +54,7 @@ class BikeDetails extends PureComponent {
             <div className="parceldetailsbuttons">
               <button
                 className="parceldetailssendotpbtn"
-                onClick={()=>{actions.openOTPModal(state.bikeCC, state.bikeValue, state.tempContact);}}>
+                onClick={()=>{actions.openOTPModal(state.bikeCC, state.bikeValue, state.tempContact, state.auth);}}>
                 Send OTP
               </button>
               <Modal
@@ -70,10 +70,11 @@ class BikeDetails extends PureComponent {
                       <div><Input onChange={actions.onChangeOTP} name="otpnumber" placeholder="XXXX" /></div> <br/>
                       <div className="errorMsg" style={{color: "#000"}}>{state.errorPrint}</div>
                       <div className="errorMsg" style={{color: "#000"}}>{state.loadingMsg}</div>
-                      <div><button onClick={()=>{actions.onChangeVerifyContact(
+                      <div>
+                        <button onClick={()=>{actions.onChangeVerifyContact(
                         state.OTP, state.tempContact, state.auth,
                         state.fromPlace, state.toPlace, state.parcelDate,
-                        state.bikeCC, state.bikeValue, state.tempContact
+                        state.bikeCC, state.bikeValue, state.tempContact, state.otpmsgid
                       );}} className="verifyestimatebtn">Verify & Estimate Price</button></div>
                     </div>
                     :

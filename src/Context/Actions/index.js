@@ -44,50 +44,90 @@ export default {
   bikeValueChange: function(e) {
     this.setState({bikeValue: e.target.value});
   },
-  onChangeVerifyContact: function(value, value2, auth, parcelFrom, toPlace, parcelDate, bikeCC, bikeValue, senderContact) {
+  onChangeVerifyContact: function(value, value2, auth, parcelFrom, toPlace, parcelDate, bikeCC, bikeValue, senderContact, msg) {
     if (value === null) {
       this.setState({errorPrint: "Enter OTP"})
     } else {
 
       this.setState({loadingMsg: "loading..."});
 
-      var form = new FormData();
-      form.append("parcel_from", "Bangalore");
-      form.append("parcel_to", "Bidar");
-      form.append("parcel_date", parcelDate.toString());
-      form.append("sender_contact", senderContact.toString());
-      form.append("bike_cc", bikeCC.toString());
-      form.append("bike_value", bikeValue.toString());
+      // Todo Verify OTP
+      var form1 = new FormData();
+      form1.append("mobile_number", senderContact.toString());
+      form1.append("otp", value.toString());
+      form1.append("message_id", msg);
 
-      var settings = {
+      var settings1 = {
         "async": true,
         "crossDomain": true,
-        "url": "http://18.206.137.13/api/pick_up_details",
+        "url": "http://18.206.137.13/api/verify_otp",
         "method": "POST",
         "headers": {
           "Accept": "application/json",
           "Authorization": auth.toString(),
-          "Content-Type": "application/json",
-          "Cache-Control": "no-cache"
+          "Cache-Control": "no-cache",
+
         },
         "processData": false,
         "contentType": false,
         "mimeType": "multipart/form-data",
-        "data": form
+        "data": form1
       }
 
-      axios(settings).then((res) => {
-        this.setState({
-          loadingMsg: "",
-          verified: true,
-          contactNumber: value2,
-          errorPrint: "",
-          orderCharge: res.data.message,
-          orderid: res.data.Order_id
-        });
-      }).catch((err) => {
-        console.log(err);
-        this.setState({loadingMsg: "Error! Try Again Later"});
+      axios(settings1)
+      .then((res1)=>{
+          
+
+         if( res1.data.message === "mobile_not_found" ){
+            this.setState({loadingMsg: "Wrong OTP"}) ;
+          }
+          else
+          {
+            var form = new FormData();
+            form.append("parcel_from", "Bangalore");
+            form.append("parcel_to", "Bidar");
+            form.append("parcel_date", parcelDate.toString());
+            form.append("sender_contact", senderContact.toString());
+            form.append("bike_cc", bikeCC.toString());
+            form.append("bike_value", bikeValue.toString());
+
+            var settings = {
+              "async": true,
+              "crossDomain": true,
+              "url": "http://18.206.137.13/api/pick_up_details",
+              "method": "POST",
+              "headers": {
+                "Accept": "application/json",
+                "Authorization": auth.toString(),
+                "Content-Type": "application/json",
+                "Cache-Control": "no-cache"
+              },
+              "processData": false,
+              "contentType": false,
+              "mimeType": "multipart/form-data",
+              "data": form
+            }
+
+            axios(settings)
+            .then((res) => {
+              this.setState({
+                loadingMsg: "",
+                verified: true,
+                contactNumber: value2,
+                errorPrint: "",
+                orderCharge: res.data.message,
+                orderid: res.data.Order_id
+              });
+            }).catch((err) => {
+              console.log(err);
+              this.setState({loadingMsg: "Error! Try Again Later"});
+            })
+
+          }
+
+      })
+      .catch((err)=>{
+        this.setState({loadingMsg: "Error ! Try Again"});
       })
     }
 
@@ -96,7 +136,7 @@ export default {
     this.setState({OTP: e.target.value});
   },
 
-  openOTPModal: function(value1, value2, value3) {
+  openOTPModal: function(value1, value2, value3, auth) {
 
     var mob = /^[6-9]\d{9}$/;
     var cc = /^\d{2,3}$/;
@@ -131,10 +171,43 @@ else if ((value1 > 500 && value1 <= 750) && value2 < 100000)
       this.setState({errorPrint: "Bike Value should be more than 100000"});
     else if (value2 > 999999)
       this.setState({errorPrint: "Bike Value Not Allowed"});
-    else
-      this.setState({otpModal: true, errorPrint: "", displayNone: "none"});
+    else {
+      this.setState({errorPrint: "loading..."});
+
+      var mobilefinal = "91";
+      mobilefinal = mobilefinal.concat(value3.toString());
+
+      var form = new FormData();
+      form.append("mobile_number", mobilefinal.toString());
+
+      var settings = {
+        "async": true,
+        "crossDomain": true,
+        "url": "http://18.206.137.13/api/otp",
+        "method": "POST",
+        "headers": {
+          "Accept": "application/json",
+          "Authorization": auth.toString(),
+          "Cache-Control": "no-cache",
+          "Postman-Token": "ebe4a18d-ec8a-43de-bd3b-dcd1706bffc9"
+        },
+        "processData": false,
+        "contentType": false,
+        "mimeType": "multipart/form-data",
+        "data": form
+      }
+
+      axios(settings).then((res) => {
+        console.log("OTP Sent To Mobile");
+        this.setState({otpModal: true, errorPrint: "", displayNone: "none", otpmsgid: res.data.message});
+      }).catch((err) => {
+        console.log(err);
+        this.setState({errorPrint: "Error! Try Again Later !"})
+      })
+
     }
-  ,
+
+  },
 
   closeOTPModal: function() {
     this.setState({otpModal: false, displayNone: "flex", showBikeDetails: false});
@@ -292,8 +365,7 @@ else if ((value1 > 500 && value1 <= 750) && value2 < 100000)
       this.setState({errorStation: "Please Enter Valid Email"});
     else if (bikeno === "")
       this.setState({errorStation: "Please Enter Number of Bikes"});
-    else
-    {
+    else {
       this.setState({errorStation: "loading..."});
       var form = new FormData();
       form.append("name", name.toString());
@@ -310,22 +382,22 @@ else if ((value1 > 500 && value1 <= 750) && value2 < 100000)
         "method": "POST",
         "headers": {
           "Accept": "application/json",
-          "Authorization": auth.toString(),
+          "Authorization": auth.toString()
         },
         "processData": false,
         "contentType": false,
         "mimeType": "multipart/form-data",
         "data": form
-    }
+      }
 
-    axios(settings)
-    .then((res)=>{
-      this.setState({errorStation: "Request Submitted Successfully !"});
-      setTimeout(()=>{this.setState({StationRequestModal: false})}, 5000);
-    })
-    .catch((err)=>{
-      this.setState({errorStation: "Cannot Process Request ! Try Later !"});
-    })
+      axios(settings).then((res) => {
+        this.setState({errorStation: "Request Submitted Successfully !"});
+        setTimeout(() => {
+          this.setState({StationRequestModal: false})
+        }, 5000);
+      }).catch((err) => {
+        this.setState({errorStation: "Cannot Process Request ! Try Later !"});
+      })
 
     }
   },

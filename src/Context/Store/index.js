@@ -75,5 +75,6 @@ export default {
   stationBikeno: "",
 
   // loading
-  loadingMsg: ""
+  loadingMsg: "",
+  otpmsgid: ""
 }
