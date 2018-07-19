@@ -50,12 +50,13 @@ export default {
     } else {
 
       this.setState({loadingMsg: "loading..."});
+      var mobilefinals = "91";
+      mobilefinals = mobilefinals.concat(senderContact.toString());
 
-      // Todo Verify OTP
       var form1 = new FormData();
-      form1.append("mobile_number", senderContact.toString());
-      form1.append("otp", value.toString());
-      form1.append("message_id", msg);
+      form1.append("mobile_number", mobilefinals.toString() );
+      form1.append("otp", value.toString() );
+      form1.append("message_id", msg.toString());
 
       var settings1 = {
         "async": true,
@@ -173,6 +174,7 @@ else if ((value1 > 500 && value1 <= 750) && value2 < 100000)
       var form = new FormData();
       form.append("mobile_number", mobilefinal.toString());
       console.log(mobilefinal.toString());
+
       var settings = {
         "async": true,
         "crossDomain": true,
