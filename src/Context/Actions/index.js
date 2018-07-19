@@ -73,8 +73,9 @@ export default {
       }
 
       axios(settings1).then((res1) => {
-        console.log(res1.data);
-        if (res1.data.message === "otp_verified" || res1.data.message === "already_verified" ){
+        console.log(res1);
+        if (res1.data.type === "success" || res1.data.message === "otp_verified" || res1.data.message === "already_verified") {
+          console.log(res1.data.message);
           var form = new FormData();
           form.append("parcel_from", "Bangalore");
           form.append("parcel_to", "Bidar");
@@ -100,6 +101,7 @@ export default {
           }
 
           axios(settings).then((res) => {
+            console.log(res);
             this.setState({
               loadingMsg: "",
               verified: true,
@@ -170,7 +172,7 @@ else if ((value1 > 500 && value1 <= 750) && value2 < 100000)
 
       var form = new FormData();
       form.append("mobile_number", mobilefinal.toString());
-
+      console.log(mobilefinal.toString());
       var settings = {
         "async": true,
         "crossDomain": true,
@@ -339,6 +341,7 @@ else if ((value1 > 500 && value1 <= 750) && value2 < 100000)
   onSubmitStationRequest: function(source, destination, name, phone, email, bikeno, auth) {
     var mob = /^[6-9]\d{9}$/;
     var mail = /^(?:[a-z0-9!#$%&amp;'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&amp;'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])$/;
+    var n = /^[a-z ,.'-]+$/i;
 
     if (source === "")
       this.setState({errorStation: "Please Enter the Source Station"});
@@ -346,10 +349,14 @@ else if ((value1 > 500 && value1 <= 750) && value2 < 100000)
       this.setState({errorStation: "Please Enter the Destination Station"});
     else if (name === "")
       this.setState({errorStation: "Please Enter The Name"});
+    else if (n.test(name) === false)
+      this.setState({errorStation: "Please Enter Valid Name"});
     else if (phone === "")
       this.setState({errorStation: "Please Enter the Phone Number"});
     else if (mob.test(phone) === false)
       this.setState({errorStation: "Please Enter Valid Phone Number"});
+    else if (email === "")
+      this.setState({errorStation: "Please Enter Email"});
     else if (mail.test(email) === false)
       this.setState({errorStation: "Please Enter Valid Email"});
     else if (bikeno === "")
@@ -380,10 +387,10 @@ else if ((value1 > 500 && value1 <= 750) && value2 < 100000)
       }
 
       axios(settings).then((res) => {
-        this.setState({errorStation: "Request Submitted Successfully !"});
+        this.setState({errorStation: "Thanks for letting us know, we will get back to you shortly"});
         setTimeout(() => {
           this.setState({StationRequestModal: false})
-        }, 5000);
+        }, 10000);
       }).catch((err) => {
         this.setState({errorStation: "Cannot Process Request ! Try Later !"});
       })
