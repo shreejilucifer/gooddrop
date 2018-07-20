@@ -36,7 +36,7 @@ class Footer extends PureComponent {
                 <div className="left">
                   <ul>
                     <h4 className="listtitle"><b>Policies</b></h4>
-                    <li className="listitems">Shipping Policy</li>
+                    <Link to="/shippingpolicy"><li className="listitems">Shipping Policy</li></Link>
                     <Link to="/paymentpolicy"><li className="listitems">Payment Policy</li></Link>
                     <Link to="/terms"><li className="listitems">Terms of Use</li></Link>
                     <li className="listitems">Cancellations & Modifications</li>

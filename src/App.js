@@ -14,6 +14,7 @@ import CustomerReviews from './Pages/CustomerReviews';
 import ContactUs from './Pages/ContactUs';
 import HowItWorks from './Pages/HowItWorks';
 import DocumentsRequired from './Pages/DocumentsRequired';
+import ShippingPolicy from './Pages/ShippingPolicy';
 
 // Todo: Import Context Store
 import store from './Context/Store';
@@ -47,6 +48,7 @@ class App extends PureComponent {
                 <Route path="/contactus" render={()=><ContactUs Consumer={Consumer}/>}/>
                 <Route path="/howitworks" render={()=><HowItWorks Consumer={Consumer}/>}/>
                 <Route path="/docsrequired" render={()=><DocumentsRequired Consumer={Consumer}/>}/>
+                <Route path="/shippingpolicy" render={()=><ShippingPolicy Consumer={Consumer}/>}/>
 
               </div>
             </ScrollToTop>
