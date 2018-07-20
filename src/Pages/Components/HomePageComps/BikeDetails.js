@@ -16,6 +16,16 @@ class BikeDetails extends PureComponent {
       this.setState({ verified: true })
     }
 
+    renderParcelDate = (date) => {
+
+      var year = date.slice(0,4);
+      var month = date.slice(5,7);
+      var day = date.slice(8,10);
+      var res = day.concat("-",month,"-",year);
+
+      return res ;
+    }
+
 
   render() {
     const Consumer = this.props.Consumer ;
@@ -71,18 +81,25 @@ class BikeDetails extends PureComponent {
                       <div className="errorMsg" style={{color: "#000"}}>{state.errorPrint}</div>
                       <div className="errorMsg" style={{color: "#000"}}>{state.loadingMsg}</div>
                       <div>
+
                         <button onClick={()=>{actions.onChangeVerifyContact(
                         state.OTP, state.tempContact, state.auth,
                         state.fromPlace, state.toPlace, state.parcelDate,
                         state.bikeCC, state.bikeValue, state.tempContact, state.otpmsgid
-                      );}} className="verifyestimatebtn">Verify & Estimate Price</button></div>
+                      );}} className="verifyestimatebtn">Verify & Estimate Price</button>
+                      <br/><br/>
+                      <a onClick={()=>{actions.openOTPModal(state.bikeCC, state.bikeValue, state.tempContact, state.auth);}}>
+                        Resend OTP
+                      </a>
+                    </div>
                     </div>
                     :
                     <div className="otpmodal">
-                      <h3>{state.orderCharge}</h3>
+
                       <h3 style={{textTransform: 'uppercase'}}> From: <b>{state.fromPlace}</b> <br/>To: <b>{state.toPlace}</b> </h3> <br/>
-                      <h3> On Date: <b>{state.parcelDate}</b> </h3>
-                      <h3> BikeCC: <b>{state.bikeCC}</b> <br/> Bike Value: <b>{state.bikeValue}</b> </h3>
+
+                      <h3> On Date: <b>{this.renderParcelDate(state.parcelDate)}</b> </h3>
+                      <h3>The Total Price To Ship Your Bike is Rs. {state.orderCharge}/- </h3>
                       <button className="otpbooknowbtn" onClick={actions.openBookModal}>Book Now</button> <br/>
                       <button className="otpcancelbtn" onClick={actions.closeOTPModal}>Cancel</button>
                     </div>
@@ -104,5 +121,3 @@ class BikeDetails extends PureComponent {
 }
 
 export default BikeDetails;
-/*
- */

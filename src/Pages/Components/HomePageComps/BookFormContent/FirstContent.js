@@ -20,8 +20,7 @@ class FirstContent extends PureComponent {
           <div className="pickupdetailsform">
           <br/>
           <h3 className="pickupdetailsformtitle">
-            <b> {state.orderCharge}/-
-            </b>
+            <b> The Total Price To Ship Your Bike is Rs. {state.orderCharge}/- </b>
           </h3>
           <h3>
             PICKUP DETAILS
@@ -60,28 +59,34 @@ class FirstContent extends PureComponent {
             />
             <br/>
             <div className="slotanddate">
-              <label className="pickupdetailsformlabel">Pickup Date</label>
-              <DatePicker
-                value={state.pickupDateActual}
-                disabledDate={(current)=>{
-                  return (current > state.parcelDateActual) }}
-                onChange={actions.pickupDetailsChangePickUpdate}
-                name="pickupdate"
-                showToday={false}
-              />
+              <div className="slotanddatepart">
+                <label className="pickupdetailsformlabel">Pickup Date</label>
+                <DatePicker
+                  value={state.pickupDateActual}
+                  disabledDate={(current)=>{
+                    return (current > state.parcelDateActual) }}
+                  onChange={actions.pickupDetailsChangePickUpdate}
+                  name="pickupdate"
+                  showToday={false}
+                />
+              </div>
+
               <br/>
-              <label className="pickupdetailsformlabel">Pickup Slot</label>
-              <Select
-                value={state.pickupSlot}
-                style={{ width: 120 }}
-                defaultValue=""
-                onChange={(e)=>{actions.pickupDetailsChange(e, 'pickupslot')}}>
-                <Option value="6AM to 7AM">6 AM - 10 AM</Option>
-                <Option value="10AM to 12PM">10 AM - 12 PM</Option>
-                <Option value="12PM to 4PM">12 PM - 4 PM</Option>
-                <Option value="4PM to 7PM">4 PM - 7 PM</Option>
-                <Option value="7PM to 11PM">7 PM - 11 PM</Option>
-              </Select>
+              <div className="slotanddatepart">
+                <label className="pickupdetailsformlabel">Pickup Slot</label>
+                <Select
+                  value={state.pickupSlot}
+                  style={{ width: 140 }}
+                  defaultValue=""
+                  onChange={(e)=>{actions.pickupDetailsChange(e, 'pickupslot')}}>
+                  <Option value="6AM to 7AM">6 AM - 10 AM</Option>
+                  <Option value="10AM to 12PM">10 AM - 12 PM</Option>
+                  <Option value="12PM to 4PM">12 PM - 4 PM</Option>
+                  <Option value="4PM to 7PM">4 PM - 7 PM</Option>
+                  <Option value="7PM to 11PM">7 PM - 11 PM</Option>
+                </Select>
+              </div>
+
 
             </div><br/>
             <label className="pickupdetailsformlabel">Address Line</label>

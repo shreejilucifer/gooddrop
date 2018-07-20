@@ -83,6 +83,13 @@
   justify-content: space-around;
 }
 
+.slotanddatepart {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding-right: 10px;
+}
+
 .onefiftybtn {
   margin-left: 150px;
 }
@@ -113,6 +120,6 @@
     margin-bottom: 10px;
   }
   .pickupdetailstwocol {
-    display: block; 
+    display: block;
   }
 }

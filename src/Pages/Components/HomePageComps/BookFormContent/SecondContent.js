@@ -11,7 +11,7 @@ class SecondContent extends PureComponent {
         {({ state, actions }) => (
           <div className="pickupdetailsform" >
             <br/>
-            <h3 className="pickupdetailsformtitle"><b>{state.orderCharge}/- </b></h3>
+            <h3 className="pickupdetailsformtitle"><b>The Total Price To Ship Your Bike is Rs. {state.orderCharge}/- </b></h3>
             <h3> DESTINATION DETAILS </h3>
             <form className="pickupdetailsactualform">
               <label className="pickupdetailsformlabel">Receiver's Name</label>

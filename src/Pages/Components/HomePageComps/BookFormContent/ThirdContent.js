@@ -22,6 +22,10 @@ class ThirdContent extends PureComponent {
     return res2 ;
   }
 
+  renderCapital = (cap) => {
+    return cap.charAt(0).toUpperCase() + cap.substr(1);
+  }
+
   render() {
     const Consumer = this.props.Consumer ;
 
@@ -32,8 +36,7 @@ class ThirdContent extends PureComponent {
           <div className="pickupdetailsform">
             <br/>
             <h3 className="pickupdetailsformtitle">
-              <b> {state.orderCharge}/-
-              </b>
+              <b> The Total Price To Ship Your Bike is Rs. {state.orderCharge}/- </b>
             </h3>
             <h3>
               PICKUP DETAILS
@@ -86,10 +89,10 @@ class ThirdContent extends PureComponent {
                     <td className="pickupdetailscells">{state.addressLine}</td>
                   </tr>
                   <tr>
-                    <td className="pickupdetailscells">{state.townCity}</td>
+                    <td className="pickupdetailscells">{this.renderCapital(state.townCity)}</td>
                   </tr>
                   <tr>
-                    <td className="pickupdetailscells">{state.addressState}</td>
+                    <td className="pickupdetailscells">{this.renderCapital(state.addressState)}</td>
                   </tr>
                   <tr>
                     <td className="pickupdetailscells">Mob +91{state.contactNumber}</td>
@@ -116,10 +119,10 @@ class ThirdContent extends PureComponent {
                     <td className="pickupdetailscells">{state.receiveraddressLine}</td>
                   </tr>
                   <tr>
-                    <td className="pickupdetailscells">{state.receivertownCity}</td>
+                    <td className="pickupdetailscells">{this.renderCapital(state.receivertownCity)}</td>
                   </tr>
                   <tr>
-                    <td className="pickupdetailscells">{state.receiveraddressState}</td>
+                    <td className="pickupdetailscells">{this.renderCapital(state.receiveraddressState)}</td>
                   </tr>
 
                   <tr>
@@ -132,7 +135,7 @@ class ThirdContent extends PureComponent {
             <br/>
             <div>
               <Checkbox onChange={actions.onChangeCheckBox}>
-                <Link to="/terms">I have read and understood the terms and conditions and i agree with it.</Link>
+                <Link to="/terms">I have read and understood all terms and conditions, Shipping policies & Payment policies and I agree with them.</Link>
               </Checkbox>
             </div>
 

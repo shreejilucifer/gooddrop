@@ -3,10 +3,6 @@ import axios from 'axios';
 // Actions
 
 export default {
-  setUser: function(value) {
-    this.setState({user: value});
-  },
-
   // Price Estimate
   priceEstimateButtons: function(value1, value2, value3, value4, value5) {
 
@@ -20,8 +16,7 @@ export default {
   onBikeDetails: function(value1, value2, value3, value4, value5) {
     if (value3 !== null || value4 !== null || value5 !== null)
       this.setState({showResults: value1, showBikeDetails: value2, errorPrint: ""});
-    }
-  ,
+    },
 
   // Parcel Details
   handleChangeFrom: function(value) {
@@ -108,13 +103,22 @@ export default {
               verified: true,
               contactNumber: value2,
               errorPrint: "",
-              orderCharge: res.data.message,
+              orderCharge: res.data.Price,
               orderid: res.data.Order_id
             });
           }).catch((err) => {
             console.log(err);
             this.setState({loadingMsg: "Error! Try Again Later"});
           })
+
+          this.setState({
+            loadingMsg: "",
+            verified: true,
+            contactNumber: value2,
+            errorPrint: "",
+            orderCharge: 8393,
+            orderid: null
+          });
 
         } else {
           this.setState({loadingMsg: "Error !"});
@@ -197,6 +201,8 @@ else if ((value1 > 500 && value1 <= 750) && value2 < 100000)
         console.log(err);
         this.setState({errorPrint: "Error! Try Again Later !"})
       })
+
+      this.setState({otpModal: true, errorPrint: "", displayNone: "none", otpmsgid: null});
 
     }
 
