@@ -63,11 +63,6 @@ class ParcelDetails extends PureComponent {
                   <Option value="hyderabad">Hyderabad</Option>
 
                 </Select>
-                <a
-                  style={{fontSize: "10px", marginTop: "5px", marginBottom: "0px"}}
-                  onClick={()=>{actions.openStationRequestModal(true)}}>
-                  Din’t find your city in the list? <br/>Click here to add
-                </a>
               </div>
 
               <div className="parcelinputcontainer">

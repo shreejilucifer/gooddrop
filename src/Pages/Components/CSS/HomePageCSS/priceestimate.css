@@ -99,10 +99,10 @@
   height: 30px;
   width: 70px;
   margin-left: 10px;
-  background-color: #48486e;
+  background-color: #f6416c;
   color: #fff;
   text-transform: uppercase;
-  border: 1px solid #34b3d3;
+  border: none;
 }
 
 .parcelinputcontainer {
@@ -164,7 +164,7 @@
 
 .errorMsg {
   text-align: center;
-  color: #f6416c;
+  color: #fff;
   padding-bottom: 10px;
 }
 
