@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react';
 import Navbar from './Components/HomePageComps/Navbar';
 import '../Pages/Components/CSS/AboutUsPageCSS/aboutdata.css';
+import TempFooter from './Components/HomePageComps/TempFooter';
 
 class Order extends PureComponent {
 
@@ -12,8 +13,9 @@ class Order extends PureComponent {
           <div>
             <Navbar Consumer={this.props.Consumer}/>
             <div className="orderpage" style={{ paddingTop: "20px", paddingBottom: "50px", display: "flex", justifyContent: "center"}}>
-              <h1> Your Order Id is: {state.orderid} </h1>
+              <h2> Your Order Id Is: {state.orderid} </h2>
             </div>
+            <TempFooter Consumer={this.props.Consumer}/>
           </div>
 
         )}

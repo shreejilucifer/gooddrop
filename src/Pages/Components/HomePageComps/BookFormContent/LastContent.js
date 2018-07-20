@@ -25,7 +25,7 @@ class LastContent extends PureComponent {
       <Consumer>
         {({ state, actions }) => (
           <div>
-            <h3>Payment</h3> <br/>
+            <h3>Payment: Rs. 5850</h3> <br/>
             <RadioGroup onChange={this.onChange} value={this.state.value}>
               <Radio style={radioStyle} value={1}>Cash On Pickup (COP)</Radio>
               <Radio style={radioStyle} disabled={true} value={2}>Online (Coming Soon)</Radio>

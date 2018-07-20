@@ -122,7 +122,10 @@ class BookingForm extends PureComponent {
                 this.state.current === steps.length - 1
                 &&
                 <Link to="/order">
-                <Button type="primary" className="bookingformnextbtn onefiftybtn" onClick={() => message.success('Processing complete!')}>Place your order</Button>
+                <Button type="primary" className="bookingformnextbtn onefiftybtn" onClick={() => {
+                  message.success('Processing complete!');
+                  actions.resetState();
+                }}>Place your order</Button>
                 </Link>
               }
               {

@@ -151,11 +151,11 @@ export default {
     value1 = Number(value1); // bikeCC
     value2 = Number(value2); // bikeValue
 
-    if (value1 === null)
+    if (value1 === null || value1 === 0)
       this.setState({errorPrint: "Please Enter Bike CC !"});
-    else if (value2 === null)
+    else if (value2 === null || value2 === 0)
       this.setState({errorPrint: "Please Enter Bike Value !"});
-    else if (value3 === null)
+    else if (value3 === null || value3 === "")
       this.setState({errorPrint: "Please Enter Contact Number !"});
     else if (cc.test(value1) === false)
       this.setState({errorPrint: "Please Enter Valid Bike CC !"});
@@ -276,12 +276,15 @@ else if ((value1 > 500 && value1 <= 750) && value2 < 100000)
   },
 
   destinationDetailsChange: function(value, str) {
+    var sender = /^[a-zA-Z ]*$/;
+    var cont = /^[0-9]*$/ ;
+
     switch (str) {
       case 'receivername':
-        this.setState({receiverName: value});
+        if( sender.test(value) === true ) this.setState({receiverName: value});
         break;
       case 'receivercontactnumber':
-        this.setState({receivercontactNumber: value});
+        if( cont.test(value) === true ) this.setState({receivercontactNumber: value});
         break;
       case 'receiveremailid':
         this.setState({receiveremailID: value});
@@ -339,7 +342,7 @@ else if ((value1 > 500 && value1 <= 750) && value2 < 100000)
   },
 
   openStationRequestModal: function(e) {
-    this.setState({StationRequestModal: e});
+    this.setState({StationRequestModal: e, showResults: false});
   },
 
   stationRequestHandler: function(val1, val2) {
@@ -451,5 +454,15 @@ else if ((value1 > 500 && value1 <= 750) && value2 < 100000)
       console.log(err);
     })
 
+  },
+
+  resetState: function() {
+    this.setState({
+      showResults: false,
+      showBikeDetails: false,
+      otpModal: false,
+      verified: false,
+      bookNowState: false
+    })
   }
 }
