@@ -18,6 +18,7 @@ class StationRequestForm extends PureComponent {
               className="stationforminput"
               type="text"
               width="100%"
+              value={state.sourceStation}
               onChange={(e)=>{actions.stationRequestHandler(e.target.value, "sourcestation" )}}
             />
             <br/>
@@ -26,6 +27,7 @@ class StationRequestForm extends PureComponent {
               className="stationforminput"
               type="text"
               width="100%"
+              value={state.destinationStation}
               onChange={(e)=>{actions.stationRequestHandler(e.target.value, "destinationstation" )}}
             />
             <br/>
@@ -34,6 +36,7 @@ class StationRequestForm extends PureComponent {
               className="stationforminput"
               type="text"
               width="100%"
+              value={state.stationName}
               onChange={(e)=>{actions.stationRequestHandler(e.target.value, "stationname" )}}
             />
             <br/>
@@ -42,6 +45,7 @@ class StationRequestForm extends PureComponent {
               className="stationforminput"
               type="text"
               width="100%"
+              value={state.stationPhone}
               onChange={(e)=>{actions.stationRequestHandler(e.target.value, "stationphone" )}}
             />
             <br/>
@@ -50,6 +54,7 @@ class StationRequestForm extends PureComponent {
               className="stationforminput"
               type="text"
               width="100%"
+              value={state.stationEmail}
               onChange={(e)=>{actions.stationRequestHandler(e.target.value, "stationemail" )}}
             />
             <br/>
@@ -58,6 +63,7 @@ class StationRequestForm extends PureComponent {
               className="stationforminput"
               type="text"
               width="100%"
+              value={state.stationBikeno}
               onChange={(e)=>{actions.stationRequestHandler(e.target.value, "stationbikesno" )}}
             />
             {state.errorStation}

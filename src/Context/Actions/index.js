@@ -360,7 +360,7 @@ else if ((value1 > 500 && value1 <= 750) && value2 < 100000)
     } else if (val2 === "stationemail") {
       this.setState({stationEmail: val1});
     } else if (val2 === "stationbikesno") {
-      if( cont.test(value) === true ) this.setState({stationBikeno: val1});
+      if( cont.test(val1) === true ) this.setState({stationBikeno: val1});
     }
   },
 
