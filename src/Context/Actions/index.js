@@ -6,8 +6,14 @@ export default {
   // Price Estimate
   priceEstimateButtons: function(value1, value2, value3, value4, value5) {
 
-    if (value3 === null || value4 === null || value5 === null) {
-      this.setState({errorPrint: "Fill All The Data"});
+    if (value3 === null) {
+      this.setState({errorPrint: "Please Select Parcel From"});
+    }
+    else if(value4 === null) {
+      this.setState({errorPrint: "Please Select Parcel To"});
+    }
+    else if(value5 === null) {
+      this.setState({errorPrint: "Please Select Parcel Date"});
     } else {
       this.setState({showResults: value1, showBikeDetails: value2, errorPrint: ""});
     }
@@ -31,20 +37,32 @@ export default {
 
   // Bike Details
   bikeContactChange: function(e) {
-    this.setState({tempContact: e.target.value});
+   var cc = /^[0-9]*$/ ;
+    if( cc.test(e.target.value) === true ) {
+      this.setState({tempContact: e.target.value});
+    }
   },
+
   bikeCCChange: function(e) {
-    this.setState({bikeCC: e.target.value});
+    var cc = /^[0-9]*$/ ;
+    if( cc.test(e.target.value) === true ) {
+        this.setState({bikeCC: e.target.value, errorPrint: ""});
+    }
   },
+
   bikeValueChange: function(e) {
-    this.setState({bikeValue: e.target.value});
+    var cc = /^[0-9]*$/ ;
+    if( cc.test(e.target.value) === true ) {
+      this.setState({bikeValue: e.target.value});
+    }
   },
+
   onChangeVerifyContact: function(value, value2, auth, parcelFrom, toPlace, parcelDate, bikeCC, bikeValue, senderContact, msg) {
     if (value === null) {
       this.setState({errorPrint: "Enter OTP"})
     } else {
 
-      this.setState({loadingMsg: "loading..."});
+      this.setState({loadingMsg: "Calculating The Price..."});
       var mobilefinals = "91";
       mobilefinals = mobilefinals.concat(senderContact.toString());
 
@@ -112,7 +130,7 @@ export default {
           })
 
         } else {
-          this.setState({loadingMsg: "Error !"});
+          this.setState({loadingMsg: "Invalid OTP !"});
         }
 
       }).catch((err) => {
@@ -218,12 +236,15 @@ else if ((value1 > 500 && value1 <= 750) && value2 < 100000)
 
   // BookingForm
   pickupDetailsChange: function(value, str) {
+    var sender = /^[a-zA-Z ]*$/;
+    var cont = /^[0-9]*$/ ;
+
     switch (str) {
       case 'sendername':
-        this.setState({senderName: value});
+        if( sender.test(value) === true ) this.setState({senderName: value});
         break;
       case 'contactnumber':
-        this.setState({contactNumber: value});
+        if( cont.test(value) === true ) this.setState({contactNumber: value});
         break;
       case 'emailid':
         this.setState({emailID: value});
@@ -244,7 +265,7 @@ else if ((value1 > 500 && value1 <= 750) && value2 < 100000)
         this.setState({addressState: value});
         break;
       default:
-        console.log("Erorr Form Change");
+        console.log("Error Form Change");
     }
   },
   pickupDetailsChangePickUpdate: function(date, dateString, today) {
