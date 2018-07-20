@@ -346,18 +346,21 @@ else if ((value1 > 500 && value1 <= 750) && value2 < 100000)
   },
 
   stationRequestHandler: function(val1, val2) {
+    var sender = /^[a-zA-Z ]*$/;
+    var cont = /^[0-9]*$/ ;
+
     if (val2 === "sourcestation") {
-      this.setState({sourceStation: val1});
+      if( sender.test(val1) === true ) this.setState({sourceStation: val1});
     } else if (val2 === "destinationstation") {
-      this.setState({destinationStation: val1});
+      if( sender.test(val1) === true ) this.setState({destinationStation: val1});
     } else if (val2 === "stationname") {
-      this.setState({stationName: val1});
+      if( sender.test(val1) === true ) this.setState({stationName: val1});
     } else if (val2 === "stationphone") {
-      this.setState({stationPhone: val1});
+      if( cont.test(val1) === true ) this.setState({stationPhone: val1});
     } else if (val2 === "stationemail") {
       this.setState({stationEmail: val1});
     } else if (val2 === "stationbikesno") {
-      this.setState({stationBikeno: val1});
+      if( cont.test(value) === true ) this.setState({stationBikeno: val1});
     }
   },
 

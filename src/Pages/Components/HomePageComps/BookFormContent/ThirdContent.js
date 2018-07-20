@@ -135,7 +135,7 @@ class ThirdContent extends PureComponent {
             <br/>
             <div>
               <Checkbox onChange={actions.onChangeCheckBox}>
-                I have read and understood all <Link to="/terms">Terms and Conditions</Link>, <Link to="/shippingpolicy">Shipping Policies</Link> & <Link to="/paymentpolicy">Payment Policies</Link> and I agree with them.
+                I have read and understood all <Link to="/terms" target="_blank">Terms and Conditions</Link>, <Link to="/shippingpolicy" target="_blank">Shipping Policies</Link> & <Link to="/paymentpolicy" target="_blank">Payment Policies</Link> and I agree with them.
               </Checkbox>
             </div>
 
