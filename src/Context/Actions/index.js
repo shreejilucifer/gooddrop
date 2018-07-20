@@ -111,15 +111,6 @@ export default {
             this.setState({loadingMsg: "Error! Try Again Later"});
           })
 
-          this.setState({
-            loadingMsg: "",
-            verified: true,
-            contactNumber: value2,
-            errorPrint: "",
-            orderCharge: 8393,
-            orderid: null
-          });
-
         } else {
           this.setState({loadingMsg: "Error !"});
         }
