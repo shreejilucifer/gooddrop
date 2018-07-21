@@ -1,5 +1,5 @@
 import React, { PureComponent, createContext } from 'react';
-import {  Switch, BrowserRouter as Router, Route} from "react-router-dom";
+import {  HashRouter, BrowserRouter as Router, Route} from "react-router-dom";
 import ScrollToTop from './Pages/Components/HomePageComps/ScrollToTop';
 
 // Pages
@@ -36,7 +36,7 @@ class App extends PureComponent {
     return (
       <Provider value={{state: this.state, actions}}>
           <Router>
-            <Switch>
+            <HashRouter>
             <ScrollToTop>
               <div>
 
@@ -55,7 +55,7 @@ class App extends PureComponent {
 
               </div>
             </ScrollToTop>
-          </Switch>
+          </HashRouter>
           </Router>
       </Provider>
     );
