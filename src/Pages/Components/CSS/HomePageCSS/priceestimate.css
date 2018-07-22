@@ -227,11 +227,8 @@
   }
 
   .parceldetailssendotpbtn {
-    -ms-text-size-adjust: none;
-  -moz-text-size-adjust: none;
-  -o-text-size-adjust: none;
-  -webkit-text-size-adjust: none;
-    width: 80px;
+    -webkit-text-size-adjust: 100%;
+    width: 90px;
     font-size: 0.9em ;
     margin-left: 10px;
   }
