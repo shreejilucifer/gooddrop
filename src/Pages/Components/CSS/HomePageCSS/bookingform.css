@@ -50,6 +50,17 @@
   border: none;
 }
 
+.bookingformdonebtn {
+  height: 40px;
+  width: 200px;
+  background-color: #f6416c;
+  color: #fff;
+  font-size: 15px;
+  margin-right: 20px;
+  border-radius: 0px !important;
+  border: none;
+}
+
 .bookingformprevbtn {
   height: 40px;
   width: 200px;
@@ -114,6 +125,9 @@
   }
   .bookingformnextbtn {
     width: 120px;
+  }
+  .bookingformdonebtn {
+    width: 150px;
   }
   .onefiftybtn {
     margin-left: 10px;
