@@ -16,6 +16,7 @@ import HowItWorks from './Pages/HowItWorks';
 import DocumentsRequired from './Pages/DocumentsRequired';
 import ShippingPolicy from './Pages/ShippingPolicy';
 import Cancellation from './Pages/Cancellation';
+import FAQ from './Pages/FAQ';
 
 // Todo: Import Context Store
 import store from './Context/Store';
@@ -52,6 +53,7 @@ class App extends PureComponent {
                 <Route path="/docsrequired" render={()=><DocumentsRequired Consumer={Consumer}/>}/>
                 <Route path="/shippingpolicy" render={()=><ShippingPolicy Consumer={Consumer}/>}/>
                 <Route path="/cancellation" render={()=><Cancellation Consumer={Consumer}/>}/>
+                <Route path="/faq" render={()=><FAQ Consumer={Consumer}/>}/>
 
               </div>
             </ScrollToTop>
