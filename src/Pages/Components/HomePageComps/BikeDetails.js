@@ -70,7 +70,7 @@ class BikeDetails extends PureComponent {
               <Modal
                 closeIconSize={15}
                 open={state.otpModal}
-                onClose={actions.closeOTPModal} center>
+                onClose={actions.resetState} center>
 
                   {
                     (state.verified === false && state.otpModal === true )?

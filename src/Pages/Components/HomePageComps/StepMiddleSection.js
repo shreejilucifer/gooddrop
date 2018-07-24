@@ -61,7 +61,14 @@ class StepMiddleSection extends PureComponent {
               <div className="tempcont">
                 <button onClick={()=>{this.scrollToTop(); actions.openBookModal(state.verified);}} className="bookbtn">BOOK NOW</button>
 
-                <Modal className="bookmodal" showCloseIcon={false} open={state.bookNowState} onClose={actions.closeBookModal} >
+                <Modal
+                  className="bookmodal"
+                  showCloseIcon={false}
+                  open={state.bookNowState}
+                  onClose={actions.resetState}
+                  closeOnOverlayClick={false}
+                  closeOnEsc={false}
+                  >
                   <div>
                     <BookingForm Consumer={Consumer}/>
                   </div>

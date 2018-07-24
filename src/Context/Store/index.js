@@ -76,5 +76,11 @@ export default {
 
   // loading
   loadingMsg: "",
-  otpmsgid: ""
+  otpmsgid: "",
+
+  res: [],
+  sourcePlace: [],
+  destinationPlace: [],
+  loading: true,
+  loadingDest: true
 }

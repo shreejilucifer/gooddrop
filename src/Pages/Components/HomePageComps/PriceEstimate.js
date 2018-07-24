@@ -17,16 +17,18 @@ class PriceEstimate extends PureComponent {
 
               <div className="priceestimate">
                 <div>
-                  <button className="selectbox1" onClick={()=>{actions.priceEstimateButtons(!state.showResults, false)}}>
+                  <button className="selectbox1" onClick={()=>{
+                    actions.priceEstimateButtons(!state.showResults, false)
+                    actions.bringDetails();
+                  }
+                  }>
                     Your Parcel Details <span className="caret"></span>
                   </button>
 
                 </div>
                 <br/>
               <div>
-                <button className="selectbox2" onClick={
-                  ()=>{actions.onBikeDetails(false, !state.showBikeDetails, state.toPlace, state.fromPlace, state.parcelDate)}
-                }>
+                <button className="selectbox2">
                   Your Bike Details <span className="caret"></span>
                 </button>
               </div>
@@ -43,13 +45,13 @@ class PriceEstimate extends PureComponent {
                   <ParcelDetails
                   Consumer={Consumer}
                   nexthandler={()=>{actions.priceEstimateButtons(false, true, state.fromPlace , state.toPlace, state.parcelDate )}}
-                  cancelhandler={()=>{actions.priceEstimateButtons(false, false)}}
+                  cancelhandler={actions.resetState}
                 />
 
                  : null }
               { state.showBikeDetails ? <BikeDetails
                 Consumer={Consumer}
-                cancelhandler={()=>{actions.priceEstimateButtons(false, false)}}
+                cancelhandler={actions.resetState}
               /> : null }
             </div>
           </div>
