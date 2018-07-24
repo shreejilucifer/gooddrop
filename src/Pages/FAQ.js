@@ -11,7 +11,7 @@ class DocumentsRequired extends PureComponent {
       <div>
         <Navbar Consumer={this.props.Consumer}/>
         <AboutHeader title="FAQs"/>
-        <div className="docrequired">
+        <div className="howitworksdata">
 
         <ol>
           <li>
