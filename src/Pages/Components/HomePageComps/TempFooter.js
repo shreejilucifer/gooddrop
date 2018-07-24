@@ -29,7 +29,7 @@ class Footer extends PureComponent {
                     <h4 className="templisttitle"><b>Information</b></h4>
                     <Link to="/howitworks"><li className="templistitems">How It Works</li></Link>
                     <Link to="/docsrequired"><li className="templistitems">Documents Required</li></Link>
-                    <li className="templistitems">Blog</li>
+                    
                     <li className="templistitems">FAQs</li>
                   </ul>
                 </div>

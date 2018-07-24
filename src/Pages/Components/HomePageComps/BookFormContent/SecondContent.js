@@ -51,6 +51,8 @@ class SecondContent extends PureComponent {
             <br/>
             <label className="pickupdetailsformlabel">State</label>
             <Select
+              showSearch
+              filterOption={(input, option) => option.props.children.toLowerCase().indexOf(input.toLowerCase()) >= 0}
               width="100%"
               name="state"
               defaultValue=""

@@ -22,7 +22,7 @@ class Navbar extends PureComponent {
           <div className="rightsection">
             <div className="phonenumber">
               <img className="navbaricon" src={telephone} alt="call" height="15px"/>
-              9566123640
+              9742834253‬
             </div>
             <div className="account">
               <img className="navbaricon" src={accounticon} alt="TrackShipment" height="20px"/>
