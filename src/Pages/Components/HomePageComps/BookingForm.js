@@ -41,7 +41,7 @@ class BookingForm extends PureComponent {
 
   next(value1, value2, value3, value4, value5, value6, value7, value8, value9) {
 
-    var sender = /^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$/;
+    var sender = /^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z ]*)*$/;
     var mob = /^[6-9]\d{9}$/;
 
     if( value1 === "" )
@@ -112,7 +112,7 @@ class BookingForm extends PureComponent {
                 <button type="primary" className="bookingformnextbtn onefiftybtn" onClick={() => {
                   this.next(
                     state.senderName, state.contactNumber, state.emailID,
-                    state.pickupDate, state.pickupSlot, state.addressLine, state.townCity, state.addressState
+                    state.pickupDate, state.pickupSlot, state.addressLine, "Bangalore", "Karnataka"
                   );
                 }}>
                 Next

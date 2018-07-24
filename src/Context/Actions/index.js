@@ -426,6 +426,7 @@ else if ((value1 > 500 && value1 <= 750) && value2 < 100000)
   },
 
   shippingDetailsToApi: function(senderName, pickupDate, addressLine, cityState, senderEmail, receiverName, receiverAdd, receiverNum, orderid, auth) {
+
     var form = new FormData();
     form.append("sender_name", senderName.toString());
     form.append("pick_up_date", pickupDate.toString());
@@ -437,6 +438,7 @@ else if ((value1 > 500 && value1 <= 750) && value2 < 100000)
     form.append("receiver_num", receiverNum.toString());
     form.append("order_id", orderid.toString());
 
+console.log(orderid);
     var settings = {
       "async": true,
       "crossDomain": true,
@@ -577,9 +579,6 @@ else if ((value1 > 500 && value1 <= 750) && value2 < 100000)
       ratingData: null,
       reviewModal: false,
       errorReview: "",
-
-      // order
-      orderid: "",
 
       // station Request
       StationRequestModal: false,

@@ -100,26 +100,10 @@ class FirstContent extends PureComponent {
             />
             <br/>
             <label className="pickupdetailsformlabel">Town/City</label>
-            <Select
-              width="100%"
-              name="towncity"
-              defaultValue=""
-              value={state.townCity}
-              onChange={(e)=>{actions.pickupDetailsChange(e, 'towncity')}}>
-              <Option value="ahmedabad">Ahmedabad</Option>
-              <Option value="mumbai">Mumbai</Option>
-            </Select>
+            <div>Bangalore</div>
             <br/>
             <label className="pickupdetailsformlabel">State</label>
-            <Select
-              width="100%"
-              name="state"
-              defaultValue=""
-              value={state.addressState}
-              onChange={(e)=>{actions.pickupDetailsChange(e, 'addressstate')}}>
-              <Option value="gujarat">Gujarat</Option>
-              <Option value="maharastra">Maharastra</Option>
-            </Select>
+            <div>Karnataka</div>
             <br/>
           </form>
         </div>

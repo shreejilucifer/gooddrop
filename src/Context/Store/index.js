@@ -34,8 +34,8 @@ export default {
   pickupDateActual: null,
   pickupSlot: "",
   addressLine: "",
-  townCity: "",
-  addressState: "",
+  townCity: "bangalore",
+  addressState: "karnataka",
   dateError: "",
 
   //BookingForm - Destination Details

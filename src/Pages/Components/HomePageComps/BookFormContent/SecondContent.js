@@ -41,15 +41,13 @@ class SecondContent extends PureComponent {
               onChange={(e)=>{actions.destinationDetailsChange(e.target.value, 'receiveraddressline')}}
             /> <br/>
             <label className="pickupdetailsformlabel">Town/City</label>
-            <Select
+            <input
+              type="text"
+              className="pickupdetailsforminput"
               width="100%"
               name="towncity"
-              defaultValue=""
               value={state.receivertownCity}
-              onChange={(e)=>{actions.destinationDetailsChange(e, 'receivertowncity')}}>
-              <Option value="ahmedabad">Ahmedabad</Option>
-              <Option value="mumbai">Mumbai</Option>
-            </Select>
+              onChange={(e)=>{actions.destinationDetailsChange(e.target.value, 'receivertowncity')}} />
             <br/>
             <label className="pickupdetailsformlabel">State</label>
             <Select
@@ -58,8 +56,42 @@ class SecondContent extends PureComponent {
               defaultValue=""
               value={state.receiveraddressState}
               onChange={(e)=>{actions.destinationDetailsChange(e, 'receiveraddressstate')}}>
+              <Option value="andaman & nicobar">Andaman and Nicobar Islands</Option>
+              <Option value="andhra pradesh">Andhra Pradesh</Option>
+              <Option value="arunachal pradesh">Arunachal Pradesh</Option>
+              <Option value="assam">Assam</Option>
+              <Option value="bihar">Bihar</Option>
+              <Option value="chandigarh">Chandigarh</Option>
+              <Option value="chhattisgarh">Chhattisgarh</Option>
+              <Option value="dadra and nagar haveli">Dadra and Nagar Haveli</Option>
+              <Option value="daman and diu">Daman and Diu</Option>
+              <Option value="delhi">Delhi</Option>
+              <Option value="goa">Goa</Option>
               <Option value="gujarat">Gujarat</Option>
-              <Option value="maharastra">Maharastra</Option>
+              <Option value="haryana">Haryana</Option>
+              <Option value="himachal pradesh">Himachal Pradesh</Option>
+              <Option value="jammu & kashmir">Jammu and Kashmir</Option>
+              <Option value="jharkhand">Jharkhand</Option>
+              <Option value="karnataka">Karnataka</Option>
+              <Option value="kerala">Kerala</Option>
+              <Option value="lakshadweep">Lakshadweep</Option>
+              <Option value="madhya pradesh">Madhya Pradesh</Option>
+              <Option value="maharashtra">Maharashtra</Option>
+              <Option value="manipur">Manipur</Option>
+              <Option value="meghalaya">Meghalaya</Option>
+              <Option value="mizoram">Mizoram</Option>
+              <Option value="nagaland">Nagaland</Option>
+              <Option value="odisha">Odisha</Option>
+              <Option value="puducherry">Puducherry</Option>
+              <Option value="punjab">Punjab</Option>
+              <Option value="rajasthan">Rajasthan</Option>
+              <Option value="sikkim">Sikkim</Option>
+              <Option value="tamil nadu">Tamil Nadu</Option>
+              <Option value="telangana">Telangana</Option>
+              <Option value="tripura">Tripura</Option>
+              <Option value="uttarakhand">Uttarakhand</Option>
+              <Option value="uttar pradesh">Uttar Pradesh</Option>
+              <Option value="west bengal">West Bengal</Option>
             </Select> <br/>
             </form>
           </div>
