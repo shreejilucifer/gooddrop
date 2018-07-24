@@ -15,7 +15,7 @@ class DocumentsRequired extends PureComponent {
 
         <ol>
           <li>Bike RC (Registration Certificate) copy</li>
-          <li>Bike Insurance copy. ( we don’t take the bike shipping order of bike which have 3rd party insurance)</li>
+          <li>Bike Insurance copy. ( we don’t take the bike shipping order of bike which has 3rd party insurance)</li>
           <li>Bike Owner’s ID proof copy.</li>
           <li>Authorisation letter addressing to Railway.</li>
         </ol>
