@@ -96,7 +96,7 @@ class BikeDetails extends PureComponent {
                     :
                     <div className="otpmodal">
 
-                      <h3 style={{textTransform: 'uppercase'}}> From: <b>{state.fromPlace}</b> <br/>To: <b>{state.toPlace}</b> </h3> <br/>
+                      <h3 style={{textTransform: 'uppercase'}}> Price: <b>Rs. {state.orderCharge}/-</b> <br/>From: <b>{state.fromPlace}</b> <br/>To: <b>{state.toPlace}</b> </h3> <br/>
 
                       <h3> On Date: <b>{this.renderParcelDate(state.parcelDate)}</b> </h3>
                       <h3>The Total Price To Ship Your Bike is Rs. {state.orderCharge}/- </h3>
