@@ -101,7 +101,7 @@ class BikeDetails extends PureComponent {
                       <h3> On Date: <b>{this.renderParcelDate(state.parcelDate)}</b> </h3>
                       <h3>The Total Price To Ship Your Bike is Rs. {state.orderCharge}/- </h3>
                       <button className="otpbooknowbtn" onClick={actions.openBookModal}>Book Now</button> <br/>
-                      <button className="otpcancelbtn" onClick={actions.closeOTPModal}>Cancel</button>
+                      <button className="otpcancelbtn" onClick={actions.resetState}>Cancel</button>
                     </div>
                   }
 
