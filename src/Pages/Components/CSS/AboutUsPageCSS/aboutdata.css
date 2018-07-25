@@ -54,6 +54,27 @@
   margin-right: 200px;
 }
 
+.cancelorderbtn {
+  border: none ;
+  background-color: #f6416c;
+  color: #fff ;
+  width: 200px;
+  height: 30px;
+  margin-top: 15px; 
+}
+
+.stationformlabel {
+  font-weight: lighter;
+  color: #000;
+}
+
+.stationforminput {
+  height: 30px;
+  border: 0.5px solid rgb(198,199,202) ;
+  border-radius: 0px ;
+  color: #000;
+}
+
 @media only screen and (max-width: 600px) {
   .aboutdata {
     margin-left: 20px;
@@ -80,6 +101,6 @@
   }
   .paymentpolicy {
     margin-left: 20px;
-    margin-right: 20px; 
+    margin-right: 20px;
   }
 }

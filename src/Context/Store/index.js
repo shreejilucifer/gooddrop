@@ -82,5 +82,10 @@ export default {
   sourcePlace: [],
   destinationPlace: [],
   loading: true,
-  loadingDest: true
+  loadingDest: true,
+
+  //cancel orders
+  cancelOrderModal: false,
+  cancelOrderId: "",
+  cancelOrderMsg: ""
 }

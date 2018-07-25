@@ -13,7 +13,7 @@ class Order extends PureComponent {
           <div>
             <Navbar Consumer={this.props.Consumer}/>
             <div className="orderpage" style={{ paddingTop: "20px", paddingBottom: "50px", display: "flex", justifyContent: "center"}}>
-              <h2> Your Order Id: {state.orderid} </h2>
+              <h2> Your Order ID: {state.orderid} </h2>
             </div>
             <TempFooter Consumer={this.props.Consumer}/>
           </div>

@@ -141,7 +141,7 @@ class BookingForm extends PureComponent {
                       state.senderName, state.pickupDate, state.pickupSlot, state.addressLine,
                       state.townCity.concat( ", " , state.addressState ),
                       state.emailID,
-                      state.receiverName, state.receiveraddressLine, state.receivercontactNumber, state.orderid,
+                      state.receiverName, state.receiveraddressLine.concat( ", " , state.receivertownCity, ", " , state.receiveraddressState ), state.receivercontactNumber, state.orderid,
                       state.auth
                     );
 

@@ -3,13 +3,19 @@ import Navbar from './Components/HomePageComps/Navbar';
 import TempFooter from './Components/HomePageComps/TempFooter';
 import AboutHeader from './Components/AboutUsPageComps/AboutHeader';
 import '../Pages/Components/CSS/AboutUsPageCSS/aboutdata.css';
+import Modal from 'react-responsive-modal';
+
 
 class PaymentPolicy extends PureComponent {
 
   render() {
-    return (<div>
+    const Consumer = this.props.Consumer;
+
+    return (<Consumer>
+      {
+        ({state, actions}) => (<div>
         <Navbar Consumer={this.props.Consumer}/>
-        <AboutHeader title="CANCELLATION & MODIFICATIONS"/>
+        <AboutHeader className="canceltitle" title="CANCELLATION & MODIFICATIONS"/>
         <div className="paymentpolicy">
           <ol>
             <li>If GOODDROP is not able to collect the bike and the documents at the planned pickup date, we will provide full refund and 10% discount on next order.</li>
@@ -22,14 +28,48 @@ class PaymentPolicy extends PureComponent {
             <li>If due to some unforeseen circumstances, the train which is supposed to carry the bike to its destination gets cancelled or postponed for more than 5 days. Customer will have the option to recall the order. GOODDROP will help the customer in re-planning the parcel. If the customer still wants to recall the order then GOODDROP would levy service charge of Rupees 860 and rest of the amount would be deposited back to customer's account.</li>
             <li>How will we refund money for customers who opted COP: To customer's bank account.</li>
           </ol>
+          <div style={{display: "flex" , justifyContent: "center"}}>
+            <button onClick={actions.openCancelOrderModal} className="cancelorderbtn">Cancel Order</button>
+            <Modal
 
-          <button>Cancel Order</button>
+              closeIconSize={15}
+              open={state.cancelOrderModal}
+              onClose={actions.resetState}
+              center>
+              <div style={{display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center"}}>
+                <br/>
+                <h3>
+                  Cancel Order
+                </h3>
+                <label className="stationformlabel">Enter Order Id</label>
+                <input
+                  className="stationforminput"
+                  type="text"
+                  width="100%"
+                  value={state.cancelOrderId}
+                  onChange={(e)=>{actions.changeCancelOrderId(e.target.value)}}
+                />
+                <br/>
+                <div>{state.cancelOrderMsg}</div>
+                <button
+                  onClick={()=>{actions.submitCancelOrder(state.cancelOrderId, state.auth)}}
+                  className="cancelorderbtn">
+                  Cancel Order
+                </button>
+              </div>
+
+            </Modal>
+          </div>
+
+
         </div>
 
           <TempFooter Consumer={this.props.Consumer}/>
 
-      </div>
-      );
+      </div>)
+    }
+  </Consumer>);
+
   }
 
 }

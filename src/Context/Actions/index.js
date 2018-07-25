@@ -8,11 +8,9 @@ export default {
 
     if (value3 === null || value3 === "") {
       this.setState({errorPrint: "Please Select Parcel From"});
-    }
-    else if(value4 === null || value4 === "") {
+    } else if (value4 === null || value4 === "") {
       this.setState({errorPrint: "Please Select Parcel To"});
-    }
-    else if(value5 === null || value5 === "") {
+    } else if (value5 === null || value5 === "") {
       this.setState({errorPrint: "Please Select Parcel Date"});
     } else {
       this.setState({showResults: value1, showBikeDetails: value2, errorPrint: ""});
@@ -22,7 +20,8 @@ export default {
   onBikeDetails: function(value1, value2, value3, value4, value5) {
     if (value3 !== null || value4 !== null || value5 !== null)
       this.setState({showResults: value1, showBikeDetails: value2, errorPrint: ""});
-    },
+    }
+  ,
 
   // Parcel Details
   handleChangeFrom: function(value) {
@@ -37,22 +36,22 @@ export default {
 
   // Bike Details
   bikeContactChange: function(e) {
-   var cc = /^[0-9]*$/ ;
-    if( cc.test(e.target.value) === true ) {
+    var cc = /^[0-9]*$/;
+    if (cc.test(e.target.value) === true) {
       this.setState({tempContact: e.target.value});
     }
   },
 
   bikeCCChange: function(e) {
-    var cc = /^[0-9]*$/ ;
-    if( cc.test(e.target.value) === true ) {
-        this.setState({bikeCC: e.target.value, errorPrint: ""});
+    var cc = /^[0-9]*$/;
+    if (cc.test(e.target.value) === true) {
+      this.setState({bikeCC: e.target.value, errorPrint: ""});
     }
   },
 
   bikeValueChange: function(e) {
-    var cc = /^[0-9]*$/ ;
-    if( cc.test(e.target.value) === true ) {
+    var cc = /^[0-9]*$/;
+    if (cc.test(e.target.value) === true) {
       this.setState({bikeValue: e.target.value});
     }
   },
@@ -67,8 +66,8 @@ export default {
       mobilefinals = mobilefinals.concat(senderContact.toString());
 
       var form1 = new FormData();
-      form1.append("mobile_number", mobilefinals.toString() );
-      form1.append("otp", value.toString() );
+      form1.append("mobile_number", mobilefinals.toString());
+      form1.append("otp", value.toString());
       form1.append("message_id", msg.toString());
 
       var settings1 = {
@@ -78,7 +77,7 @@ export default {
         "method": "POST",
         "headers": {
           "Accept": "application/json",
-          "Authorization": auth.toString(),
+          "Authorization": auth.toString()
         },
         "processData": false,
         "contentType": false,
@@ -106,7 +105,7 @@ export default {
             "headers": {
               "Accept": "application/json",
               "Authorization": auth.toString(),
-              "Content-Type": "application/json",
+              "Content-Type": "application/json"
             },
             "processData": false,
             "contentType": false,
@@ -115,7 +114,7 @@ export default {
           }
 
           axios(settings).then((res) => {
-            console.log(res);
+
             this.setState({
               loadingMsg: "",
               verified: true,
@@ -186,7 +185,6 @@ else if ((value1 > 500 && value1 <= 750) && value2 < 100000)
 
       var form = new FormData();
       form.append("mobile_number", mobilefinal.toString());
-      console.log(mobilefinal.toString());
 
       var settings = {
         "async": true,
@@ -195,7 +193,7 @@ else if ((value1 > 500 && value1 <= 750) && value2 < 100000)
         "method": "POST",
         "headers": {
           "Accept": "application/json",
-          "Authorization": auth.toString(),
+          "Authorization": auth.toString()
         },
         "processData": false,
         "contentType": false,
@@ -209,8 +207,7 @@ else if ((value1 > 500 && value1 <= 750) && value2 < 100000)
       }).catch((err) => {
         console.log(err);
         this.setState({errorPrint: "Error! Try Again Later !"})
-      })
-
+      });
       this.setState({otpModal: true, errorPrint: "", displayNone: "none", otpmsgid: null});
 
     }
@@ -238,14 +235,16 @@ else if ((value1 > 500 && value1 <= 750) && value2 < 100000)
   // BookingForm
   pickupDetailsChange: function(value, str) {
     var sender = /^[a-zA-Z ]*$/;
-    var cont = /^[0-9]*$/ ;
+    var cont = /^[0-9]*$/;
 
     switch (str) {
       case 'sendername':
-        if( sender.test(value) === true ) this.setState({senderName: value});
+        if (sender.test(value) === true)
+          this.setState({senderName: value});
         break;
       case 'contactnumber':
-        if( cont.test(value) === true ) this.setState({contactNumber: value});
+        if (cont.test(value) === true)
+          this.setState({contactNumber: value});
         break;
       case 'emailid':
         this.setState({emailID: value});
@@ -278,14 +277,16 @@ else if ((value1 > 500 && value1 <= 750) && value2 < 100000)
 
   destinationDetailsChange: function(value, str) {
     var sender = /^[a-zA-Z ]*$/;
-    var cont = /^[0-9]*$/ ;
+    var cont = /^[0-9]*$/;
 
     switch (str) {
       case 'receivername':
-        if( sender.test(value) === true ) this.setState({receiverName: value});
+        if (sender.test(value) === true)
+          this.setState({receiverName: value});
         break;
       case 'receivercontactnumber':
-        if( cont.test(value) === true ) this.setState({receivercontactNumber: value});
+        if (cont.test(value) === true)
+          this.setState({receivercontactNumber: value});
         break;
       case 'receiveremailid':
         this.setState({receiveremailID: value});
@@ -348,22 +349,31 @@ else if ((value1 > 500 && value1 <= 750) && value2 < 100000)
 
   stationRequestHandler: function(val1, val2) {
     var sender = /^[a-zA-Z ]*$/;
-    var cont = /^[0-9]*$/ ;
+    var cont = /^[0-9]*$/;
 
     if (val2 === "sourcestation") {
-      if( sender.test(val1) === true ) this.setState({sourceStation: val1});
-    } else if (val2 === "destinationstation") {
-      if( sender.test(val1) === true ) this.setState({destinationStation: val1});
-    } else if (val2 === "stationname") {
-      if( sender.test(val1) === true ) this.setState({stationName: val1});
-    } else if (val2 === "stationphone") {
-      if( cont.test(val1) === true ) this.setState({stationPhone: val1});
-    } else if (val2 === "stationemail") {
+      if (sender.test(val1) === true)
+        this.setState({sourceStation: val1});
+      }
+    else if (val2 === "destinationstation") {
+      if (sender.test(val1) === true)
+        this.setState({destinationStation: val1});
+      }
+    else if (val2 === "stationname") {
+      if (sender.test(val1) === true)
+        this.setState({stationName: val1});
+      }
+    else if (val2 === "stationphone") {
+      if (cont.test(val1) === true)
+        this.setState({stationPhone: val1});
+      }
+    else if (val2 === "stationemail") {
       this.setState({stationEmail: val1});
     } else if (val2 === "stationbikesno") {
-      if( cont.test(val1) === true ) this.setState({stationBikeno: val1});
-    }
-  },
+      if (cont.test(val1) === true)
+        this.setState({stationBikeno: val1});
+      }
+    },
 
   onSubmitStationRequest: function(source, destination, name, phone, email, bikeno, auth) {
     var mob = /^[6-9]\d{9}$/;
@@ -405,7 +415,7 @@ else if ((value1 > 500 && value1 <= 750) && value2 < 100000)
         "method": "POST",
         "headers": {
           "Accept": "application/json",
-          "Authorization": auth.toString(),
+          "Authorization": auth.toString()
         },
         "processData": false,
         "contentType": false,
@@ -438,9 +448,8 @@ else if ((value1 > 500 && value1 <= 750) && value2 < 100000)
     form.append("receiver_add", receiverAdd.toString());
     form.append("receiver_num", receiverNum.toString());
     form.append("order_id", orderid.toString());
-    form.append("mode_of_payment" , "Cash on Pickup");
+    form.append("mode_of_payment", "Cash on Pickup");
 
-console.log(orderid);
     var settings = {
       "async": true,
       "crossDomain": true,
@@ -448,7 +457,7 @@ console.log(orderid);
       "method": "POST",
       "headers": {
         "Accept": "application/json",
-        "Authorization": auth.toString(),
+        "Authorization": auth.toString()
       },
       "processData": false,
       "contentType": false,
@@ -464,21 +473,19 @@ console.log(orderid);
 
   },
 
-  changeinsource: function(e, res){
+  changeinsource: function(e, res) {
     this.setState({loadingDest: true});
 
-
-    var i ;
+    var i;
     var destination = [];
 
-    for( i=0 ; i<res.length; i++ )
-    {
-      if(res[i].SOURCE_STATION === e ) {
+    for (i = 0; i < res.length; i++) {
+      if (res[i].SOURCE_STATION === e) {
         destination.push(res[i].DEST_STATION);
       }
     }
 
-    this.setState({destinationPlace: destination ,loadingDest: false});
+    this.setState({destinationPlace: destination, loadingDest: false});
   },
 
   bringDetails: function() {
@@ -498,18 +505,16 @@ console.log(orderid);
 
     axios(settings).then((res) => {
 
-    let i ;
+      let i;
       var uniqueNames = [];
 
-      for(i = 0; i< res.data.length; i++)
-      {
-      if(uniqueNames.indexOf(res.data[i].SOURCE_STATION) === -1)
-      {
+      for (i = 0; i < res.data.length; i++) {
+        if (uniqueNames.indexOf(res.data[i].SOURCE_STATION) === -1) {
           uniqueNames.push(res.data[i].SOURCE_STATION);
+        }
       }
-    }
 
-      this.setState({ res: res.data, sourcePlace: uniqueNames, loading: false });
+      this.setState({res: res.data, sourcePlace: uniqueNames, loading: false});
 
     }).catch((err) => {
       console.log(err);
@@ -517,6 +522,49 @@ console.log(orderid);
 
   },
 
+  openCancelOrderModal: function() {
+    this.setState({cancelOrderModal: true});
+  },
+
+  changeCancelOrderId: function(e) {
+    this.setState({cancelOrderId: e});
+  },
+
+  submitCancelOrder: function(cancelOrderID,auth) {
+    if (cancelOrderID === "" || cancelOrderID === null) {
+      this.setState({cancelOrderMsg: "Please Enter the Order ID"})
+    } else {
+      this.setState({cancelOrderMsg: "Cancelling..."});
+
+      var form = new FormData();
+      form.append("order_id", cancelOrderID.toString());
+
+      var settings = {
+        "async": true,
+        "crossDomain": true,
+        "url": "http://18.206.137.13/api/cancel_order",
+        "method": "POST",
+        "headers": {
+          "Accept": "application/json",
+          "Authorization": auth.toString(),
+        },
+        "processData": false,
+        "contentType": false,
+        "mimeType": "multipart/form-data",
+        "data": form
+      }
+
+      axios(settings).then((res)=>{
+        this.setState({cancelOrderMsg: res.data.message});
+      })
+      .catch((err)=>{
+        console.log(err);
+        this.setState({cancelOrderMsg: "Error Try Again Later !"})
+      })
+
+
+    }
+  },
 
   resetState: function() {
     this.setState({
@@ -600,7 +648,12 @@ console.log(orderid);
       sourcePlace: [],
       destinationPlace: [],
       loading: true,
-      loadingDest: true
+      loadingDest: true,
+
+      //cancel order
+      cancelOrderModal: false,
+      cancelOrderId: "",
+      cancelOrderMsg: ""
     });
 
   }
