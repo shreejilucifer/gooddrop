@@ -20,13 +20,13 @@ class Navbar extends PureComponent {
           <Link to="/"><img src={showcaselogo} alt="GoodDrop" height="100%"/></Link>
           </div>
           <div className="rightsection">
+            <div className="account" style={{display: "none"}}>
+              <img className="navbaricon" src={accounticon} alt="TrackShipment" height="20px"/>
+              <a className="links">Track Shipment</a>
+            </div>
             <div className="phonenumber">
               <img className="navbaricon" src={telephone} alt="call" height="15px"/>
               9742834253‬
-            </div>
-            <div className="account">
-              <img className="navbaricon" src={accounticon} alt="TrackShipment" height="20px"/>
-              <a className="links">Track Shipment</a>
             </div>
           </div>
         </div>

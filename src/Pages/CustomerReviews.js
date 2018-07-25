@@ -2,35 +2,9 @@ import React, {PureComponent} from 'react';
 import Navbar from './Components/HomePageComps/Navbar';
 import AboutHeader from './Components/AboutUsPageComps/AboutHeader';
 import TempFooter from './Components/HomePageComps/TempFooter';
-import Modal from 'react-responsive-modal';
-import {Rate, Input, Row, Col} from 'antd';
 import './Components/CSS/CustomerReviewCSS/customerreviewpage.css';
 
-const {TextArea} = Input;
-const CustomerReviewShow = (props) => (<div className="reviewbox">
-  <div className="leftreviewbox">
-    <div className="textbox">
-      <i>{props.rateData}</i>
-    </div>
-    <br/>
-    <div className="reviewnamebox">
-      <b>{props.reviewFromCustomerName}</b>
-    </div>
-  </div>
-
-</div>);
-
 class CustomerReviews extends PureComponent {
-  state = {
-    open: false
-  };
-  onOpenModal = () => {
-    this.setState({open: true});
-  };
-
-  onCloseModal = () => {
-    this.setState({open: false});
-  };
   render() {
     const Consumer = this.props.Consumer;
     return (<Consumer>
