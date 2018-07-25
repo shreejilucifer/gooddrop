@@ -138,7 +138,7 @@ class BookingForm extends PureComponent {
                   <button style={{marginLeft: "8px"}} type="primary" className="bookingformnextbtn" onClick={() => {
 
                     actions.shippingDetailsToApi(
-                      state.senderName, state.pickupDate, state.addressLine,
+                      state.senderName, state.pickupDate, state.pickupSlot, state.addressLine,
                       state.townCity.concat( ", " , state.addressState ),
                       state.emailID,
                       state.receiverName, state.receiveraddressLine, state.receivercontactNumber, state.orderid,

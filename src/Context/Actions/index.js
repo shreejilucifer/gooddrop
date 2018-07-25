@@ -87,9 +87,9 @@ export default {
       }
 
       axios(settings1).then((res1) => {
-        console.log(res1);
+      
         if (res1.data.type === "success" || res1.data.message === "otp_verified" || res1.data.message === "already_verified") {
-          console.log(res1.data.message);
+
           var form = new FormData();
           form.append("parcel_from", parcelFrom.toString());
           form.append("parcel_to", toPlace.toString());
@@ -425,11 +425,12 @@ else if ((value1 > 500 && value1 <= 750) && value2 < 100000)
     }
   },
 
-  shippingDetailsToApi: function(senderName, pickupDate, addressLine, cityState, senderEmail, receiverName, receiverAdd, receiverNum, orderid, auth) {
+  shippingDetailsToApi: function(senderName, pickupDate, pickupSlot, addressLine, cityState, senderEmail, receiverName, receiverAdd, receiverNum, orderid, auth) {
 
     var form = new FormData();
     form.append("sender_name", senderName.toString());
     form.append("pick_up_date", pickupDate.toString());
+    form.append("pickup_slot", pickupSlot.toString());
     form.append("pick_up_add1", addressLine.toString());
     form.append("pick_up_add2", cityState.toString());
     form.append("sender_email", senderEmail.toString());

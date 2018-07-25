@@ -5,7 +5,7 @@
   margin-bottom: 50px;
   position: relative;
   display: grid;
-  grid-template-columns: 33.33% 33.33% 33.33% ;
+  grid-template-columns: 33.33% 66.66% ;
 }
 
 .review-card {
@@ -38,6 +38,6 @@
   }
   .review-card {
     text-align: center;
-    margin-bottom: 20px; 
+    margin-bottom: 20px;
   }
 }
