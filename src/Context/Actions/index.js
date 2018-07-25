@@ -87,7 +87,7 @@ export default {
       }
 
       axios(settings1).then((res1) => {
-      
+
         if (res1.data.type === "success" || res1.data.message === "otp_verified" || res1.data.message === "already_verified") {
 
           var form = new FormData();
@@ -438,6 +438,7 @@ else if ((value1 > 500 && value1 <= 750) && value2 < 100000)
     form.append("receiver_add", receiverAdd.toString());
     form.append("receiver_num", receiverNum.toString());
     form.append("order_id", orderid.toString());
+    form.append("mode_of_payment" , "Cash on Pickup");
 
 console.log(orderid);
     var settings = {
@@ -466,13 +467,13 @@ console.log(orderid);
   changeinsource: function(e, res){
     this.setState({loadingDest: true});
 
-    var x = e.charAt(0).toUpperCase() + e.slice(1);
+
     var i ;
     var destination = [];
 
     for( i=0 ; i<res.length; i++ )
     {
-      if(res[i].SOURCE_STATION === x ) {
+      if(res[i].SOURCE_STATION === e ) {
         destination.push(res[i].DEST_STATION);
       }
     }

@@ -32,10 +32,10 @@ class CustomerReviews extends PureComponent {
             </div>
             <div className="review-card">
               <div>
-
+                <q className="review-text">Very nice team. Reliable service. We can easily ship our bikes with no tension.</q>
               </div> <br/>
               <div className="reviewer-name">
-
+                - ATCHUTANAND RAO
               </div>
             </div>
           </div>

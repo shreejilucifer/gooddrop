@@ -17,14 +17,6 @@ class ParcelDetails extends PureComponent {
     return current && current < moment().add(2, 'days');
   }
 
-  renderValues = (str) => {
-    if( str !== null ){
-      var x = str.charAt(0).toUpperCase() + str.slice(1);
-
-      return x.toString() ;
-    }
-    return null ;
-  }
 
   render() {
     const Consumer = this.props.Consumer;
@@ -44,7 +36,7 @@ class ParcelDetails extends PureComponent {
                   className="parceldetailsformselect"
                   placeholder="Select Source Place"
                   optionFilterProp="children"
-                  value={this.renderValues(state.fromPlace)}
+                  value={state.fromPlace}
                   onChange={(e) => {
                     actions.handleChangeFrom(e);
                     actions.changeinsource(e, state.res);
@@ -54,7 +46,7 @@ class ParcelDetails extends PureComponent {
                   onBlur={this.handleBlur}
                   filterOption={(input, option) => option.props.children.toLowerCase().indexOf(input.toLowerCase()) >= 0}>
                   {
-                    state.sourcePlace.map(d => <Option key={1} value={d.toLowerCase()}>{d}</Option>)
+                    state.sourcePlace.map(d => <Option key={1} value={d}>{d}</Option>)
                   }
                 </Select>
               </div>
@@ -69,7 +61,7 @@ class ParcelDetails extends PureComponent {
                     className="parceldetailsformselect"
                     placeholder="Select Destination Place"
                     optionFilterProp="children"
-                    value={this.renderValues(state.toPlace)}
+                    value={state.toPlace}
                     notFoundContent={state.loadingDest ? <Spin size="small" /> : null}
                     onChange={(e) => {
                     actions.handleChangeTo(e)
@@ -78,7 +70,7 @@ class ParcelDetails extends PureComponent {
                   onBlur={this.handleBlurDestination}
                   filterOption={(input, option) => option.props.children.toLowerCase().indexOf(input.toLowerCase()) >= 0}>
                   {
-                    state.destinationPlace.map(d => <Option key={1} value={d.toLowerCase()}>{d}</Option>)
+                    state.destinationPlace.map(d => <Option key={1} value={d}>{d}</Option>)
                   }
                 </Select>
               </div>
