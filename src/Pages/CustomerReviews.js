@@ -16,7 +16,7 @@ class CustomerReviews extends PureComponent {
           <div className="customer-grid">
             <div className="review-card">
               <div>
-               <q className="review-text"> I had very nice experience with Gooddrop, where I had to transfer my bike to Delhi from Bangalore, I was in hurry because I was travelling abroad the very next day,I met Mr Naveen in Bangalore cantt station and he helped me and got my bike transferred without any hassle , really was very satisfied with the service provided by Gooddrop , great guys keep up the good work.<br/> Thanks Naveen #Thanks Gooddrop</q>
+               <q className="review-text"> I had very nice experience with Gooddrop, where I had to transfer my bike to Delhi from Bangalore, I was in hurry because I was travelling abroad the very next day,I met Mr Naveen in Bangalore cantt station and he helped me and got my bike transferred without any hassle , really was very satisfied with the service provided by Gooddrop , great guys keep up the good work. Thanks Naveen #Thanks Gooddrop</q>
               </div> <br/>
               <div className="reviewer-name">
                 - Tarun Barthwal
@@ -32,7 +32,7 @@ class CustomerReviews extends PureComponent {
             </div>
             <div className="review-card">
               <div>
-                <q className="review-text"></q>
+                
               </div> <br/>
               <div className="reviewer-name">
 
