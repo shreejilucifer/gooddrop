@@ -106,7 +106,20 @@ class DocumentsRequired extends PureComponent {
             <li>From bitcoin, ethereum to netbanking, UPI, card payments, cash, any of these mode is fine with us.</li>
           </ul>
         </li>
-
+        <br/>
+        <li>
+          <b>What material does Gooddrop use to pack the bikes?</b>
+          <ul>
+            <li>We use gunny material/ plastic sheets/ bubble raps to pack the bikes.</li>
+          </ul>
+        </li>
+        <br/>
+        <li>
+          <b>Is it mandatory to carry original Railway receipt to collect the bike at the destination station?</b>
+          <ul>
+            <li>Yes, it is a must! We will either courier the Railway shipment receipt to your destination address or we will hand over the same to you in person at your source's address.</li>
+          </ul>
+        </li>
         </ol>
         </div>
 
