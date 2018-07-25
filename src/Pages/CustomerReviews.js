@@ -3,7 +3,7 @@ import Navbar from './Components/HomePageComps/Navbar';
 import AboutHeader from './Components/AboutUsPageComps/AboutHeader';
 import TempFooter from './Components/HomePageComps/TempFooter';
 import Modal from 'react-responsive-modal';
-import {Rate, Input} from 'antd';
+import {Rate, Input, Row, Col} from 'antd';
 import './Components/CSS/CustomerReviewCSS/customerreviewpage.css';
 
 const {TextArea} = Input;
@@ -38,60 +38,61 @@ class CustomerReviews extends PureComponent {
         ({state, actions}) => (<div>
           <Navbar Consumer={Consumer}/>
           <AboutHeader title="CUSTOMER REVIEWS"/>
-          <div className="containerfluid">
-            <div className="container">
-              <div className="cards">
-                <a className="card">
-                  <span className="card-header" style={{
-                      "backgroundImage" : "url(http://placeimg.com/400/200/animals)"
-                    }}>
-                    <span className="card-title">
-                      <h3>Shreeji Pedhadiya</h3>
-                    </span>
-                  </span>
-                  <span className="card-summary">
-                    A summary will also be present. Usually two to three brief sentences about the content on the detail page.
-                  </span>
-                  <span className="card-meta">
-                    Published: June 18th, 2015
-                  </span>
-                </a>
-                <a className="card">
-                  <span className="card-header" style={{
-                      "backgroundImage" : "url(http://placeimg.com/400/200/animals)"
-                    }}>
-                    <span className="card-title">
-                      <h3>Naveen C T</h3>
-                    </span>
-                  </span>
-                  <span className="card-summary">
-                    A summary will also be present. Usually two to three brief sentences about the content on the detail page.
-                  </span>
-                  <span className="card-meta">
-                    Published: June 18th, 2015
-                  </span>
-                </a>
 
-
-                <a className="card">
-                  <span className="card-header" style={{
-                      "backgroundImage" : "url(http://placeimg.com/640/480/nature)"
-                    }}>
-                    <span className="card-title">
-                      <h3>Akshata Akkanna</h3>
-                    </span>
-                  </span>
-                  <span className="card-summary">
-                    A summary will also be present. Usually two to three brief sentences about the content on the detail page.
-                  </span>
-                  <span className="card-meta">
-                    Published: June 18th, 2015
-                  </span>
-                </a>
-
+          <div className="customer-grid">
+            <div className="review-card">
+              <div>
+                <q className="review-text">Amazing Service Loved It.</q>
+              </div> <br/>
+              <div className="reviewer-name">
+                - Shreeji Pedhadiya
+              </div>
+            </div>
+            <div className="review-card">
+              <div>
+                <q className="review-text">Very Fast & Easy To Use App.</q>
+              </div> <br/>
+              <div className="reviewer-name">
+                - Naveen C T
+              </div>
+            </div>
+            <div className="review-card">
+              <div>
+                <q className="review-text">Very Helpful Will Surely Recommend to Friends</q>
+              </div> <br/>
+              <div className="reviewer-name">
+                - Akshata Akkanna
               </div>
             </div>
           </div>
+
+          <div className="customer-grid">
+            <div className="review-card">
+              <div>
+                <q className="review-text">Amazing Service Loved It.</q>
+              </div> <br/>
+              <div className="reviewer-name">
+                - Shreeji Pedhadiya
+              </div>
+            </div>
+            <div className="review-card">
+              <div>
+                <q className="review-text">Very Fast & Easy To Use App.</q>
+              </div> <br/>
+              <div className="reviewer-name">
+                - Naveen C T
+              </div>
+            </div>
+            <div className="review-card">
+              <div>
+                <q className="review-text">Very Helpful Will Surely Recommend to Friends</q>
+              </div> <br/>
+              <div className="reviewer-name">
+                - Akshata Akkanna
+              </div>
+            </div>
+          </div>
+
           <TempFooter Consumer={Consumer}/>
 
         </div>)
