@@ -448,7 +448,7 @@ else if ((value1 > 500 && value1 <= 750) && value2 < 100000)
     form.append("receiver_add", receiverAdd.toString());
     form.append("receiver_num", receiverNum.toString());
     form.append("order_id", orderid.toString());
-    form.append("mode_of_payment", "Cash on Pickup");
+    form.append("mode_of_payment", "Cash on Pickup".toString());
 
     var settings = {
       "async": true,
@@ -603,8 +603,8 @@ else if ((value1 > 500 && value1 <= 750) && value2 < 100000)
       pickupDateActual: null,
       pickupSlot: "",
       addressLine: "",
-      townCity: "",
-      addressState: "",
+      townCity: "Bangalore",
+      addressState: "Karnataka",
       dateError: "",
 
       //BookingForm - Destination Details
