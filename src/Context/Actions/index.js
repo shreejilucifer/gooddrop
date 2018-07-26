@@ -556,6 +556,9 @@ else if ((value1 > 500 && value1 <= 750) && value2 < 100000)
 
       axios(settings).then((res)=>{
         this.setState({cancelOrderMsg: res.data.message});
+        setTimeout(() => {
+          this.setState({cancelOrderModal: false})
+        }, 5000);
       })
       .catch((err)=>{
         console.log(err);
