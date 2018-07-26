@@ -17,7 +17,6 @@ class ParcelDetails extends PureComponent {
     return current && current < moment().add(2, 'days');
   }
 
-
   render() {
     const Consumer = this.props.Consumer;
 

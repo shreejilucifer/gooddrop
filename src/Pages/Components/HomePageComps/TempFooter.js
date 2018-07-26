@@ -45,23 +45,27 @@ class Footer extends PureComponent {
                     </ul>
                   </div>
                 </div>
-                <div className="socialsection">
-                  <a className="socialicons" href="https://www.facebook.com/getaGoodDrop/" target="_blank" rel="noopener noreferrer">
-                    <img src={facebookicon} alt="Facebook" width="30px"/>
-                  </a>
-                  <a className="socialicons" href="https://twitter.com/getaGoodDrop" target="_blank" rel="noopener noreferrer">
-                    <img src={twittericon} alt="Twitter" width="30px"/>
-                  </a>
-                  <a className="socialicons" href="https://www.linkedin.com/company/gooddrop/" target="_blank" rel="noopener noreferrer">
-                    <img src={instagramicon} alt="Instagram" width="30px"/>
-                  </a>
+                <div className="containersocial">
+                  <div className="socialsection">
+                    <a className="socialicons" href="https://www.facebook.com/getaGoodDrop/" target="_blank" rel="noopener noreferrer">
+                      <img src={facebookicon} alt="Facebook" width="30px"/>
+                    </a>
+                    <a className="socialicons" href="https://twitter.com/getaGoodDrop" target="_blank" rel="noopener noreferrer">
+                      <img src={twittericon} alt="Twitter" width="30px"/>
+                    </a>
+                    <a className="socialicons" href="https://www.linkedin.com/company/gooddrop/" target="_blank" rel="noopener noreferrer">
+                      <img src={instagramicon} alt="Instagram" width="30px"/>
+                    </a>
+                  </div>
+                  <div className="copyrighttemp">
+                    &copy; Gooddrop 2018
+                  </div>
                 </div>
+
               </div>
-              <div className="sidegraphics"></div>
+
             </div>
-            <div className="copyrighttemp">
-              &copy; GoodDrop 2018
-            </div>
+
           </div>
 
         )}

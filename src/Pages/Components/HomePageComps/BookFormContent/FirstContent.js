@@ -89,7 +89,7 @@ class FirstContent extends PureComponent {
 
 
             </div><br/>
-            <label className="pickupdetailsformlabel">Address Line</label>
+            <label className="pickupdetailsformlabel">Sender-Pickup Address</label>
             <input
               className="pickupdetailsforminput"
               type="text"

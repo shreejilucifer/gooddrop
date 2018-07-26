@@ -106,27 +106,27 @@ class ThirdContent extends PureComponent {
               <table>
                 <tbody>
                   <tr>
-                    <td style={{textAlign: "right"}}>
+                    <td className="rightalign">
                       <h3>
                         RECEIVER ADDRESS
                       </h3>
                     </td>
                   </tr>
                   <tr>
-                    <td style={{textAlign: "right"}} className="pickupdetailscells">{state.receiverName}</td>
+                    <td className="pickupdetailscells rightalign">{state.receiverName}</td>
                   </tr>
                   <tr>
-                    <td style={{textAlign: "right"}} className="pickupdetailscells">{state.receiveraddressLine}</td>
+                    <td className="pickupdetailscells rightalign">{state.receiveraddressLine}</td>
                   </tr>
                   <tr>
-                    <td style={{textAlign: "right"}} className="pickupdetailscells">{this.renderCapital(state.receivertownCity)}</td>
+                    <td className="pickupdetailscells rightalign">{this.renderCapital(state.receivertownCity)}</td>
                   </tr>
                   <tr>
-                    <td style={{textAlign: "right"}} className="pickupdetailscells">{this.renderCapital(state.receiveraddressState)}</td>
+                    <td className="pickupdetailscells rightalign">{this.renderCapital(state.receiveraddressState)}</td>
                   </tr>
 
                   <tr>
-                    <td style={{textAlign: "right"}} className="pickupdetailscells">Mob +91{state.receivercontactNumber}</td>
+                    <td className="pickupdetailscells rightalign">Mob +91{state.receivercontactNumber}</td>
                   </tr>
 
                 </tbody>

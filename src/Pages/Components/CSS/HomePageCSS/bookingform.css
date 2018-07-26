@@ -105,7 +105,14 @@
   margin-left: 150px;
 }
 
+.rightalign {
+  text-align: right;
+}
+
 @media only screen and (max-width: 600px) {
+  .rightalign {
+    text-align: left;
+  }
   .steps-content {
     margin-top: 0px;
     margin-left: 0px;
