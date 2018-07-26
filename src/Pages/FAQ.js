@@ -29,7 +29,7 @@ class DocumentsRequired extends PureComponent {
           </li>
           <br/>
           <li>
-            <b>The “From” and “To” station which I am looking for are not in the list, what to do?</b>
+            <b>The “From” and “To” stations which I am looking for are not on a list, what to do?</b>
             <ul>
               <li>Please click on “Add Station” tab and let us from Where to Where you are willing to ship your bike. We will definitely help you out.</li>
             </ul>
@@ -38,8 +38,7 @@ class DocumentsRequired extends PureComponent {
           <li>
             <b>Will I get my bike delivered to my doorstep at destination city?</b>
             <ul><li>
-              No we are sorry! Currently we are , the customer has to pick up the motor bike from the destination Railway station. But we are aiming at providing doorstep delivery in the destination cities shortly.
-
+              No, we are sorry! Currently, the customer has to pick up the motorbike from the destination Railway station. But we are aiming at providing doorstep delivery in the destination cities shortly.
             </li>
           </ul>
         </li>

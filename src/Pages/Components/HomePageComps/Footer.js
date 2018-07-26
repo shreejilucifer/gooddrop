@@ -12,51 +12,57 @@ class Footer extends PureComponent {
     return (
       <Consumer>
         {({ state, actions }) => (
-          <div className="footer">
-            <div className="footergrid">
-              <div className="leftsection">
-                <div className="left">
-                  <ul>
-                    <h4 className="listtitle"><b>Gooddrop</b></h4>
-                    <Link to="/aboutus"><li className="listitems">About Us</li></Link>
-                    <Link to="/customerreviews"><li className="listitems">Customer Reviews</li></Link>
-                    <Link to="/contactus"><li className="listitems">Contact Us</li></Link>
+          <div>
+            <div className="footer">
+              <div className="footergrid">
+                <div className="leftsection">
+                  <div className="left">
+                    <ul>
+                      <h4 className="listtitle"><b>Gooddrop</b></h4>
+                      <Link to="/aboutus"><li className="listitems">About Us</li></Link>
+                      <Link to="/customerreviews"><li className="listitems">Customer Reviews</li></Link>
+                      <Link to="/contactus"><li className="listitems">Contact Us</li></Link>
 
-                  </ul>
+                    </ul>
+                  </div>
+                  <div className="left">
+                    <ul>
+                      <h4 className="listtitle"><b>Information</b></h4>
+                      <Link to="/howitworks"><li className="listitems">How It Works</li></Link>
+                      <Link to="/docsrequired"><li className="listitems">Documents Required</li></Link>
+                      <a href="https://www.flickr.com/people/159750061@N07/"><li className="listitems">Gallery</li></a>
+                      <Link to="/faq"><li className="listitems">FAQs</li></Link>
+                    </ul>
+                  </div>
+                  <div className="left">
+                    <ul>
+                      <h4 className="listtitle"><b>Policies</b></h4>
+                      <Link to="/shippingpolicy"><li className="listitems">Shipping Policy</li></Link>
+                      <Link to="/paymentpolicy"><li className="listitems">Payment Policy</li></Link>
+                      <Link to="/terms"><li className="listitems">Terms of Use</li></Link>
+                      <Link to="/cancellation"><li className="listitems">Cancellations & Modifications</li></Link>
+                      <Link to="/privacypolicy"><li className="listitems">Privacy Policy</li></Link>
+                    </ul>
+                  </div>
                 </div>
-                <div className="left">
-                  <ul>
-                    <h4 className="listtitle"><b>Information</b></h4>
-                    <Link to="/howitworks"><li className="listitems">How It Works</li></Link>
-                    <Link to="/docsrequired"><li className="listitems">Documents Required</li></Link>
-                    <Link to="/"><li className="listitems">Gallery</li></Link>
-                    <Link to="/faq"><li className="listitems">FAQs</li></Link>
-                  </ul>
+                <div className="socialsection">
+                  <a className="socialicons" href="https://www.facebook.com/getaGoodDrop/" target="_blank" rel="noopener noreferrer">
+                    <img src={facebookicon} alt="Facebook" width="30px"/>
+                  </a>
+                  <a className="socialicons" href="https://twitter.com/getaGoodDrop" target="_blank" rel="noopener noreferrer">
+                    <img src={twittericon} alt="Twitter" width="30px"/>
+                  </a>
+                  <a className="socialicons" href="https://www.linkedin.com/company/gooddrop/" target="_blank" rel="noopener noreferrer">
+                    <img src={instagramicon} alt="Instagram" width="30px"/>
+                  </a>
                 </div>
-                <div className="left">
-                  <ul>
-                    <h4 className="listtitle"><b>Policies</b></h4>
-                    <Link to="/shippingpolicy"><li className="listitems">Shipping Policy</li></Link>
-                    <Link to="/paymentpolicy"><li className="listitems">Payment Policy</li></Link>
-                    <Link to="/terms"><li className="listitems">Terms of Use</li></Link>
-                    <Link to="/cancellation"><li className="listitems">Cancellations & Modifications</li></Link>
-                    <Link to="/privacypolicy"><li className="listitems">Privacy Policy</li></Link>
-                  </ul>
-                </div>
-              </div>
-              <div className="socialsection">
-                <a className="socialicons" href="https://www.facebook.com/getaGoodDrop/" target="_blank" rel="noopener noreferrer">
-                  <img src={facebookicon} alt="Facebook" width="30px"/>
-                </a>
-                <a className="socialicons" href="https://twitter.com/getaGoodDrop" target="_blank" rel="noopener noreferrer">
-                  <img src={twittericon} alt="Twitter" width="30px"/>
-                </a>
-                <a className="socialicons" href="https://www.linkedin.com/company/gooddrop/" target="_blank" rel="noopener noreferrer">
-                  <img src={instagramicon} alt="Instagram" width="30px"/>
-                </a>
               </div>
             </div>
+            <div className="copyright">
+              &copy; GoodDrop 2018 
+            </div>
           </div>
+
         )}
       </Consumer>
     );

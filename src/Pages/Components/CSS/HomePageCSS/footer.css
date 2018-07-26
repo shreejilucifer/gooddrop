@@ -75,6 +75,30 @@
 
 }
 
+.copyright {
+  background-color: #48476e;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-left: 100px;
+  padding-right: 100px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.copyrighttemp {
+  background-color: #fff;
+  color: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-left: 100px;
+  padding-right: 100px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
 @media only screen and (max-width: 600px) {
   .footer {
     display: flex;
