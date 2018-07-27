@@ -48,12 +48,12 @@ class StepMiddleSection extends PureComponent {
       <Consumer>
         {({ state, actions }) => (
           <div className="stepmiddlesection">
-            <div className="stepmiddlesectiontext">Bike Shipping is easy with us in 3 Simple Steps</div>
+            <div className="stepmiddlesectiontext">Bike Shipping Is Easy With Us In 3 Simple Steps</div>
             <br/>
             <div className="stepmiddlesectiongrid">
               <Gridelement number="01" icon={icon1} description="Enter Bike Shipping Details" />
-              <Gridelement number="02" icon={icon2} description="Handover the keys to Gooddrop executives" />
-              <Gridelement number="03" icon={icon3} description="Get your bike at your destination" />
+              <Gridelement number="02" icon={icon2} description="Handover The Keys To Gooddrop Executives" />
+              <Gridelement number="03" icon={icon3} description="Get Your Bike At Your Destination" />
             </div>
             <br/>
             <br/>
