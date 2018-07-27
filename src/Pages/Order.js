@@ -10,6 +10,7 @@ class Order extends PureComponent {
     return (
       <Consumer>
         {({ state, actions }) => (
+          (state.orderid === null || state.orderid === "" )? <div>Make An Order Bro !</div> :
           <div>
             <Navbar Consumer={this.props.Consumer}/>
             <div className="orderpage" style={{ paddingTop: "20px", paddingBottom: "50px", display: "flex", justifyContent: "center"}}>

@@ -90,7 +90,7 @@ class BookingForm extends PureComponent {
                       state.townCity.concat( ", " , state.addressState ),
                       state.emailID,
                       state.receiverName, state.receiveraddressLine.concat( ", " , state.receivertownCity, ", " , state.receiveraddressState ), state.receivercontactNumber, state.orderid,
-                      state.auth
+                      state.auth, state.checkBox 
                     );
 
                   }}>

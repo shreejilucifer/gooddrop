@@ -463,7 +463,8 @@ export default {
     }
   },
 
-  shippingDetailsToApi: function(curr, senderName, pickupDate, pickupSlot, addressLine, cityState, senderEmail, receiverName, receiverAdd, receiverNum, orderid, auth) {
+  shippingDetailsToApi: function(curr, senderName, pickupDate, pickupSlot, addressLine, cityState, senderEmail, receiverName, receiverAdd, receiverNum, orderid, auth, checked) {
+if( checked === true ) {
     this.setState({error: "Posting your Order..."});
 
     var form = new FormData();
@@ -504,6 +505,9 @@ export default {
     }).catch((err) => {
       console.log(err);
     })
+  } else {
+    this.setState({error: "Please Accept The Terms & Conditions !"});
+  }
 
   },
 
