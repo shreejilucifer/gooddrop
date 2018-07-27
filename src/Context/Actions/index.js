@@ -495,11 +495,11 @@ export default {
     }
 
     axios(settings).then((res) => {
-      this.setState({sentDataToServer: true, error: ""});
+
       console.log("Your Data Sent To Server !");
 
       const current = curr + 1;
-      this.setState({current: current, error: ""});
+      this.setState({sentDataToServer: true,current: current, error: ""});
 
     }).catch((err) => {
       console.log(err);
