@@ -30,7 +30,7 @@ class Footer extends PureComponent {
                       <h4 className="listtitle"><b>Information</b></h4>
                       <Link to="/howitworks"><li className="listitems">How It Works</li></Link>
                       <Link to="/docsrequired"><li className="listitems">Documents Required</li></Link>
-                      <a href="https://www.flickr.com/people/159750061@N07/" rel="noopener noreferrer" target="_blank"><li className="listitems">Gallery</li></a>
+                      <a href="https://www.flickr.com/photos/159750061@N07/" rel="noopener noreferrer" target="_blank"><li className="listitems">Gallery</li></a>
                       <Link to="/faq"><li className="listitems">FAQs</li></Link>
                     </ul>
                   </div>

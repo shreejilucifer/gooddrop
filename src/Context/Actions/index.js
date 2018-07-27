@@ -3,6 +3,37 @@ import axios from 'axios';
 // Actions
 
 export default {
+
+  helloWorld: function() {
+
+    var form = new FormData();
+    form.append("email", "akshata.akkanna-@gmail.com");
+    form.append("password", "Akshata003");
+
+    var settings = {
+      "async": true,
+      "crossDomain": true,
+      "url": "http://18.206.137.13/api/login",
+      "method": "POST",
+      "headers": {},
+      "processData": false,
+      "contentType": false,
+      "mimeType": "multipart/form-data",
+      "data": form
+    }
+
+    axios(settings)
+    .then((res)=>{
+      var x = "Bearer ";
+      var resx = x.concat(res.data.success.token);
+
+      this.setState({auth: resx, loadingScreen: false });
+    })
+    .catch((err)=>{
+      console.log(err);
+    })
+  },
+
   // Price Estimate
   priceEstimateButtons: function(value1, value2, value3, value4, value5) {
 
@@ -166,14 +197,11 @@ export default {
       this.setState({errorPrint: "Bike CC should be more than 70"});
     else if ((value1 > 70 && value1 <= 150) && value2 < 10000)
       this.setState({errorPrint: "Bike Value should be more than 10000"});
-
-else if ((value1 > 150 && value1 <= 350) && value2 < 50000)
+    else if ((value1 > 150 && value1 <= 350) && value2 < 50000)
       this.setState({errorPrint: "Bike Value should be more than 50000"});
-
-else if ((value1 > 350 && value1 <= 500) && value2 < 75000)
+    else if ((value1 > 350 && value1 <= 500) && value2 < 75000)
       this.setState({errorPrint: "Bike Value should be more than 75000"});
-
-else if ((value1 > 500 && value1 <= 750) && value2 < 100000)
+    else if ((value1 > 500 && value1 <= 750) && value2 < 100000)
       this.setState({errorPrint: "Bike Value should be more than 100000"});
     else if (value2 > 999999)
       this.setState({errorPrint: "Bike Value Not Allowed"});
@@ -435,7 +463,8 @@ else if ((value1 > 500 && value1 <= 750) && value2 < 100000)
     }
   },
 
-  shippingDetailsToApi: function(senderName, pickupDate, pickupSlot, addressLine, cityState, senderEmail, receiverName, receiverAdd, receiverNum, orderid, auth) {
+  shippingDetailsToApi: function(curr, senderName, pickupDate, pickupSlot, addressLine, cityState, senderEmail, receiverName, receiverAdd, receiverNum, orderid, auth) {
+    this.setState({error: "Posting your Order..."});
 
     var form = new FormData();
     form.append("sender_name", senderName.toString());
@@ -466,7 +495,12 @@ else if ((value1 > 500 && value1 <= 750) && value2 < 100000)
     }
 
     axios(settings).then((res) => {
+      this.setState({sentDataToServer: true, error: ""});
       console.log("Your Data Sent To Server !");
+
+      const current = curr + 1;
+      this.setState({current: current, error: ""});
+
     }).catch((err) => {
       console.log(err);
     })
@@ -488,7 +522,7 @@ else if ((value1 > 500 && value1 <= 750) && value2 < 100000)
     this.setState({destinationPlace: destination, loadingDest: false});
   },
 
-  bringDetails: function() {
+  bringDetails: function(auth) {
 
     this.setState({loading: true});
 
@@ -499,7 +533,7 @@ else if ((value1 > 500 && value1 <= 750) && value2 < 100000)
       "method": "POST",
       "headers": {
         "Accept": "application/json",
-        "Authorization": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6ImNlZTYxODQyYmUwNmM5MWRhMjY0ZjZmMDY3NzE1YTY0ZTk5NDRlMmIyY2M2OWJjNjQ3MGY2NDA4ZTFkMjI3OGIzNDNmODNlMzRjOTVjNjQwIn0.eyJhdWQiOiIxIiwianRpIjoiY2VlNjE4NDJiZTA2YzkxZGEyNjRmNmYwNjc3MTVhNjRlOTk0NGUyYjJjYzY5YmM2NDcwZjY0MDhlMWQyMjc4YjM0M2Y4M2UzNGM5NWM2NDAiLCJpYXQiOjE1MzE2Nzk1NDUsIm5iZiI6MTUzMTY3OTU0NSwiZXhwIjoxNTYzMjE1NTQ1LCJzdWIiOiI1Iiwic2NvcGVzIjpbXX0.pK9IzZedIv7x8m2eb8drmcf0oH5QBQgpsAFU1GTM-wQlWOnwdY_lRxuqiaUBHSxHBZLSz6VCi77JQWB8_ewnU-vIBXdwFEfIW72z3P0wctXjiRcNZZShJA_yYvCyUvZbqMayunGj84cViFLZ12cjjecffofQsl_92RRdmDiaics_yH3GHr_lF9LjGhOArui7mT2ukU6qpmAlYtVk2H6VYDzAJ26mhAFlpuhCdCNxTxBhZjQrIAoajFgkfQTHXexHP81FvN2HluzJI52p9Q-jyipqguq5yO9xg6LDq4zrJVlPwmebTkz8q9YZYF9e6UW-BYiU547yrKLJWsY2yP5L7xB54u3ibJDnXSXtYCYN0ikWT5bJYCcf5ESInj_Qe0SY-GVbmPEGVteqXUAC-NrwISKkeRsT6oFMrqXXHhA0V86cbmqmJINuuczcTnjfhylgU9x8_M3fX3glpQnXu3ytlVKttjoHbjpFZ4vY5CZXMhafLHv6u682GVjxUvjkk-B_VyDizFeIhhOKlyG5GU0bVatpzxkdyUPhIn_yvAo8qzGK5ZHxFy_Sg9AfUfJTzqDT0BNz5AocdwMcxC3X-gUL2vAs4bsp6JaaJFTS15-GGWVE9m9ai6FYtyHyZck3N2Rt2NaR3ALDyXfVreamAMCJ3L-GT3Op_jecc1lLXNSTsYU"
+        "Authorization": auth.toString()
       }
     }
 
@@ -530,7 +564,7 @@ else if ((value1 > 500 && value1 <= 750) && value2 < 100000)
     this.setState({cancelOrderId: e});
   },
 
-  submitCancelOrder: function(cancelOrderID,auth) {
+  submitCancelOrder: function(cancelOrderID, auth) {
     if (cancelOrderID === "" || cancelOrderID === null) {
       this.setState({cancelOrderMsg: "Please Enter the Order ID"})
     } else {
@@ -546,7 +580,7 @@ else if ((value1 > 500 && value1 <= 750) && value2 < 100000)
         "method": "POST",
         "headers": {
           "Accept": "application/json",
-          "Authorization": auth.toString(),
+          "Authorization": auth.toString()
         },
         "processData": false,
         "contentType": false,
@@ -554,17 +588,15 @@ else if ((value1 > 500 && value1 <= 750) && value2 < 100000)
         "data": form
       }
 
-      axios(settings).then((res)=>{
+      axios(settings).then((res) => {
         this.setState({cancelOrderMsg: res.data.message});
         setTimeout(() => {
           this.setState({cancelOrderModal: false})
         }, 5000);
-      })
-      .catch((err)=>{
+      }).catch((err) => {
         console.log(err);
         this.setState({cancelOrderMsg: "Error Try Again Later !"})
       })
-
 
     }
   },
@@ -573,7 +605,7 @@ else if ((value1 > 500 && value1 <= 750) && value2 < 100000)
     this.setState({
       // For context API store data...
       user: "Hello From API Store",
-      auth: "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6ImNlZTYxODQyYmUwNmM5MWRhMjY0ZjZmMDY3NzE1YTY0ZTk5NDRlMmIyY2M2OWJjNjQ3MGY2NDA4ZTFkMjI3OGIzNDNmODNlMzRjOTVjNjQwIn0.eyJhdWQiOiIxIiwianRpIjoiY2VlNjE4NDJiZTA2YzkxZGEyNjRmNmYwNjc3MTVhNjRlOTk0NGUyYjJjYzY5YmM2NDcwZjY0MDhlMWQyMjc4YjM0M2Y4M2UzNGM5NWM2NDAiLCJpYXQiOjE1MzE2Nzk1NDUsIm5iZiI6MTUzMTY3OTU0NSwiZXhwIjoxNTYzMjE1NTQ1LCJzdWIiOiI1Iiwic2NvcGVzIjpbXX0.pK9IzZedIv7x8m2eb8drmcf0oH5QBQgpsAFU1GTM-wQlWOnwdY_lRxuqiaUBHSxHBZLSz6VCi77JQWB8_ewnU-vIBXdwFEfIW72z3P0wctXjiRcNZZShJA_yYvCyUvZbqMayunGj84cViFLZ12cjjecffofQsl_92RRdmDiaics_yH3GHr_lF9LjGhOArui7mT2ukU6qpmAlYtVk2H6VYDzAJ26mhAFlpuhCdCNxTxBhZjQrIAoajFgkfQTHXexHP81FvN2HluzJI52p9Q-jyipqguq5yO9xg6LDq4zrJVlPwmebTkz8q9YZYF9e6UW-BYiU547yrKLJWsY2yP5L7xB54u3ibJDnXSXtYCYN0ikWT5bJYCcf5ESInj_Qe0SY-GVbmPEGVteqXUAC-NrwISKkeRsT6oFMrqXXHhA0V86cbmqmJINuuczcTnjfhylgU9x8_M3fX3glpQnXu3ytlVKttjoHbjpFZ4vY5CZXMhafLHv6u682GVjxUvjkk-B_VyDizFeIhhOKlyG5GU0bVatpzxkdyUPhIn_yvAo8qzGK5ZHxFy_Sg9AfUfJTzqDT0BNz5AocdwMcxC3X-gUL2vAs4bsp6JaaJFTS15-GGWVE9m9ai6FYtyHyZck3N2Rt2NaR3ALDyXfVreamAMCJ3L-GT3Op_jecc1lLXNSTsYU",
+      auth: "",
 
       // Price Estimate
       showResults: false,
@@ -656,8 +688,54 @@ else if ((value1 > 500 && value1 <= 750) && value2 < 100000)
       //cancel order
       cancelOrderModal: false,
       cancelOrderId: "",
-      cancelOrderMsg: ""
+      cancelOrderMsg: "",
+
+      sentDataToServer: false
     });
 
+  },
+
+  next: function(curr, value1, value2, value3, value4, value5, value6, value7, value8, value9) {
+
+    var sender = /^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z ]*)*$/;
+    var mob = /^[6-9]\d{9}$/;
+    var re = /^(?:[a-z0-9!#$%&amp;'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&amp;'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])$/;
+
+    if (value1 === "")
+      this.setState({error: "Please Enter The Name !"});
+    else if (value2 === "")
+      this.setState({error: "Please Enter The Contact Number !"});
+    else if (value3 === "")
+      this.setState({error: "Please Enter The Email ID !"});
+    else if (value4 === "")
+      this.setState({error: "Please Choose The Pickup Date !"});
+    else if (value5 === "")
+      this.setState({error: "Please Choose The Pickup Slot !"});
+    else if (value6 === "")
+      this.setState({error: "Please Enter The Complete Address !"});
+    else if (value7 === "")
+      this.setState({error: "Please Enter The Town / City !"});
+    else if (value8 === "")
+      this.setState({error: "Please Enter The State !"});
+    else if (value9 === false)
+      this.setState({error: "Please Accept The Terms & Conditions !"});
+
+else if (mob.test(value2) === false)
+      this.setState({error: "The Contact Number Is Invalid !"});
+
+else if (re.test(value3) === false)
+      this.setState({error: "The Email Is Not Valid !"});
+
+else if (sender.test(value1) === false)
+      this.setState({error: "The Name is Invalid !"});
+    else {
+      const current = curr + 1;
+      this.setState({current: current, error: ""});
+    }
+  },
+
+  prev: function(curr) {
+    const current = curr - 1;
+    this.setState({current: current});
   }
 }

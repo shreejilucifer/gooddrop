@@ -34,13 +34,13 @@ class App extends PureComponent {
         actions[f] = actions[f].bind(this);
       }
     }
+
     return (
       <Provider value={{state: this.state, actions}}>
           <Router>
             <HashRouter>
             <ScrollToTop>
               <div>
-
                 <Route exact path="/" render={() => <HomePage Consumer={Consumer}/>}/>
                 <Route path="/aboutus" render={() => <AboutUs Consumer={Consumer} />}/>
                 <Route path="/privacypolicy" render={()=><PrivacyPolicy Consumer={Consumer}/>}/>

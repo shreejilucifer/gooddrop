@@ -19,7 +19,7 @@ class PriceEstimate extends PureComponent {
                 <div>
                   <button className="selectbox1" onClick={()=>{
                     actions.priceEstimateButtons(!state.showResults, false)
-                    actions.bringDetails();
+                    actions.bringDetails(state.auth);
                   }
                   }>
                     Your Parcel Details <span className="caret"></span>

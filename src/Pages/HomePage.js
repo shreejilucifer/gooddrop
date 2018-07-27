@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react';
 import './Components/CSS/HomePageCSS/loader.css';
 
+import Auth from './Components/HomePageComps/Auth';
 import Navbar from './Components/HomePageComps/Navbar';
 import HomeHeader from './Components/HomePageComps/HomeHeader';
 import StepMiddleSection from './Components/HomePageComps/StepMiddleSection';
@@ -30,11 +31,12 @@ class HomePage extends PureComponent {
     if(loading) {
       return <Loader />;
     }
-
+    
     return (
       <Consumer>
         {({ state, actions }) => (
           <div className="homepage">
+            <Auth fun={actions.helloWorld} />
             <Navbar Consumer={Consumer}/>
             <HomeHeader Consumer={Consumer}/>
             <StepMiddleSection Consumer={Consumer}/>

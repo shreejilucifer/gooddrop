@@ -106,11 +106,13 @@
 }
 
 .rightalign {
-  text-align: right;
+  text-align: left;
+  padding-left: 10px;
 }
 
 @media only screen and (max-width: 600px) {
   .rightalign {
+    padding-left: 0px;
     text-align: left;
   }
   .steps-content {
