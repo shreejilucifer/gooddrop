@@ -37,9 +37,18 @@ class SecondContent extends PureComponent {
               type="text"
               width="100%"
               name="addressline"
-              value={state.receiveraddressLine}
-              onChange={(e)=>{actions.destinationDetailsChange(e.target.value, 'receiveraddressline')}}
-            /> <br/>
+              value={state.receiveraddressLine1}
+              onChange={(e)=>{actions.destinationDetailsChange(e.target.value, 'receiveraddressline1')}}
+            />
+            <input
+              style={{marginTop: "5px"}}
+              className="pickupdetailsforminput"
+              type="text"
+              width="100%"
+              name="addressline"
+              value={state.receiveraddressLine2}
+              onChange={(e)=>{actions.destinationDetailsChange(e.target.value, 'receiveraddressline2')}}
+            /><br/>
             <label className="pickupdetailsformlabel">Town/City</label>
             <input
               type="text"

@@ -86,8 +86,6 @@ class FirstContent extends PureComponent {
                   <Option value="7PM to 11PM">7 PM - 11 PM</Option>
                 </Select>
               </div>
-
-
             </div><br/>
             <label className="pickupdetailsformlabel">Sender-Pickup Address</label>
             <input
@@ -95,8 +93,17 @@ class FirstContent extends PureComponent {
               type="text"
               width="100%"
               name="addressline"
-              value={state.addressLine}
-              onChange={(e)=>{actions.pickupDetailsChange(e.target.value, 'addressline')}}
+              value={state.addressLine1}
+              onChange={(e)=>{actions.pickupDetailsChange(e.target.value, 'addressline1')}}
+            />
+            <input
+              style={{marginTop: "5px"}}
+              className="pickupdetailsforminput"
+              type="text"
+              width="100%"
+              name="addressline"
+              value={state.addressLine2}
+              onChange={(e)=>{actions.pickupDetailsChange(e.target.value, 'addressline2')}}
             />
             <br/>
             <label className="pickupdetailsformlabel">Town/City</label>

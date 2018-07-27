@@ -59,7 +59,7 @@ class BookingForm extends PureComponent {
                   actions.next(
                     state.current,
                     state.senderName, state.contactNumber, state.emailID,
-                    state.pickupDate, state.pickupSlot, state.addressLine, "Bangalore", "Karnataka"
+                    state.pickupDate, state.pickupSlot, state.addressLine1, state.addressLine2, "Bangalore", "Karnataka"
                   );
                 }}>
                 Next
@@ -86,11 +86,22 @@ class BookingForm extends PureComponent {
 
                     actions.shippingDetailsToApi(
                       state.current,
-                      state.senderName, state.pickupDate, state.pickupSlot, state.addressLine,
+                      state.senderName,
+                      state.pickupDate,
+                      state.pickupSlot,
+                      state.addressLine1,
+                      state.addressLine2,
                       state.townCity.concat( ", " , state.addressState ),
                       state.emailID,
-                      state.receiverName, state.receiveraddressLine.concat( ", " , state.receivertownCity, ", " , state.receiveraddressState ), state.receivercontactNumber, state.orderid,
-                      state.auth, state.checkBox 
+
+                      state.receiverName,
+                      state.receiveraddressLine1,
+                      state.receiveraddressLine2,
+                      state.receivertownCity.concat(", ", state.receiveraddressState ),
+                      state.receivercontactNumber,
+                      
+                      state.orderid,
+                      state.auth, state.checkBox
                     );
 
                   }}>
@@ -110,7 +121,7 @@ class BookingForm extends PureComponent {
                     actions.next(
                       state.current,
                       state.receiverName, state.receivercontactNumber, state.receiveremailID,
-                      state.receiverpickupDate, state.receiverpickupSlot, state.receiveraddressLine, state.receivertownCity, state.receiveraddressState
+                      state.receiverpickupDate, state.receiverpickupSlot, state.receiveraddressLine1, state.receiveraddressLine2, state.receivertownCity, state.receiveraddressState
                     );
                   }}>
                   Next

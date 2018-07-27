@@ -283,9 +283,12 @@ export default {
       case 'pickupslot':
         this.setState({pickupSlot: value});
         break;
-      case 'addressline':
-        this.setState({addressLine: value});
+      case 'addressline1':
+        this.setState({addressLine1: value});
         break;
+      case 'addressline2':
+          this.setState({addressLine2: value});
+          break;
       case 'towncity':
         this.setState({townCity: value});
         break;
@@ -325,8 +328,11 @@ export default {
       case 'receiverpickupslot':
         this.setState({receiverpickupSlot: value});
         break;
-      case 'receiveraddressline':
-        this.setState({receiveraddressLine: value});
+      case 'receiveraddressline1':
+        this.setState({receiveraddressLine1: value});
+        break;
+      case 'receiveraddressline2':
+        this.setState({receiveraddressLine2: value});
         break;
       case 'receivertowncity':
         this.setState({receivertownCity: value});
@@ -463,7 +469,9 @@ export default {
     }
   },
 
-  shippingDetailsToApi: function(curr, senderName, pickupDate, pickupSlot, addressLine, cityState, senderEmail, receiverName, receiverAdd, receiverNum, orderid, auth, checked) {
+  shippingDetailsToApi: function(curr,
+    senderName, pickupDate, pickupSlot, addressLine1, addressLine2, cityState, senderEmail,
+    receiverName, receiverAdd1, receiverAdd2, receiverTownCity, receiverNum, orderid, auth, checked) {
 if( checked === true ) {
     this.setState({error: "Posting your Order..."});
 
@@ -471,12 +479,17 @@ if( checked === true ) {
     form.append("sender_name", senderName.toString());
     form.append("pick_up_date", pickupDate.toString());
     form.append("pickup_slot", pickupSlot.toString());
-    form.append("pick_up_add1", addressLine.toString());
-    form.append("pick_up_add2", cityState.toString());
+    form.append("pick_up_add1", addressLine1.toString());
+    form.append("pick_up_add2", addressLine2.toString());
+    form.append("sender_city_state", cityState.toString());
     form.append("sender_email", senderEmail.toString());
+
     form.append("receiver_name", receiverName.toString());
-    form.append("receiver_add", receiverAdd.toString());
+    form.append("receiver_add", receiverAdd1.toString());
+    form.append("receiver_add2", receiverAdd2.toString());
+    form.append("receiver_city_state", receiverTownCity.toString());
     form.append("receiver_num", receiverNum.toString());
+
     form.append("order_id", orderid.toString());
     form.append("mode_of_payment", "Cash on Pickup".toString());
 
@@ -504,6 +517,7 @@ if( checked === true ) {
 
     }).catch((err) => {
       console.log(err);
+      this.setState({error: "Error Try Again Later !"});
     })
   } else {
     this.setState({error: "Please Accept The Terms & Conditions !"});
@@ -610,6 +624,7 @@ if( checked === true ) {
       // For context API store data...
       user: "Hello From API Store",
       auth: "",
+      loadingScreen: true,
 
       // Price Estimate
       showResults: false,
@@ -641,7 +656,8 @@ if( checked === true ) {
       pickupDate: "",
       pickupDateActual: null,
       pickupSlot: "",
-      addressLine: "",
+      addressLine1: "",
+      addressLine2: "",
       townCity: "Bangalore",
       addressState: "Karnataka",
       dateError: "",
@@ -652,7 +668,8 @@ if( checked === true ) {
       receiveremailID: "email@email.com",
       receiverpickupDate: "xxx",
       receiverpickupSlot: "xxx",
-      receiveraddressLine: "",
+      receiveraddressLine1: "",
+      receiveraddressLine2: "",
       receivertownCity: "",
       receiveraddressState: "",
 
@@ -668,6 +685,8 @@ if( checked === true ) {
       ratingData: null,
       reviewModal: false,
       errorReview: "",
+
+      // order
 
       // station Request
       StationRequestModal: false,
@@ -689,17 +708,22 @@ if( checked === true ) {
       loading: true,
       loadingDest: true,
 
-      //cancel order
+      //cancel orders
       cancelOrderModal: false,
       cancelOrderId: "",
       cancelOrderMsg: "",
 
-      sentDataToServer: false
+      sentDataToServer: false,
+
+      // Booking Form
+
+      current: 0,
+      error: ""
     });
 
   },
 
-  next: function(curr, value1, value2, value3, value4, value5, value6, value7, value8, value9) {
+  next: function(curr, value1, value2, value3, value4, value5, value6, value10, value7, value8, value9) {
 
     var sender = /^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z ]*)*$/;
     var mob = /^[6-9]\d{9}$/;
@@ -716,7 +740,13 @@ if( checked === true ) {
     else if (value5 === "")
       this.setState({error: "Please Choose The Pickup Slot !"});
     else if (value6 === "")
-      this.setState({error: "Please Enter The Complete Address !"});
+      this.setState({error: "Please Enter The Complete Address 1 !"});
+    else if (value6.length >= 100)
+      this.setState({error: "Maximum 100 Characters Allowed In Address Line 1"});
+    else if (value10 === "")
+      this.setState({error: "Please Enter The Complete Address 2 !"});
+    else if (value10.length >= 45)
+      this.setState({error: "Maximum 45 Characters Allowed In Address Line 2"});
     else if (value7 === "")
       this.setState({error: "Please Enter The Town / City !"});
     else if (value8 === "")
@@ -740,6 +770,6 @@ else if (sender.test(value1) === false)
 
   prev: function(curr) {
     const current = curr - 1;
-    this.setState({current: current});
+    this.setState({current: current, error: ""});
   }
 }

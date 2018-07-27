@@ -110,7 +110,13 @@
   padding-left: 10px;
 }
 
+.pickupdetailstable {
+  width: 50%;
+}
 @media only screen and (max-width: 600px) {
+  .pickupdetailstable {
+    width: 100%;
+  }
   .rightalign {
     padding-left: 0px;
     text-align: left;

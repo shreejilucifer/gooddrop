@@ -41,30 +41,30 @@ class ThirdContent extends PureComponent {
             <h3>
               PICKUP DETAILS
             </h3>
-            <table width="100%">
+            <table className="pickupdetailstable">
               <tbody>
                 <tr>
                   <td className="pickupdetailscells">Bike Details</td>
                   <td className="pickupdetailscells">
-                    <b> {state.bikeCC} CC</b>
+                    <b className="rightmore"> {state.bikeCC} CC</b>
                   </td>
                 </tr>
                 <tr>
                   <td className="pickupdetailscells">Shipping Date</td>
                   <td className="pickupdetailscells">
-                    <b>{this.parcelDateFunction(state.parcelDate)}</b>
+                    <b className="rightmore">{this.parcelDateFunction(state.parcelDate)}</b>
                   </td>
                 </tr>
                 <tr>
                   <td className="pickupdetailscells">Pickup Date</td>
                   <td className="pickupdetailscells">
-                    <b>{this.pickupDateFunction(state.pickupDate)}</b>
+                    <b className="rightmore">{this.pickupDateFunction(state.pickupDate)}</b>
                   </td>
                 </tr>
                 <tr>
                   <td className="pickupdetailscells">Pickup Slot</td>
                   <td className="pickupdetailscells">
-                    <b>{state.pickupSlot}</b>
+                    <b className="rightmore">{state.pickupSlot}</b>
                   </td>
                 </tr>
               </tbody>
@@ -72,7 +72,6 @@ class ThirdContent extends PureComponent {
             <br/>
             <div className="pickupdetailstwocol">
               <table>
-
                 <tbody>
                   <tr>
                     <td>
@@ -86,7 +85,10 @@ class ThirdContent extends PureComponent {
                     <td className="pickupdetailscells">{state.senderName}</td>
                   </tr>
                   <tr>
-                    <td className="pickupdetailscells">{state.addressLine}</td>
+                    <td className="pickupdetailscells">{state.addressLine1}</td>
+                  </tr>
+                  <tr>
+                    <td className="pickupdetailscells">{state.addressLine2}</td>
                   </tr>
                   <tr>
                     <td className="pickupdetailscells">{this.renderCapital(state.townCity)}</td>
@@ -116,7 +118,10 @@ class ThirdContent extends PureComponent {
                     <td className="pickupdetailscells rightalign">{state.receiverName}</td>
                   </tr>
                   <tr>
-                    <td className="pickupdetailscells rightalign">{state.receiveraddressLine}</td>
+                    <td className="pickupdetailscells rightalign">{state.receiveraddressLine1}</td>
+                  </tr>
+                  <tr>
+                    <td className="pickupdetailscells rightalign">{state.receiveraddressLine2}</td>
                   </tr>
                   <tr>
                     <td className="pickupdetailscells rightalign">{this.renderCapital(state.receivertownCity)}</td>
