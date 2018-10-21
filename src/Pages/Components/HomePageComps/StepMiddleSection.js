@@ -79,7 +79,7 @@ class StepMiddleSection extends PureComponent {
               <button
                 onClick={()=>actions.openStationRequestModal(true)}
                 className="contactbtn">
-                ADD STATION
+                ADD STATION REQUEST
               </button>
               <Modal
                 open={state.StationRequestModal}

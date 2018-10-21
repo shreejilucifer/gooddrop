@@ -75,7 +75,7 @@ class BikeDetails extends PureComponent {
                   {
                     (state.verified === false && state.otpModal === true )?
                     <div className="otpmodal">
-                      <div>An OTP is sent to your Mobile No. : <br/><b>+91{state.tempContact}</b></div> <br/>
+                      <div>An OTP has sent to your Mobile No. : <br/><b>+91{state.tempContact}</b></div> <br/>
                       <div>Enter the OTP below: </div> <br/>
                       <div><Input onChange={actions.onChangeOTP} name="otpnumber" placeholder="XXXX" /></div> <br/>
                       <div className="errorMsg" style={{color: "#000"}}>{state.errorPrint}</div>

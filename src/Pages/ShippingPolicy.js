@@ -12,7 +12,7 @@ class Terms extends PureComponent {
         <Navbar Consumer={this.props.Consumer}/>
         <AboutHeader title="SHIPPING POLICY"/>
         <div className="termsandcondition">
-        <b>Shipping Policy</b><br/>
+        
         <ol>
           <li>'GOODDROP.in', 'GOODDROP',’Goodrop’, 'www.GOODDROP.in', 'we', and ‘us’ refer to the GOODDROP Innovative Technologies LLP. 'User', 'customer', 'you' refers to the customer of GOODDROP who is availing the GOODDROP services. </li>
           <li>GOODDROP provides hassle free services to those who intend to send their bikes through Railways Parcel department. GOODDROP provides door step pick up service, complete the documentation facility with Railways on customer's behalf, package the bike to make it parcel ready. </li>

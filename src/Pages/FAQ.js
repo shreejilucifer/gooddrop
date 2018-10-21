@@ -109,7 +109,7 @@ class DocumentsRequired extends PureComponent {
         <li>
           <b>What material does Gooddrop use to pack the bikes?</b>
           <ul>
-            <li>We use gunny material/ plastic sheets/ bubble raps to pack the bikes.</li>
+            <li>We use gunny material/ plastic sheets/ bubble wraps to pack the bikes.</li>
           </ul>
         </li>
         <br/>

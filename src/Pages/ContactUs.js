@@ -12,20 +12,23 @@ class ContactUs extends PureComponent {
         {({ state, actions }) => (
           <div className="aboutus">
             <Navbar Consumer={Consumer}/>
-            <AboutHeader title="CONTACT US"/>
-            <div style={{display: "flex", flex: "1", flexDirection: "column", justifyContent: "center", alignItems: "center"}} className="contactus">
-              <br/> <br/>
-              <b>Goodrop Innovative Technologies LLP</b> <br/>
-              No 32, Chiguru, Anjanaadri Nilaya <br/>
-              Bhoomika Layout, Rajarajeshwari Nagar <br/>
-              Bangalore, Karnataka - 560 098 <br/> <br/>
 
-              support@gooddrop.in | +91 97 4283 4253
+              <AboutHeader title="CONTACT US" />
 
-            </div>
+              <div style={{paddingTop: "100px", paddingBottom: "100px", display: "flex", flex: "1", flexDirection: "column", justifyContent: "center", alignItems: "center"}} className="contactus">
+                <br/> <br/>
+                <b>Goodrop Innovative Technologies LLP</b> <br/>
+                No 32, Chiguru, Anjanaadri Nilaya <br/>
+                Bhoomika Layout, Rajarajeshwari Nagar <br/>
+                Bangalore, Karnataka - 560 098 <br/> <br/>
 
-              <TempFooter Consumer={Consumer}/>
-            
+                support@gooddrop.in | +91 97 4283 4253
+
+              </div>
+
+                <TempFooter Consumer={Consumer}/>
+
+
 
           </div>
         )}

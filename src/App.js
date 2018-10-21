@@ -1,5 +1,5 @@
 import React, { PureComponent, createContext } from 'react';
-import {  HashRouter, BrowserRouter as Router, Route} from "react-router-dom";
+import { BrowserRouter as Router, Route} from "react-router-dom";
 import ScrollToTop from './Pages/Components/HomePageComps/ScrollToTop';
 
 // Pages
@@ -38,7 +38,7 @@ class App extends PureComponent {
     return (
       <Provider value={{state: this.state, actions}}>
           <Router>
-            <HashRouter>
+
             <ScrollToTop>
               <div>
                 <Route exact path="/" render={() => <HomePage Consumer={Consumer}/>}/>
@@ -57,7 +57,7 @@ class App extends PureComponent {
 
               </div>
             </ScrollToTop>
-          </HashRouter>
+
           </Router>
       </Provider>
     );

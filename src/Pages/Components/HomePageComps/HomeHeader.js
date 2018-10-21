@@ -11,7 +11,7 @@ class HomeHeader extends PureComponent {
       <Consumer>
         {({ state, actions }) => (
           <div className="homeheader">
-            <div className="homeheadertitle">Bike Shipping Through Railways Got Convienient and Easy</div>
+            <div className="homeheadertitle">Bike Shipping Through Railways Got Convenient and Easy</div>
             <div>
               <img className="bikesvg" src={bikesvg} alt="Bike" height="250px"/>
             </div>

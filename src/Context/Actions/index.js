@@ -1,4 +1,5 @@
 import axios from 'axios';
+import heyauth from './auth.json';
 
 // Actions
 
@@ -7,8 +8,8 @@ export default {
   helloWorld: function() {
 
     var form = new FormData();
-    form.append("email", "akshata.akkanna-@gmail.com");
-    form.append("password", "Akshata003");
+    form.append("email", heyauth.somesecurem);
+    form.append("password", heyauth.somesecurep);
 
     var settings = {
       "async": true,
