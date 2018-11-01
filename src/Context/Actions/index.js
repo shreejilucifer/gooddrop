@@ -14,7 +14,7 @@ export default {
     var settings = {
       "async": true,
       "crossDomain": true,
-      "url": "http://18.206.137.13/api/login",
+      "url": "https://api.gooddrop.in/api/login",
       "method": "POST",
       "headers": {},
       "processData": false,
@@ -105,7 +105,7 @@ export default {
       var settings1 = {
         "async": true,
         "crossDomain": true,
-        "url": "http://18.206.137.13/api/verify_otp",
+        "url": "https://api.gooddrop.in/api/verify_otp",
         "method": "POST",
         "headers": {
           "Accept": "application/json",
@@ -132,7 +132,7 @@ export default {
           var settings = {
             "async": true,
             "crossDomain": true,
-            "url": "http://18.206.137.13/api/pick_up_details",
+            "url": "https://api.gooddrop.in/api/pick_up_details",
             "method": "POST",
             "headers": {
               "Accept": "application/json",
@@ -218,7 +218,7 @@ export default {
       var settings = {
         "async": true,
         "crossDomain": true,
-        "url": "http://18.206.137.13/api/otp",
+        "url": "https://api.gooddrop.in/api/otp",
         "method": "POST",
         "headers": {
           "Accept": "application/json",
@@ -446,7 +446,7 @@ export default {
       var settings = {
         "async": true,
         "crossDomain": true,
-        "url": "http://18.206.137.13/api/not_listed",
+        "url": "https://api.gooddrop.in/api/not_listed",
         "method": "POST",
         "headers": {
           "Accept": "application/json",
@@ -497,7 +497,7 @@ if( checked === true ) {
     var settings = {
       "async": true,
       "crossDomain": true,
-      "url": "http://18.206.137.13/api/shipping_details",
+      "url": "https://api.gooddrop.in/api/shipping_details",
       "method": "POST",
       "headers": {
         "Accept": "application/json",
@@ -548,7 +548,7 @@ if( checked === true ) {
     var settings = {
       "async": true,
       "crossDomain": true,
-      "url": "http://18.206.137.13/api/station_list",
+      "url": "https://api.gooddrop.in/api/station_list",
       "method": "POST",
       "headers": {
         "Accept": "application/json",
@@ -595,7 +595,7 @@ if( checked === true ) {
       var settings = {
         "async": true,
         "crossDomain": true,
-        "url": "http://18.206.137.13/api/cancel_order",
+        "url": "https://api.gooddrop.in/api/cancel_order",
         "method": "POST",
         "headers": {
           "Accept": "application/json",
